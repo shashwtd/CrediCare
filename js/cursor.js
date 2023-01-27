@@ -93,12 +93,12 @@ document.onmouseleave = disappear_cursor;
 document.onmouseenter = show_cursor;
 
 cursorGrowElements.forEach(el => {
-    el.addEventListener('mouseover', () => {
+    el.addEventListener('mouseenter', () => {
         grown = true;
         gsap.to(cursor, { opacity: 0, duration: 0.2 });
         gsap.to(cursor_dot, { scale: 18, duration: 0.2 });
     });
-    el.addEventListener('mouseout', () => {
+    el.addEventListener('mouseleave', () => {
         grown = false;
         gsap.to(cursor, { opacity: 1, duration: 0});
         gsap.to(cursor_dot, { scale: 1, duration: 0.2 });

@@ -5,7 +5,6 @@
 :root {
     --color-primary: #202225;
     --color-secondary: #cdc8c8;
-    --color-secondary-half: #cdc8c8a7;
     --cursor-color: #d7fcff;
 }
 
@@ -31,7 +30,7 @@ main {
 .nav {
     width: 100vw;
     height: 10em;
-    border-bottom: 1px solid var(--color-secondary-half);
+    border-bottom: 1px solid var(--color-secondary);
     display: flex;
     background-color: var(--color-primary);
     flex-direction: row;
@@ -129,28 +128,49 @@ section#landing {
     word-wrap: break-word;
     padding-right: 25px;
     margin-bottom: 10%;
-    color: var(--color-secondary-half);
+    color: var(--color-secondary);
 }
 
 #explore {
     padding: 0.5em 1em;
-    border: 2px solid var(--color-secondary-half);
+    border: 2px solid var(--color-secondary);
     background-color: transparent;
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Rowdies';
-    color: var(--color-secondary-half);
+    color: var(--color-secondary);
     font-size: 2em;
     font-weight: 100;
     transition: ease-in 0.2s;
     user-select: none;
+    display: flex;
+    flex-direction: row;
 }   
+
+#explore svg {
+    width: 1.5em;
+    height: 1.5em;
+    margin-left: 0.5em;
+    transition: ease-in 0.2s;
+    transition: transform 0.4s ease-out;
+}
+
+#explore svg path {
+    stroke: var(--color-secondary);
+}
 
 #explore:hover {
     background-color: var(--color-secondary);
     color: var(--color-primary);
 }
 
+#explore:hover svg path {
+    stroke: var(--color-primary);
+}
+
+#explore:hover svg {
+    transform: translateX(10px);
+}
 
 
 
