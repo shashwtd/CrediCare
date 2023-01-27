@@ -9,6 +9,7 @@ let cursorY = 0;
 let posX = 0;
 let posY = 0;
 let followSpeed = .12;
+let grown = false;
 
 if ('ontouchstart' in window) {
     cursor_dot.style.display = 'none';
@@ -51,13 +52,24 @@ let endY;
 let clicked = false;
 
 function mousedown(e) {
-    gsap.to(cursor, { scale: 1.8, duration: 0.1 });
+    if (!grown) {
+        gsap.to(cursor, { scale: 1.8, duration: 0.1 });
+    } else {
+        gsap.to(cursor, { opacity: 0, duration: 0.2 });
+        gsap.to(cursor_dot, { scale: 24, duration: 0.1 });
+    }
 
     clicked = true;
     startY = e.clientY || e.touches[0].clientY || e.targetTouches[0].clientY;
 }
 function mouseup(e) {
-    gsap.to(cursor, { scale: 1, duration: 0.2 });
+    if (!grown) {
+        gsap.to(cursor, { scale: 1, duration: 0.1 });
+    } else {
+        gsap.to(cursor, { opacity: 0, duration: 0.2 });
+        gsap.to(cursor_dot, { scale: 18, duration: 0.2 });
+    }
+
 
     endY = e.clientY || endY;
     if (clicked && startY && Math.abs(startY - endY) >= 40) {
@@ -82,11 +94,12 @@ document.onmouseenter = show_cursor;
 
 cursorGrowElements.forEach(el => {
     el.addEventListener('mouseover', () => {
-        // Instant change 
+        grown = true;
         gsap.to(cursor, { opacity: 0, duration: 0.2 });
-        gsap.to(cursor_dot, { scale: 20, duration: 0.2 });
+        gsap.to(cursor_dot, { scale: 18, duration: 0.2 });
     });
     el.addEventListener('mouseout', () => {
+        grown = false;
         gsap.to(cursor, { opacity: 1, duration: 0});
         gsap.to(cursor_dot, { scale: 1, duration: 0.2 });
     });

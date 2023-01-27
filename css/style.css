@@ -49,7 +49,15 @@ main {
     display: flex;
     height: 100%;
     align-items: center;
+    cursor: pointer;
+    transition: ease-out 0.2s;
 }
+
+.landing-text:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
 
 .pages {
     width: 100vw;
@@ -84,7 +92,7 @@ section#landing {
 }
 
 #landing .separator {
-    height: 30%;
+    height: 60%;
     width: 2px;
     margin: 0 3vw;
     display: flex;
@@ -135,6 +143,7 @@ section#landing {
     font-size: 2em;
     font-weight: 100;
     transition: ease-in 0.2s;
+    user-select: none;
 }   
 
 #explore:hover {
