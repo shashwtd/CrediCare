@@ -1,6 +1,6 @@
 :root {
     --color-primary: #2b2b33;
-    --color-secondary: #e4e4d3;
+    --color-secondary: #cdc8c8;
     --cursor-color: #d7fcff;
 }
 
@@ -16,22 +16,44 @@ html {
 main {
     min-width: 100vw;
     min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.pages {
+    width: 90%;
+    height: 100vh;
+}
+
+.nav {
+    width: 10%;
+    height: 100vh;
 }
 
 section {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 section#landing {
-    background:linear-gradient(90deg, var(--color-primary) 15%,rgb(205, 200, 200) 15%);
+    background: var(--color-secondary);
+    padding: 20px;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.landing__img {
+    width: 50%;
+    height: auto;
+    margin-bottom: 20px;
+
 }
 
 .introduction__container {
@@ -39,9 +61,6 @@ section#landing {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 0 10%;
 }
 
 #landing .landing-text {
