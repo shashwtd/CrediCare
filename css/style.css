@@ -59,7 +59,8 @@ section#landing {
     text-align: right;
     font-size: 3em;
     font-weight: 300;
-    opacity: 0.8;
+    cursor: default;
+    /* opacity: 0.8; */
 }
 
 
