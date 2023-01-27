@@ -2,6 +2,7 @@
 const cursor = document.querySelector('.cursor');
 const cursor_dot = document.querySelector('.cursor-dot');
 const cursorGrowElements = document.querySelectorAll('.cursor-grow');
+const cursorHideElements = document.querySelectorAll('.cursor-hide');
 
 let cursorX = 0;
 let cursorY = 0;
@@ -39,7 +40,7 @@ function disappear_cursor() {
 }
 
 function show_cursor() {
-    gsap.to(cursor, { opacity: 1, duration: 0.2 });
+    gsap.to(cursor, { opacity: 1, duration: 0.1 });
     gsap.to(cursor_dot, { opacity: 1, duration: 0.2 });
 }
 
@@ -82,11 +83,23 @@ document.onmouseenter = show_cursor;
 cursorGrowElements.forEach(el => {
     el.addEventListener('mouseover', () => {
         // Instant change 
-        gsap.to(cursor, { opacity: 0, duration: 0 });
+        gsap.to(cursor, { opacity: 0, duration: 0.2 });
         gsap.to(cursor_dot, { scale: 20, duration: 0.2 });
     });
     el.addEventListener('mouseout', () => {
-        gsap.to(cursor, { opacity: 1, duration: 0.2 });
+        gsap.to(cursor, { opacity: 1, duration: 0});
         gsap.to(cursor_dot, { scale: 1, duration: 0.2 });
+    });
+});
+
+cursorHideElements.forEach(el => {
+    el.addEventListener('mouseover', () => {
+        // Instant change 
+        gsap.to(cursor, { opacity: 0, duration: 0 });
+        gsap.to(cursor_dot, { opacity: 0, duration: 0.2 });
+    });
+    el.addEventListener('mouseout', () => {
+        gsap.to(cursor, { opacity: 1, duration: 0 });
+        gsap.to(cursor_dot, { opacity: 1, duration: 0.2 });
     });
 });
