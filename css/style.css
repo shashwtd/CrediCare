@@ -1,0 +1,226 @@
+:root {
+    --color-primary: #2b2b33;
+    --color-secondary: #e4e4d3;
+    --cursor-color: #d7fcff;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--color-primary);
+}
+
+/*================Webpage==================*/
+main {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section#landing {
+    background-color: var(--color-primary);
+    font-size: 5em;
+    font-weight: 1000;
+    font-family: 'Azonix';
+
+    background:linear-gradient(90deg, var(--color-primary) 15%,rgb(205, 200, 200) 15%);
+}
+
+#landing .landing-text {
+    color: var(--color-secondary);
+    text-align: center;
+    word-wrap: break-word;
+    margin: 0 auto;
+    mix-blend-mode: difference;
+    cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*================Custom Cursor============*/
+.cursor {
+    width: 23px;
+    height: 23px;
+    position: fixed;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    border-radius: 50%;
+    border: 1px solid var(--cursor-color);
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transition-timing-function: linear;
+}
+
+.cursor-dot {
+    position: fixed;
+    padding: 2.2px;
+    border-radius: 50%;
+    background: var(--cursor-color);
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transition-timing-function: linear;
+}
+
+/*================Scrollbar================*/
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    border-left: 1px solid #3f3f3fa7;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #6161614b;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #61616187;
+}
+
+::selection {
+    background-color: rgba(183, 172, 172, 0.515);
+}
+
+/*=========Custom Fonts========= */
+@font-face {
+    font-family: 'Azonix';
+    src: url('/res/fonts/Azonix.otf');
+}
+
+/*================Noise Effect=============*/
+.noise {
+    position: fixed;
+    z-index: 9999;
+    top: -300%;
+    left: -150%;
+    height: 600%;
+    width: 600%;
+    -webkit-animation: grain 7s steps(10) infinite;
+    animation: grain 7s steps(10) infinite;
+    background-image: url(/res/noise.png);
+    background-size: 200px;
+    background-repeat: repeat;
+    opacity: .25;
+    pointer-events: none
+}
+
+@-webkit-keyframes grain {
+
+    0%,
+    to {
+        transform: translate(0)
+    }
+
+    10% {
+        transform: translate(-5%, -10%)
+    }
+
+    20% {
+        transform: translate(-15%, 5%)
+    }
+
+    30% {
+        transform: translate(7%, -25%)
+    }
+
+    40% {
+        transform: translate(-5%, 25%)
+    }
+
+    50% {
+        transform: translate(-15%, 10%)
+    }
+
+    60% {
+        transform: translate(15%)
+    }
+
+    70% {
+        transform: translateY(15%)
+    }
+
+    80% {
+        transform: translate(3%, 35%)
+    }
+
+    90% {
+        transform: translate(-10%, 10%)
+    }
+}
+
+@keyframes grain {
+
+    0%,
+    to {
+        transform: translate(0)
+    }
+
+    10% {
+        transform: translate(-5%, -10%)
+    }
+
+    20% {
+        transform: translate(-15%, 5%)
+    }
+
+    30% {
+        transform: translate(7%, -25%)
+    }
+
+    40% {
+        transform: translate(-5%, 25%)
+    }
+
+    50% {
+        transform: translate(-15%, 10%)
+    }
+
+    60% {
+        transform: translate(15%)
+    }
+
+    70% {
+        transform: translateY(15%)
+    }
+
+    80% {
+        transform: translate(3%, 35%)
+    }
+
+    90% {
+        transform: translate(-10%, 10%)
+    }
+}
