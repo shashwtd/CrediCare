@@ -30,30 +30,37 @@ section#landing {
     background:linear-gradient(90deg, var(--color-primary) 15%,rgb(205, 200, 200) 15%);
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 
-#landing .introduction__container {
+.introduction__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     height: 100%;
-    width: max-content;
-    overflow: hidden;
+    padding: 0 10%;
 }
 
-.landing-text {
+#landing .landing-text {
     font-family: 'Azonix';
-    text-align: left;
+    text-align: center;
     word-wrap: break-word;
     margin: 0 auto;
     cursor: default;
-    font-size: 6.5em;
+    font-size: 7em;
     font-weight: 900;
 }
 
+#landing .landing-subtext {
+    font-family: 'Rowdies', cursive;
+    text-align: right;
+    font-size: 3em;
+    font-weight: 300;
+    opacity: 0.8;
+}
 
 
 
