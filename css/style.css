@@ -25,6 +25,7 @@ main {
     display: flex;
     flex-direction: column;
     background-color: var(--color-primary);
+    cursor: none;
 }
 
 .nav {
@@ -60,7 +61,7 @@ main {
 
 .pages {
     width: 100vw;
-    height:calc(100% - 10em); 
+    height: calc(100% - 10em);
     display: flex;
 }
 
@@ -81,7 +82,8 @@ section#landing {
     padding: 20px;
 }
 
-#landing .one, #landing .two {
+#landing .one,
+#landing .two {
     width: 100%;
     height: 100%;
     display: flex;
@@ -121,14 +123,14 @@ section#landing {
     text-align: left;
     word-wrap: normal;
     margin: 0 auto;
-    cursor: default;
     font-size: 1.76em;
-    font-weight:300;
+    font-weight: 300;
     opacity: 0.8;
     word-wrap: break-word;
     padding-right: 25px;
     margin-bottom: 10%;
     color: var(--color-secondary);
+    /* cursor: initial; */
 }
 
 #explore {
@@ -145,7 +147,7 @@ section#landing {
     user-select: none;
     display: flex;
     flex-direction: row;
-}   
+}
 
 #explore svg {
     width: 1.5em;
@@ -185,8 +187,70 @@ section#landing {
 
 
 
+/*================Loading Screen===========*/
+#loader-screen {
+
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: var(--color-primary);
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease-out;
+}
+
+.loader-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.loader {
+    display: block;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: 4px solid var(--cursor-color);
+    border-color: var(--cursor-color) var(--cursor-color) transparent transparent;
+    animation: spin 1s linear infinite;
+    margin-right: 1em;
+}
+
+.loader-text {
+    font-family: 'Rowdies';
+    font-size: 2em;
+    font-weight: 100;
+    color: var(--cursor-color);
+    margin-top: 1em;
+    user-select: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(200deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
 
 /*================Custom Cursor============*/
+
+
 .cursor {
     width: 23px;
     height: 23px;
@@ -214,6 +278,38 @@ section#landing {
     top: 50%;
     left: 50%;
     transition-timing-function: linear;
+}
+
+.cursor-hide {
+    cursor: initial;
+}
+
+.currsor {
+    pointer-events: none;
+    position: fixed;
+    display: block;
+    border-radius: 0;
+    transform-origin: center center;
+    mix-blend-mode: difference;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    filter: url("#goo");
+}
+
+.currsor span {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 20px;
+    background-color: #fff;
+    transform-origin: center center;
+    transform: translate(-50%, -50%);
+}
+
+#uwu-filter {
+    display: none;
 }
 
 /*================Scrollbar================*/

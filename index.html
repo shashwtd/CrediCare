@@ -19,6 +19,17 @@
     <div class="cursor"></div>
     <div class="cursor-dot"></div>
     <div class="noise"></div>
+    <div id="cursor" class="currsor"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" id="uwu-filter">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15"
+                    result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
 
     <!------ Loading Screen ------>
     <div id="loader-screen">
@@ -43,11 +54,11 @@
                 <div class="one">
                     <div class="introduction__container">
                     </div>
-                    <img src="/res/landing.jpg" class="landing__img cursor-hide" data-tilt data-tilt-max="2">
+                    <img src="/res/landing.jpg" class="landing__img" data-tilt data-tilt-max="2">
                 </div>
                 <div class="separator"></div>
                 <div class="two">
-                    <p class="text cursor-hide">
+                    <p class="text">
                         Credible Care is a healthcare startup company. Our mission is to provide top-notch services
                         while building trust with customers. We specialize in providing high-quality medical care to
                         patients through a variety of services.
