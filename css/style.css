@@ -142,7 +142,7 @@ section#landing {
     cursor: pointer;
     font-family: 'Rowdies';
     color: var(--color-secondary);
-    font-size: 2em;
+    font-size: 1.7vw;
     font-weight: 100;
     transition: ease-in 0.2s;
     user-select: none;
