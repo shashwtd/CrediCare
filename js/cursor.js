@@ -16,7 +16,7 @@ let startY;
 let endY;
 let clicked = false;
 
-let dark_cursor = false;
+let dark_cursor = Math.random() < 0.5;
 let pos = { x: 0, y: 0 };
 const cursorGrowElements = document.querySelectorAll('.cursor-grow');
 const cursorHideElements = document.querySelectorAll('.cursor-hide');
