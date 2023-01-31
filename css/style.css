@@ -409,7 +409,7 @@ li::before {
 }
 
 .cursor-grow {
-    cursor: pointer;
+    cursor: none;
 }
 
 .currsor {
