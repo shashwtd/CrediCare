@@ -57,6 +57,7 @@ main {
     display: flex;
     height: 100%;
     align-items: center;
+    cursor: none;
     transition: ease-out 0.2s;
     margin: 10% 0;
 }
