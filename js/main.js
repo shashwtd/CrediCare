@@ -40,7 +40,6 @@ menuBtn.click(function () {
             height: "100vh",
             ease: "power4.out",
             onComplete: function () {
-
                 $(".menu").addClass("menu-open");
             },
         });
@@ -59,19 +58,21 @@ menuBtn.click(function () {
         menuBtnAnim.playSegments([39, 78], true);
         menuToggled = true;
 
-        gsap.to(".menu", {
-            duration: 0.5,
-            height: "0vh",
-            ease: "power4.out"
-        });
-
+        
         gsap.to(".nav .landing-text", {
-            duration: 0.2,
+            duration: 0.5,
             transform: "translate(0px, 0px)",
+            ease: "power4.out",
+            onComplete: function () {
+                $(".menu").removeClass("menu-open");
+                $(".nav .landing-text").removeClass("no-bg");
+            },
+        });
+        gsap.to(".menu", {
+            delay: 0.5,
+            duration: 1,
+            height: "0",
             ease: "power4.out"
         });
-
-        $(".menu").removeClass("menu-open");
-        $(".nav .landing-text").removeClass("no-bg");
     }
 });
