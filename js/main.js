@@ -6,14 +6,19 @@ var isNavAnimating = false;
 lottieElms.each(function () {
     const lottieElm = $(this);
     const lottieName = lottieElm.data('lottieName');
-    const lottiePath = `/res/lottie/${lottieName}_${theme}.json`;
+    var lottiePath = `/res/lottie/${lottieName}_${theme}.json`;
+
+    if (lottieName.endsWith('_')) {
+        lottiePath = `/res/lottie/${lottieName}.json`;
+    }
 
     $.getJSON(lottiePath)
         .done(function (lottieData) {
             const lottieInstance = lottie.loadAnimation({
                 container: lottieElm[0],
                 renderer: 'svg',
-                loop: false,
+                // loop if attribute is set to true
+                loop: lottieElm.data('lottieLoop') || false,
                 autoplay: false,
                 animationData: lottieData,
                 speed: 4
@@ -45,44 +50,75 @@ menuBtn.click(function () {
             onComplete: function () {
                 $(".menu").addClass("menu-open");
                 isNavAnimating = false;
-                gsap.to(".menu-container", { opacity: 1, duration: 0.5});
+                gsap.to(".menu-container", {
+                    opacity: 1, duration: 0.5, onComplete: function () {
+                    }
+                });
+                gsap.to('.menu-separator', {
+                    duration: 0.5,
+                    transform: "scaleX(1)",
+                    ease: "power4.out",
+                });
             },
         });
-        
+
         gsap.to(".nav .landing-text", {
             duration: 0.5,
-            transform: "translate(10px, 70px)",
+            transform: "translate(40px, 40px)",
             ease: "power4.out",
             onStart: function () {
                 $(".nav .landing-text").addClass("no-bg");
             }
         });
-        
-        
+        gsap.to('.nav .options', {
+            duration: 0.5,
+            transform: "translate(-60px, 40px)",
+            ease: "power4.out",
+            onStart: function () {
+                $(".nav .options").addClass("no-bg");
+            }
+        });
+
+
     } else {
-        menuBtnAnim.playSegments([39, 78], true);
         menuToggled = true;
 
-        
-        gsap.to(".nav .landing-text", {
+        gsap.to('.menu-separator', {
             duration: 0.5,
-            transform: "translate(0px, 0px)",
+            transform: "scaleX(0)",
             ease: "power4.out",
             onComplete: function () {
-                $(".menu").removeClass("menu-open");
-                $(".nav .landing-text").removeClass("no-bg");
-            },
-        });
-        gsap.to(".menu-container", { opacity: 0, duration: 0.5 });
-        gsap.to(".menu", {
-            delay: 0.5,
-            duration: 1,
-            opacity: 0,
-            ease: "power4.out",
-            onComplete: function () {
-                $(".menu").css("display", "none");
-                isNavAnimating = false;
-            }, 
+                gsap.to('.nav .options', {
+                    duration: 0.5,
+                    transform: "translate(0, 0)",
+                    ease: "power4.out",
+                    onComplete: function () {
+                        $(".nav .options").removeClass("no-bg");
+                    },
+                });
+
+                gsap.to(".nav .landing-text", {
+                    duration: 0.5,
+                    transform: "translate(0px, 0px)",
+                    ease: "power4.out",
+                    onComplete: function () {
+                        $(".menu").removeClass("menu-open");
+                        $(".nav .landing-text").removeClass("no-bg");
+                    },
+                });
+
+                gsap.to(".menu-container", { opacity: 0, duration: 0.5 });
+                gsap.to(".menu", {
+                    delay: 0.5,
+                    opacity: 0,
+                    ease: "power4.out",
+                    onComplete: function () {
+                        $(".menu").css("display", "none");
+                        isNavAnimating = false;
+                    },
+                });
+                menuBtnAnim.playSegments([39, 78], true);
+            }
         });
     }
 });

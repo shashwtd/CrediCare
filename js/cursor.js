@@ -112,13 +112,12 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
-
 cursorGrowElements.forEach(el => {
     if (!dark_cursor) { return; }
     el.addEventListener('mouseenter', () => {
         grown = true;
         gsap.to(cursor, { opacity: 0, duration: 0.2 });
-        gsap.to(cursor_dot, { scale: 18, duration: 0.2 });
+        gsap.to(cursor_dot, { scale: 12, duration: 0.2 });
     });
     el.addEventListener('mouseleave', () => {
         grown = false;
@@ -221,7 +220,7 @@ function mouseup(e) {
         gsap.to(cursor, { scale: 1, duration: 0.1 });
     } else {
         gsap.to(cursor, { opacity: 0, duration: 0.2 });
-        gsap.to(cursor_dot, { scale: 18, duration: 0.2 });
+        gsap.to(cursor_dot, { scale: 12, duration: 0.2 });
     }
 
     endY = e.clientY || endY;
@@ -238,7 +237,7 @@ function mousedown(e) {
         gsap.to(cursor, { scale: 1.8, duration: 0.1 });
     } else {
         gsap.to(cursor, { opacity: 0, duration: 0.2 });
-        gsap.to(cursor_dot, { scale: 24, duration: 0.1 });
+        gsap.to(cursor_dot, { scale: 17, duration: 0.1 });
     }
 
     clicked = true;
