@@ -50,7 +50,6 @@ main {
 .nav .landing-text {
     font-family: 'Azonix';
     word-wrap: normal;
-    cursor: default;
     font-size: calc(var(--header-height)/2.2);
     font-weight: 900;
     padding: 0 1em;
@@ -64,8 +63,8 @@ main {
 /*========Menu========== */
 
 .menu {
-    width: 100%;
-    height: 0;
+    width: 100vw;
+    height: 100vh;
     position: fixed;
     bottom: 0;
     display: flex;
@@ -92,6 +91,7 @@ main {
     justify-content: space-evenly;
     overflow: hidden;
     box-sizing: border-box;
+    opacity: 0;
 }
 
 .menu-container ol {
