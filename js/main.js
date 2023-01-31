@@ -44,7 +44,8 @@ menuBtn.click(function () {
             ease: "power4.out",
             onComplete: function () {
                 $(".menu").addClass("menu-open");
-                gsap.to(".menu-container", { opacity: 1, duration: 0.5, onComplete: function () {isNavAnimating = false;}});
+                isNavAnimating = false;
+                gsap.to(".menu-container", { opacity: 1, duration: 0.5});
             },
         });
         
@@ -81,7 +82,7 @@ menuBtn.click(function () {
             onComplete: function () {
                 $(".menu").css("display", "none");
                 isNavAnimating = false;
-            },
+            }, 
         });
     }
 });
