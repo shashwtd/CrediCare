@@ -3,10 +3,13 @@
 }
 
 :root {
-    --color-primary: #202225;
-    --color-primary: #2b2b33;
-    --color-secondary: #cdc8c8;
+    --primary: #202225;
+    --primary2: #161719;
+    --secondary: #cdc8c8;
     --cursor-color: #d7fcff;
+
+    --header-height: 8em;
+    --primary-gradient: linear-gradient(180deg, #161719 20%, rgb(44, 47, 52) 100%);
 }
 
 body,
@@ -26,26 +29,29 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--color-primary);
     cursor: none;
+    background-color: var(--primary);
 }
 
 .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
-    height: 10em;
-    border-bottom: 1px solid var(--color-secondary);
+    height: var(--header-height);
     display: flex;
-    background-color: var(--color-primary);
+    background-color: var(--primary);
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    z-index: 22;
 }
 
 .nav .landing-text {
     font-family: 'Azonix';
     word-wrap: normal;
     cursor: default;
-    font-size: 3.5em;
+    font-size: calc(var(--header-height)/2.2);
     font-weight: 900;
     padding: 0 1em;
     display: flex;
@@ -53,20 +59,73 @@ main {
     align-items: center;
     cursor: pointer;
     transition: ease-out 0.2s;
+    margin: 10% 0;
 }
+
+/*========Menu========== */
+
+.menu {
+    width: 100%;
+    height: 0;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: var(--primary);
+    z-index: 20;
+}
+
+.menu.menu-open {
+    padding: 0 1em;
+    padding-top: calc(var(--header-height) + 100px);
+}
+
+
+.nav .options {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 70%;
+    padding: 0 1em;
+    overflow: hidden;
+}
+
+.nav .options span {
+    width: auto;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: var(--secondary);
+    transform: scale(3);
+}
+
+.options span#menu-btn {
+    z-index: 22;
+}
+
 
 .landing-text:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
+    background-color: var(--secondary);
+    color: var(--primary);
 }
 
+.landing-text.no-bg:hover {
+    background-color: transparent;
+    color: var(--secondary);
+}
 
 .pages {
     width: 100vw;
-    height: calc(100% - 10em);
+    height: 100vh;
     flex-direction: column;
     display: flex;
-    overflow-y: scroll;
+    overflow-y: auto;
+    padding-top: var(--header-height);
 }
 
 .page {
@@ -78,12 +137,12 @@ main {
 }
 
 .page#landing {
-    background-color: var(--color-primary);
+    background-color: var(--primary2);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    padding: 20px;
+    padding: 20px 4em;
 }
 
 #landing .one,
@@ -98,22 +157,22 @@ main {
 
 #landing .separator {
     height: 60%;
-    width: 2px;
+    width: 5px;
     margin: 0 3vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background-color: var(--color-secondary);
-    opacity: 0.4;
+    background-color: var(--secondary);
+    opacity: 0.1;
 }
 
 .landing__img {
     width: 100%;
     height: auto;
     margin-top: 3%;
-    border: 2px solid #ffffff33;
     user-select: none;
+    border-radius: 20px;
 }
 
 #landing .two {
@@ -123,29 +182,29 @@ main {
 }
 
 #landing .two .text {
-    font-family: 'Rowdies', cursive;
+    font-family: 'sharlee', sans-serif;
     text-align: left;
     word-wrap: normal;
     margin: 0 auto;
-    font-size: 1.5vw;
-    font-weight: 300;
+    font-size: 1.3vw;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    word-spacing: 0.1em;
     opacity: 0.8;
     word-wrap: break-word;
-    padding-right: 25px;
     margin-bottom: 10%;
-    color: var(--color-secondary);
-    /* cursor: initial; */
+    color: var(--secondary);
 }
 
 #explore {
     padding: 0.5em 1em;
-    border: 2px solid var(--color-secondary);
+    border: 2px solid var(--secondary);
     background-color: transparent;
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Rowdies';
-    color: var(--color-secondary);
-    font-size: 1.7vw;
+    color: var(--secondary);
+    font-size: 1.5vw;
     font-weight: 100;
     transition: ease-in 0.2s;
     user-select: none;
@@ -162,20 +221,24 @@ main {
 }
 
 #explore svg path {
-    stroke: var(--color-secondary);
+    stroke: var(--secondary);
 }
 
 #explore:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
+    background-color: var(--secondary);
+    color: var(--primary);
 }
 
 #explore:hover svg path {
-    stroke: var(--color-primary);
+    stroke: var(--primary);
 }
 
 #explore:hover svg {
     transform: translateX(10px);
+}
+
+#explore:active svg {
+    transform: translateX(20px);
 }
 
 
@@ -184,7 +247,7 @@ main {
 /*=================Remote Classes=========== */
 
 .tpm {
-    color: var(--color-secondary);
+    color: var(--secondary);
 }
 
 
@@ -202,7 +265,7 @@ main {
     top: 0;
     left: 0;
     z-index: 9999;
-    background-color: var(--color-primary);
+    background-color: var(--primary);
     align-items: center;
     justify-content: center;
     transition: 0.5s ease-out;
@@ -252,6 +315,12 @@ main {
 
 
 
+/*===============Background================*/
+.star-bg {
+    display: none;
+}
+
+
 /*================Custom Cursor============*/
 
 
@@ -288,6 +357,10 @@ main {
     cursor: initial;
 }
 
+.cursor-grow {
+    cursor: pointer;
+}
+
 .currsor {
     pointer-events: none;
     position: fixed;
@@ -320,13 +393,16 @@ main {
 /* width */
 ::-webkit-scrollbar {
     width: 15px;
+    cursor: default;
 }
 
 ::-webkit-scrollbar-track {
     border-left: 1px solid #3f3f3fa7;
+    cursor: default;
 }
 
 ::-webkit-scrollbar-thumb {
+    cursor: default;
     background-color: #6161614b;
 }
 
@@ -344,6 +420,12 @@ main {
     font-family: 'Azonix';
     src: url('/res/fonts/Azonix.otf');
 }
+
+@font-face {
+    font-family: 'sharlee';
+    src: url('/res/fonts/studio-feixen-sans-variable.woff2');
+}
+
 
 /*================Noise Effect=============*/
 .noise {

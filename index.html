@@ -19,6 +19,7 @@
     <div class="cursor"></div>
     <div class="cursor-dot"></div>
     <div class="noise"></div>
+    <div class="star-bg"></div>
     <div id="cursor" class="currsor"></div>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" id="uwu-filter">
         <defs>
@@ -45,7 +46,36 @@
         <!-- Navbar -->
         <div class="nav">
             <h1 class="tpm landing-text cursor-grow">Credible Care</h1>
-            <menu>as</menu>
+            <div class="options">
+                <!-- <span id='theme-btn' class="lottie-elm cursor-grow" data-lottie-name="theme"></span> -->
+                <span id='menu-btn' class="lottie-elm cursor-grow" data-lottie-name="hamburger"></span>
+            </div>
+        </div>
+
+        <!-- Menu Screen -->
+        <div class="menu">
+            <div class="menu-container">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="conclusion.html">Conclusion</a></li>
+                </ol>
+
+                <div class="socials">
+                    <a href="https://www.facebook.com/crediblecare" target="_blank">
+                        <span class="lottie-elm" data-lottie-name="facebook"></span>
+                    </a>
+                    <a href="https://www.instagram.com/crediblecare/" target="_blank">
+                        <span class="lottie-elm" data-lottie-name="instagram"></span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/crediblecare" target="_blank">
+                        <span class="lottie-elm" data-lottie-name="linkedin"></span>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <!------ Landing Page ----->
@@ -58,7 +88,7 @@
                 </div>
                 <div class="separator"></div>
                 <div class="two">
-                    <p class="text">
+                    <!-- <p class="text">
                         Credible Care is a healthcare startup company. Our mission is to provide top-notch services
                         while building trust with customers. We specialize in providing high-quality medical care to
                         patients through a variety of services.
@@ -66,7 +96,7 @@
                         The idea of Credible Care was born in 2019 by us who wanted to make a difference in the
                         healthcare industry. We started off by providing home healthcare services to patients. We have
                         now expanded our services to include a variety of medical services.
-                    </p>
+                    </p> -->
                     <button id="explore" class="cursor-grow">Explore our Journey
                         <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24"
                             fill="none">
@@ -79,13 +109,15 @@
                     </button>
                 </div>
             </section>
-            <section id="problems" class="page">
+            <!-- <section id="problems" class="page">
                 andjnasjdnas
-            </section>
+            </section> -->
         </div>
     </main>
 
     <!-- Scripts -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/lottie.js"></script>
     <script src="./js/gsap.js"></script>
     <script src="./js/cursor.js"></script>
     <script src="./js/tilt.js"></script>
