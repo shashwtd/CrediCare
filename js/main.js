@@ -122,3 +122,16 @@ menuBtn.click(function () {
         });
     }
 });
+
+
+$('.pages').on("scroll", function() {
+    var scroll = $(this).scrollTop();
+    if (scroll > 300) {
+        $("#navbar").css("--nav-opacity", 1);
+    }
+    if (scroll > 0 && scroll < 300) {
+        $("#navbar").css("--nav-opacity", (scroll - 50) / 300);
+    } else {
+        gsap.to("#navbar", {duration: 0.5, backgroundColor: "transparent"});
+    }
+});

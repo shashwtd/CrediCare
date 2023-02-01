@@ -20,7 +20,6 @@
     <div class="cursor"></div>
     <div class="cursor-dot"></div>
     <div class="noise"></div>
-    <div class="star-bg"></div>
     <div id="cursor" class="currsor"></div>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" id="uwu-filter">
         <defs>
@@ -45,7 +44,7 @@
     <main id="main">
 
         <!-- Navbar -->
-        <div class="nav">
+        <div class="nav" id="navbar">
             <h1 class="tpm landing-text cursor-grow opacitize">Credible Care</h1>
             <div class="options">
                 <!-- <span id='theme-btn' class="lottie-elm cursor-grow" data-lottie-name="theme"></span> -->
@@ -58,26 +57,62 @@
             <div class="menu-separator"></div>
             <div class="menu-container">
                 <ul class="menu-items">
-                    <li><h2 class="cursor-grow" content="HOME">HOME</h2></li>
-                    <li><h2 class="cursor-grow" content="ABOUT">ABOUT</h2></li>
-                    <li><h2 class="cursor-grow" content="ISSUES">ISSUES</h2></li>
-                    <li><h2 class="cursor-grow" content="SOLUTIONS">SOLUTIONS</h2></li>
-                    <li><h2 class="cursor-grow" content="RESOURCES">RESOURCES</h2></li>
-                    <li><h2 class="cursor-grow" content="CONCLUSION">CONCLUSION</h2></li>
+                    <li>
+                        <h2 class="cursor-grow" content="HOME">HOME</h2>
+                    </li>
+                    <li>
+                        <h2 class="cursor-grow" content="ABOUT">ABOUT</h2>
+                    </li>
+                    <li>
+                        <h2 class="cursor-grow" content="ISSUES">ISSUES</h2>
+                    </li>
+                    <li>
+                        <h2 class="cursor-grow" content="SOLUTIONS">SOLUTIONS</h2>
+                    </li>
+                    <li>
+                        <h2 class="cursor-grow" content="RESOURCES">RESOURCES</h2>
+                    </li>
+                    <li>
+                        <h2 class="cursor-grow" content="CONCLUSION">CONCLUSION</h2>
+                    </li>
                 </ul>
                 <div class="menu-links">
-                    <a href="https://www.instagram.com/shashwatintwo/" target="_blank" class="cursor-hide">
-                    <span class="arrow">↗</span> Instagram</a>
-                    <a href="https://github.com/shashwtt/CrediCare/" target="_blank" class="cursor-hide">
-                    <span class="arrow">↗</span> Github</a>
+                    <a href="https://www.instagram.com/shashwatintwo/" target="_blank"
+                        class="cursor-hide underline-hover">
+                        <span class="arrow">↗</span> Instagram</a>
+                    <a href="https://github.com/shashwtt/CrediCare/" target="_blank"
+                        class="cursor-hide underline-hover">
+                        <span class="arrow">↗</span> Github</a>
                 </div>
             </div>
             <div class="menu-separator"></div>
         </div>
 
-        <!------ Landing Page ----->
+        <div class="fixed-page" id="landing-img"></div>
         <div class="pages">
             <section id="landing" class="page">
+                <div class="container">
+                    <div class="content">
+                        <h1 class="title cursor-hide">Winning Customer Trust</h1>
+                        <p class="subtitle cursor-hide">Building trust with customers is crucial for business growth,
+                            brand reputation and customer satisfaction. Establishing trust leads to long-term
+                            relationships, increased customer loyalty and improved customer satisfaction. In a
+                            competitive market, trust-building should be a top priority for business success.
+                        </p>
+                    </div>
+                    <button id="learnMore" class="btn1 cursor-grow">Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24"
+                            fill="none">
+                            <path d="M14.4301 5.92993L20.5001 11.9999L14.4301 18.0699" stroke="#292D32"
+                                stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M3.5 12H20.33" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+            <section id="about" class="page">
                 <div class="one">
                     <div class="introduction__container">
                     </div>
@@ -94,7 +129,7 @@
                         healthcare industry. We started off by providing home healthcare services to patients. We have
                         now expanded our services to include a variety of medical services.
                     </p> -->
-                    <button id="explore" class="cursor-grow">Explore our Journey
+                    <button id="explore" class="btn1 cursor-grow">Explore our Journey
                         <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24"
                             fill="none">
                             <path d="M14.4301 5.92993L20.5001 11.9999L14.4301 18.0699" stroke="#292D32"
@@ -106,9 +141,6 @@
                     </button>
                 </div>
             </section>
-            <!-- <section id="problems" class="page">
-                andjnasjdnas
-            </section> -->
         </div>
     </main>
 

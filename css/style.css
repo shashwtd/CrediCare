@@ -9,9 +9,9 @@
     --secondary2: #f1f1f1;
     --cursor-color: #d7fcff;
 
+    --scrollbar-thumb: #373737;
     --very-light-gray: #f1f1f174;
     --header-height: 8em;
-    --primary-gradient: linear-gradient(180deg, #161719 20%, rgb(44, 47, 52) 100%);
 }
 
 body,
@@ -29,6 +29,7 @@ html {
 main {
     width: 100%;
     height: 100%;
+    max-width: 1920px;
     display: flex;
     flex-direction: column;
     cursor: none;
@@ -42,11 +43,24 @@ main {
     width: 100vw;
     height: var(--header-height);
     display: flex;
-    background-color: var(--primary);
+    background-color: transparent;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     z-index: 22;
+
+    --nav-opacity: 0;
+}
+
+.nav::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    opacity: var(--nav-opacity);
+    transition: ease-out 0.2s;
+    z-index: -1;
 }
 
 .nav .landing-text {
@@ -149,7 +163,7 @@ main {
     cursor: pointer;
 }
 
-.menu-links a:after {
+.underline-hover:after {
     content: "";
     display: block;
     position: absolute;
@@ -164,7 +178,7 @@ main {
     opacity: 0.5;
 }
 
-.menu-links > a:hover:after {
+.underline-hover:hover:after {
     width: 100%;
 }
 
@@ -209,7 +223,7 @@ main {
     content: "0" counter(counter);
     position: absolute;
     font-size: 0.4em;
-    left: -2em;
+    left: -2.2em;
     bottom: -0.5em;
     color: var(--very-light-gray);
 }
@@ -272,25 +286,137 @@ main {
     z-index: 22;
 }
 
+.fixed-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+#landing-img {
+    background-image: url(/res/landing.jpg);
+    background-size: contain;
+    background-position: right -10% center;
+    background-repeat: no-repeat;
+}
+
+#landing-img::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary2) 28%, transparent 100%);
+}
+
+#landing-img::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
+    z-index: 1;
+    height: 100%;
+    background: radial-gradient(circle, transparent 0%, var(--primary2) 100%);
+}
+
 
 .pages {
     width: 100vw;
     height: 100vh;
-    flex-direction: column;
-    display: flex;
     overflow-y: auto;
-    padding-top: var(--header-height);
+    z-index: 3;
+    background-color: transparent;
+    margin-top: var(--header-height) !important;
 }
 
 .page {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
+/* =======================Landing Page============ */
+
 .page#landing {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4em;
+    
+}
+
+#landing .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 20px 4em;
+    z-index: 2;
+}
+
+#landing .container .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 700px;
+}
+
+#landing .container .content p {
+    text-align: left;
+}
+
+#landing .title {
+    color: var(--secondary);
+    font-size: 3.5em;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 0.1em;
+    font-family: 'Rowdies';
+    opacity: 0.8;
+
+}
+
+#landing .subtitle {
+    color: var(--secondary);
+    font-size: 1.8em;
+    font-weight: lighter;
+    text-align: center;
+    opacity: 0.6;
+}
+
+#landing .cta {
+    background-color: #00b4e6;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#landing .cta:hover {
+    background-color: #008db4;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.page#about {
     background-color: var(--primary2);
     display: flex;
     flex-direction: row;
@@ -299,8 +425,8 @@ main {
     padding: 20px 4em;
 }
 
-#landing .one,
-#landing .two {
+#about .one,
+#about .two {
     width: 100%;
     height: 100%;
     display: flex;
@@ -309,7 +435,7 @@ main {
     justify-content: center;
 }
 
-#landing .separator {
+#about .separator {
     height: 60%;
     width: 5px;
     margin: 0 3vw;
@@ -329,13 +455,13 @@ main {
     border-radius: 20px;
 }
 
-#landing .two {
+#about .two {
     align-items: center;
     justify-content: center;
     padding: 10% 2em 10% 0;
 }
 
-#landing .two .text {
+#about .two .text {
     font-family: 'sharlee', sans-serif;
     text-align: left;
     word-wrap: normal;
@@ -350,22 +476,23 @@ main {
     color: var(--secondary);
 }
 
-#explore {
+.btn1 {
     padding: 0.5em 1em;
-    border: 2px solid var(--secondary);
-    background-color: transparent;
+    border: none;
+    background-color: var(--secondary);
     border-radius: 5px;
     font-family: 'Rowdies';
-    color: var(--secondary);
+    color: var(--primary);
     font-size: 1.5vw;
     font-weight: 100;
     transition: ease-in 0.2s;
     user-select: none;
     display: flex;
     flex-direction: row;
+    opacity: 0.8;
 }
 
-#explore svg {
+.btn1 svg {
     width: 1.5em;
     height: 1.5em;
     margin-left: 0.5em;
@@ -373,24 +500,24 @@ main {
     transition: transform 0.4s ease-out;
 }
 
-#explore svg path {
-    stroke: var(--secondary);
+.btn1 svg path {
+    stroke: var(--primary);
 }
 
-#explore:hover {
+.btn1:hover {
     background-color: var(--secondary);
     color: var(--primary);
 }
 
-#explore:hover svg path {
+.btn1:hover svg path {
     stroke: var(--primary);
 }
 
-#explore:hover svg {
+.btn1:hover svg {
     transform: translateX(10px);
 }
 
-#explore:active svg {
+.btn1:active svg {
     transform: translateX(20px);
 }
 
@@ -543,25 +670,29 @@ main {
 }
 
 /*================Scrollbar================*/
-/* width */
+
+
 ::-webkit-scrollbar {
-    width: 15px;
-    cursor: default;
+    width: 0;
+    cursor: initial;
 }
 
 ::-webkit-scrollbar-track {
-    border-left: 1px solid #3f3f3fa7;
-    cursor: default;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    cursor: default;
-    background-color: #6161614b;
+    background-color: var(--primary);
+    border: 4px solid var(--primary2);
+    border-radius: 20px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #61616187;
+    background-color: var(--scrollbar-thumb);
+}
+
+::-webkit-scrollbar-thumb:active {
+    border-width: 3px;
 }
 
 ::selection {
@@ -593,7 +724,7 @@ main {
     background-image: url(/res/noise.png);
     background-size: 200px;
     background-repeat: repeat;
-    opacity: .25;
+    opacity: 0.2;
     pointer-events: none
 }
 
