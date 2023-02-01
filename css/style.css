@@ -22,7 +22,6 @@ html {
     height: 100vh;
     position: relative;
     display: flex;
-    overflow: hidden;
 }
 
 /*================Webpage==================*/
@@ -327,10 +326,8 @@ main {
 .pages {
     width: 100vw;
     height: 100vh;
-    overflow-y: auto;
     z-index: 3;
     background-color: transparent;
-    margin-top: var(--header-height) !important;
 }
 
 .page {
@@ -339,6 +336,8 @@ main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    background-color: var(--primary2);
+    padding-top: var(--header-height) !important;
 }
 
 /* =======================Landing Page============ */
@@ -350,7 +349,8 @@ main {
     align-items: center;
     justify-content: center;
     padding: 0 4em;
-    
+    background-image: linear-gradient(180deg, transparent 80%, var(--primary2) 100%);
+
 }
 
 #landing .container {
@@ -408,72 +408,6 @@ main {
 #landing .cta:hover {
     background-color: #008db4;
     cursor: pointer;
-}
-
-
-
-
-
-
-
-.page#about {
-    background-color: var(--primary2);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 20px 4em;
-}
-
-#about .one,
-#about .two {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#about .separator {
-    height: 60%;
-    width: 5px;
-    margin: 0 3vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: var(--secondary);
-    opacity: 0.1;
-}
-
-.landing__img {
-    width: 100%;
-    height: auto;
-    margin-top: 3%;
-    user-select: none;
-    border-radius: 20px;
-}
-
-#about .two {
-    align-items: center;
-    justify-content: center;
-    padding: 10% 2em 10% 0;
-}
-
-#about .two .text {
-    font-family: 'sharlee', sans-serif;
-    text-align: left;
-    word-wrap: normal;
-    margin: 0 auto;
-    font-size: 1.3vw;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    word-spacing: 0.1em;
-    opacity: 0.8;
-    word-wrap: break-word;
-    margin-bottom: 10%;
-    color: var(--secondary);
 }
 
 .btn1 {
@@ -675,24 +609,7 @@ main {
 ::-webkit-scrollbar {
     width: 0;
     cursor: initial;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
-    border: 4px solid var(--primary2);
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-thumb);
-}
-
-::-webkit-scrollbar-thumb:active {
-    border-width: 3px;
+    display: none;
 }
 
 ::selection {

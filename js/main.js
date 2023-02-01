@@ -124,14 +124,18 @@ menuBtn.click(function () {
 });
 
 
-$('.pages').on("scroll", function() {
-    var scroll = $(this).scrollTop();
-    if (scroll > 300) {
+// parallax effect
+
+var landing_img = document.getElementById("landing-img");
+
+window.addEventListener("scroll", function () {
+    var scroll = window.scrollY;
+    if (scroll <= 100 ) {
+        $("#navbar").css("--nav-opacity", scroll / 100);
+    } else {
         $("#navbar").css("--nav-opacity", 1);
     }
-    if (scroll > 0 && scroll < 300) {
-        $("#navbar").css("--nav-opacity", (scroll - 50) / 300);
-    } else {
-        gsap.to("#navbar", {duration: 0.5, backgroundColor: "transparent"});
-    }
+
+    // zoom parallax
+    landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
 });
