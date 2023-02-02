@@ -26,7 +26,7 @@ html {
 
 /*================Webpage==================*/
 main {
-    width: 100%;
+    min-width: 100%;
     height: 100%;
     max-width: 1920px;
     display: flex;
@@ -332,7 +332,8 @@ main {
 
 .page {
     width: 100%;
-    height: 100%;
+    height: max-content;
+    min-height: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -409,6 +410,143 @@ main {
     background-color: #008db4;
     cursor: pointer;
 }
+
+/* ============About page============= */
+
+#trust {
+    flex-direction: row;
+    padding: 0 4em;
+    padding-bottom: 4em;
+}
+
+
+#trust .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#trust .content .qna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#trust .content .qna > .ques, .ans {
+    width: 100%;
+    text-align: center;
+}
+
+#trust .qna .ques {
+    display: block;
+    font-size: 3.5em;
+    font-weight: 400;
+    color: var(--secondary);
+    font-family: 'Rowdies';
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+#trust .qna .ans {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: var(--secondary);
+    opacity: 0.6;
+}
+
+#trust .methods {
+    width: 90%;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: calc(var(--header-height)/2) 0;
+}
+
+#trust .methods .method {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: var(--primary);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease-in;
+}
+
+#trust .methods .method::after {
+    content: '';
+    position: absolute;
+    background-image: url(/res/collaborate.png);
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    z-index: 0;
+    /* blur */
+    filter: blur(30px);
+    opacity: 0.2;
+}
+
+#trust .methods .upaya {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: var(--secondary);
+    padding: 1em 2em;
+    padding-top: 0;
+    z-index: 1;
+}
+
+#trust .methods .upaya h2 {
+    font-size: 1.6em;
+    margin-bottom: 0.2em;
+    width: 100%;
+}
+
+#trust .methods .upaya p {
+    font-size: 1.11em;
+    font-weight: 200;
+    letter-spacing: 0.4px;
+    font-family: 'sharlee';
+    opacity: 0.8;
+}
+
+#trust .method .img-container img {
+    width: 100%;
+    height: auto;
+    user-select: none;
+    opacity: 0.7;
+}
+
+#trust .method .img-container {
+    z-index: 1;
+}
+
+#trust .methods .separator {
+    width: 1px;
+    height: 100%;
+    background-color: var(--secondary);
+    opacity: 0.2;
+    margin: 0 1em;
+}
+
+#trust .methods .method:hover {
+    transform: scale(1.01);
+    transform: translateY(-5px);
+}
+
+
 
 .btn1 {
     padding: 0.5em 1em;

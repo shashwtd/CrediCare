@@ -18,7 +18,7 @@ lottieElms.each(function () {
                 container: lottieElm[0],
                 renderer: 'svg',
                 // loop if attribute is set to true
-                loop: lottieElm.data('lottieLoop') || false,
+                loop: false,
                 autoplay: false,
                 animationData: lottieData,
                 speed: 4
@@ -125,17 +125,30 @@ menuBtn.click(function () {
 
 
 // parallax effect
-
 var landing_img = document.getElementById("landing-img");
+var trust_title = document.getElementById("trust-title");
 
-window.addEventListener("scroll", function () {
-    var scroll = window.scrollY;
-    if (scroll <= 100 ) {
-        $("#navbar").css("--nav-opacity", scroll / 100);
-    } else {
+
+$(window).scroll(function () {
+    var scroll = $(window).scrollTop();
+    if (scroll > 50 && scroll <= 200 ) {
+        $("#navbar").css("--nav-opacity", scroll/150);
+    } else if (scroll > 200) {
         $("#navbar").css("--nav-opacity", 1);
+    } else if (scroll <= 100) {
+        $("#navbar").css("--nav-opacity", 0);
     }
 
     // zoom parallax
     landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
+});
+
+
+
+
+// Event listeners
+$("#learnMore").click(function () {
+    $('html, body').animate({
+        scrollTop: $("#trust").offset().top
+    }, 500);
 });
