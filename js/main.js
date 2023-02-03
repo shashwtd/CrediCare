@@ -126,8 +126,6 @@ menuBtn.click(function () {
 
 // parallax effect
 var landing_img = document.getElementById("landing-img");
-var trust_title = document.getElementById("trust-title");
-
 
 $(window).scroll(function () {
     var scroll = $(window).scrollTop();
@@ -141,6 +139,8 @@ $(window).scroll(function () {
 
     // zoom parallax
     landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
+
+    
 });
 
 
