@@ -11,12 +11,13 @@ let idle = false;
 const cursor = document.querySelector('.cursor');
 const cursor_dot = document.querySelector('.cursor-dot');
 let grown = false;
+var cursorScale = 16;
 
 let startY;
 let endY;
 let clicked = false;
 
-let dark_cursor = true || Math.random() < 0.5;
+let dark_cursor = false || Math.random() < 0.5;
 let pos = { x: 0, y: 0 };
 const cursorGrowElements = document.querySelectorAll('.cursor-grow');
 const cursorHideElements = document.querySelectorAll('.cursor-hide');
@@ -117,7 +118,7 @@ cursorGrowElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
         grown = true;
         gsap.to(cursor, { opacity: 0, duration: 0.2 });
-        gsap.to(cursor_dot, { scale: 12, duration: 0.2 });
+        gsap.to(cursor_dot, { scale: cursorScale, duration: 0.2 });
     });
     el.addEventListener('mouseleave', () => {
         grown = false;
@@ -128,6 +129,9 @@ cursorGrowElements.forEach(el => {
 
 cursorHideElements.forEach(el => {
     if (!dark_cursor) {
+        if(el.classList.contains('cdox')) {
+            return;
+        }
         el.addEventListener('mouseenter', () => {
             gsap.to(light_cursor, { opacity: 0, duration: 0.2 });
         });
@@ -152,8 +156,9 @@ const disableDarkCursor = () => {
     if (!dark_cursor) {
         cursor.style.display = 'none';
         cursor_dot.style.display = 'none';
-
         light_cursor.style.display = 'block';
+
+        document.getElementById("main").style.cursor = 'initial';
     }
 }
 
@@ -237,7 +242,7 @@ function mousedown(e) {
         gsap.to(cursor, { scale: 1.8, duration: 0.1 });
     } else {
         gsap.to(cursor, { opacity: 0, duration: 0.2 });
-        gsap.to(cursor_dot, { scale: 17, duration: 0.1 });
+        gsap.to(cursor_dot, { scale: cursorScale*1.4, duration: 0.1 });
     }
 
     clicked = true;

@@ -7,8 +7,26 @@
     --primary2: #161719;
     --secondary: #cdc8c8;
     --secondary2: #f1f1f1;
-    --cursor-color: #d7fcff;
+    --cursor-color: #dcc3dc;
 
+    --text: #202225;
+    --text2: #cdc8c8;
+    --shade: #ffffff11;
+    --scrollbar-thumb: #373737;
+    --very-light-gray: #f1f1f174;
+    --header-height: 8em;
+}
+
+:root[theme='light'] {
+    --primary: #f1f1f1;
+    --primary2: #ffffff;
+    --secondary: #202225;
+    --secondary2: #161719;
+    --cursor-color: #dcc3dc;
+
+    --text: #202225;
+    --text2: #cdc8c8;
+    --shade: #ffffff11;
     --scrollbar-thumb: #373737;
     --very-light-gray: #f1f1f174;
     --header-height: 8em;
@@ -47,7 +65,7 @@ main {
     align-items: center;
     justify-content: space-between;
     z-index: 22;
-
+    
     --nav-opacity: 0;
 }
 
@@ -81,12 +99,12 @@ main {
 
 .landing-text:hover {
     background-color: var(--secondary);
-    color: var(--primary);
+    color: var(--text);
 }
 
 .opacitize:hover {
     background-color: transparent;
-    color: var(--secondary);
+    color: var(--text2);
     opacity: 1 !important;
 }
 
@@ -151,13 +169,13 @@ main {
 .menu-links a {
     height: 100%;
     text-decoration: none;
-    color: var(--secondary);
+    color: var(--very-light-gray);
     font-size: 1.8em;
     font-weight: 100;
     font-family: 'Rowdies';
     transition: ease-out 0.2s;
     margin: 0 1em;
-    opacity: 0.5;
+    opacity: 0.8;
     position: relative;
     cursor: pointer;
 }
@@ -193,7 +211,7 @@ main {
 }
 
 .menu-links a:hover {
-    color: var(--secondary);
+    color: var(--text2);
     opacity: 0.9;
 }
 
@@ -250,7 +268,7 @@ main {
 .menu-items li h2::before {
     content: attr(content);
     position: absolute;
-    color: var(--secondary2);
+    color: var(--text2);
     top: 0;
     left: 0;
     width: 0%;
@@ -277,7 +295,7 @@ main {
     justify-content: center;
     align-items: center;
     display: flex;
-    color: var(--secondary);
+    color: var(--text2);
     transform: scale(3);
 }
 
@@ -330,6 +348,23 @@ main {
     background-color: transparent;
 }
 
+.section-divider {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary2);
+    position: relative;
+}
+
+.section-divider::after {
+    content: "";
+    position: absolute;
+    left: 5%;
+    top: 4em;
+    width: 90%;
+    height: 100%;
+    background-color: var(--primary);
+}
+
 .page {
     width: 100%;
     height: max-content;
@@ -377,7 +412,7 @@ main {
 }
 
 #landing .title {
-    color: var(--secondary);
+    color: var(--text2);
     font-size: 3.5em;
     font-weight: 400;
     text-align: center;
@@ -388,7 +423,7 @@ main {
 }
 
 #landing .subtitle {
-    color: var(--secondary);
+    color: var(--text2);
     font-size: 1.8em;
     font-weight: lighter;
     text-align: center;
@@ -411,12 +446,11 @@ main {
     cursor: pointer;
 }
 
-/* ============About page============= */
+/* ============Trust page============= */
 
 #trust {
     flex-direction: row;
     padding: 0 4em;
-    padding-bottom: 4em;
 }
 
 
@@ -434,7 +468,8 @@ main {
     align-items: center;
 }
 
-#trust .content .qna > .ques, .ans {
+#trust .content .qna>.ques,
+.ans {
     width: 100%;
     text-align: center;
 }
@@ -443,17 +478,16 @@ main {
     display: block;
     font-size: 3.5em;
     font-weight: 400;
-    color: var(--secondary);
+    color: var(--text2);
     font-family: 'Rowdies';
-    opacity: 0.8;
     margin-bottom: 0;
 }
 
 #trust .qna .ans {
     font-size: 1.5em;
     font-weight: 400;
-    color: var(--secondary);
-    opacity: 0.6;
+    color: var(--text2);
+    opacity: 0.8;
 }
 
 #trust .methods {
@@ -481,40 +515,26 @@ main {
     transition: transform 0.2s ease-in;
 }
 
-#trust .methods .method::after {
-    content: '';
-    position: absolute;
-    background-image: url(/res/collaborate.png);
-    background-size: contain;
-    width: 100%;
-    height: 100%;
-    top: 0; left: 0;
-    z-index: 0;
-    /* blur */
-    filter: blur(30px);
-    opacity: 0.2;
-}
-
-#trust .methods .upaya {
+#trust .methods .bharosa {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    color: var(--secondary);
+    color: var(--text2);
     padding: 1em 2em;
     padding-top: 0;
     z-index: 1;
 }
 
-#trust .methods .upaya h2 {
+#trust .methods .harosa h2 {
     font-size: 1.6em;
     margin-bottom: 0.2em;
     width: 100%;
 }
 
-#trust .methods .upaya p {
+#trust .methods .bharosa p {
     font-size: 1.11em;
     font-weight: 200;
     letter-spacing: 0.4px;
@@ -547,6 +567,239 @@ main {
 }
 
 
+/*=============Issues Page============*/
+#issues {
+    display: flex;
+    flex-direction: column;
+    padding: 0 4em;
+}
+
+#issues .content {
+    height: 100%;
+    width: 100%;
+    padding: 0 4em;
+    padding-bottom: 4em;
+    color: var(--text2);
+}
+
+#issues .introduction {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#issues .introduction .heading {
+    margin-top: 1.5em;
+    display: block;
+    font-size: 3.5em;
+    font-weight: 200;
+    color: var(--text2);
+    font-family: 'Rowdies';
+    margin-bottom: 0;
+    text-align: left;
+}
+
+#issues .introduction .elaborate {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: var(--text2);
+    opacity: 0.8;
+    text-align: left;
+    font-family: 'sharlee';
+    letter-spacing: 0.4px;
+    line-height: 1.4em;
+}
+
+#issues .introduction .elab2 {
+    font-size: 1.4em;
+    opacity: 0.7;
+}
+
+#issues .introduction .dikkats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    margin-top: 3em;
+}
+
+#issues .introduction .dikkats span {
+    background-color: var(--shade);
+    font-size: 1.5em;
+    color: var(--text2);
+    text-align: left;
+    position: relative;
+    padding: 0 1em;
+    border-radius: 10px;
+    transition: all 0.1s ease-in;
+    border: 2px solid var(--shade);
+}
+
+.dikkats span:hover {
+    transform: translate(0px, -5px);
+    border: 3px solid var(--secondary);
+}
+
+#issues .introduction .dikkats span p {
+    opacity: 0.8;
+    font-family: 'sharlee';
+    font-size: 0.9em;
+}
+
+#issues .introduction .dikkats span h4 {
+    font-size: 1.1em;
+    margin-bottom: 0;
+    font-family: 'Rowdies';
+    font-weight: 100;
+}
+
+#issues .aiimp {
+    list-style: none;
+    margin: 0;
+}
+
+#issues .aiimp li {
+    font-weight: 200;
+    opacity: 1;
+    font-family: 'sharlee';
+    letter-spacing: 0.4px;
+    line-height: 1.4em;
+    margin-bottom: 1em;
+    font-size: 1.4em;
+}
+
+#issues .aiimp li b {
+    font-family: 'Rowdies';
+    font-weight: 100;
+}
+
+#issues .aiimp li i {
+    font-style: normal;
+    opacity: 0.8;
+    margin-left: 0.5em;
+}
+
+#issues .skjsao {
+    font-family: 'Rowdies';
+    font-weight: 100;
+    font-size: 1.8em;
+}
+
+#issues .aiimp li::before {
+    content: "→";
+    color: var(--secondary);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+#issues .boxofshame {
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3em;
+    background-color: var(--shade);
+    border: 2px solid var(--shade);
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+
+/*============= Solutions Page ============= */
+
+#solutions {
+    display: flex;
+    flex-direction: column;
+    padding: 0 4em;
+}
+
+#solutions .content {
+    height: 100%;
+    width: 100%;
+    padding: 0 4em;
+    padding-bottom: 4em;
+}
+
+#solutions .introduction {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#solutions .introduction .heading {
+    margin-top: 1.5em;
+    display: block;
+    font-size: 3.5em;
+    font-weight: 200;
+    color: var(--text2);
+    font-family: 'Rowdies';
+    margin-bottom: 0;
+    text-align: left;
+}
+
+#solutions .introduction .elaborate {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: var(--text2);
+    opacity: 0.8;
+    text-align: left;
+    font-family: 'sharlee';
+    letter-spacing: 0.4px;
+    line-height: 1.4em;
+}
+
+#solutions .sols {
+    width: 100%;
+    height: 100%;
+    background-color: var(--shade);
+}
+
+
+
+
+
+
+
+
+/*=================Remote Classes=========== */
+
+
+.fontr {
+    font-family: rowdies;
+    font-weight: 100;
+}
+
+.fonts {
+    font-family: 'sharlee';
+}
+
+.divider-50 {
+    width: 100%;
+    height: 3px;
+    position: relative;
+    margin: 4em 0;
+}
+
+.divider-50::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: var(--text2);
+    opacity: 0.2;
+}
+
+.tpm {
+    color: var(--text2);
+}
+
+.blur-bg {
+    position: relative;
+    overflow: hidden;
+}
 
 .btn1 {
     padding: 0.5em 1em;
@@ -554,7 +807,7 @@ main {
     background-color: var(--secondary);
     border-radius: 5px;
     font-family: 'Rowdies';
-    color: var(--primary);
+    color: var(--text);
     font-size: 1.5vw;
     font-weight: 100;
     transition: ease-in 0.2s;
@@ -578,7 +831,7 @@ main {
 
 .btn1:hover {
     background-color: var(--secondary);
-    color: var(--primary);
+    color: var(--text);
 }
 
 .btn1:hover svg path {
@@ -593,17 +846,20 @@ main {
     transform: translateX(20px);
 }
 
-
-
-
-/*=================Remote Classes=========== */
-
-.tpm {
-    color: var(--secondary);
+.blur-bg::after {
+    content: '';
+    position: absolute;
+    background-image: url(/res/collaborate.png);
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    /* blur */
+    filter: blur(30px);
+    opacity: 0.2;
 }
-
-
-
 
 
 /*================Loading Screen===========*/
@@ -709,6 +965,10 @@ main {
     cursor: initial;
 }
 
+.cdox {
+    cursor: none;
+}
+
 .cursor-grow {
     cursor: none;
 }
@@ -732,9 +992,9 @@ main {
     width: 26px;
     height: 26px;
     border-radius: 20px;
-    background-color: #fff;
     transform-origin: center center;
     transform: translate(-50%, -50%);
+    background-color: var(--cursor-color);
 }
 
 #uwu-filter {
@@ -767,6 +1027,95 @@ main {
 
 
 /*================Noise Effect=============*/
+
+@-webkit-keyframes grain {
+
+    0%,
+    to {
+        transform: translate(0);
+    }
+
+    10% {
+        transform: translate(-5%, -10%);
+    }
+
+    20% {
+        transform: translate(-15%, 5%);
+    }
+
+    30% {
+        transform: translate(7%, -25%);
+    }
+
+    40% {
+        transform: translate(-5%, 25%);
+    }
+
+    50% {
+        transform: translate(-15%, 10%);
+    }
+
+    60% {
+        transform: translate(15%);
+    }
+
+    70% {
+        transform: translateY(15%);
+    }
+
+    80% {
+        transform: translate(3%, 35%);
+    }
+
+    90% {
+        transform: translate(-10%, 10%);
+    }
+}
+
+@keyframes grain {
+
+    0%,
+    to {
+        transform: translate(0);
+    }
+
+    10% {
+        transform: translate(-5%, -10%);
+    }
+
+    20% {
+        transform: translate(-15%, 5%);
+    }
+
+    30% {
+        transform: translate(7%, -25%);
+    }
+
+    40% {
+        transform: translate(-5%, 25%);
+    }
+
+    50% {
+        transform: translate(-15%, 10%);
+    }
+
+    60% {
+        transform: translate(15%);
+    }
+
+    70% {
+        transform: translateY(15%);
+    }
+
+    80% {
+        transform: translate(3%, 35%);
+    }
+
+    90% {
+        transform: translate(-10%, 10%);
+    }
+}
+
 .noise {
     position: fixed;
     z-index: 9999;
@@ -781,92 +1130,4 @@ main {
     background-repeat: repeat;
     opacity: 0.2;
     pointer-events: none
-}
-
-@-webkit-keyframes grain {
-
-    0%,
-    to {
-        transform: translate(0)
-    }
-
-    10% {
-        transform: translate(-5%, -10%)
-    }
-
-    20% {
-        transform: translate(-15%, 5%)
-    }
-
-    30% {
-        transform: translate(7%, -25%)
-    }
-
-    40% {
-        transform: translate(-5%, 25%)
-    }
-
-    50% {
-        transform: translate(-15%, 10%)
-    }
-
-    60% {
-        transform: translate(15%)
-    }
-
-    70% {
-        transform: translateY(15%)
-    }
-
-    80% {
-        transform: translate(3%, 35%)
-    }
-
-    90% {
-        transform: translate(-10%, 10%)
-    }
-}
-
-@keyframes grain {
-
-    0%,
-    to {
-        transform: translate(0)
-    }
-
-    10% {
-        transform: translate(-5%, -10%)
-    }
-
-    20% {
-        transform: translate(-15%, 5%)
-    }
-
-    30% {
-        transform: translate(7%, -25%)
-    }
-
-    40% {
-        transform: translate(-5%, 25%)
-    }
-
-    50% {
-        transform: translate(-15%, 10%)
-    }
-
-    60% {
-        transform: translate(15%)
-    }
-
-    70% {
-        transform: translateY(15%)
-    }
-
-    80% {
-        transform: translate(3%, 35%)
-    }
-
-    90% {
-        transform: translate(-10%, 10%)
-    }
 }

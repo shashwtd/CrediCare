@@ -144,11 +144,9 @@ $(window).scroll(function () {
 });
 
 
-
-
-// Event listeners
-$("#learnMore").click(function () {
-    $('html, body').animate({
-        scrollTop: $("#trust").offset().top
+function scroll2(identifier) {
+    var elm = $(identifier);
+    return $('html, body').animate({
+        scrollTop: elm.offset().top
     }, 500);
-});
+}   
