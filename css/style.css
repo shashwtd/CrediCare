@@ -768,9 +768,12 @@ main {
     justify-content: center;
     z-index: 4;
     user-select:contain;
+    transition: transform 0.2s ease-in;
+    transform: translateX(3em);
 }
 
 #solutions .sols .sol .upaya h2 {
+    align-items: left;
     font-family: 'Rowdies';
     font-weight: 100;
     margin-bottom: 0.5em; 
@@ -789,29 +792,34 @@ main {
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
+    width: 60%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     user-select: none;
+    transition: filter 0.2s ease-in;
+    transform-origin: bottom;
+    filter: blur(10px);
 }
 
 #solutions .sols .sol .chitra img {
-    width: 60%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top;
     z-index: 2;
+    transition: all  0.2s ease-in;
+
 }
 
 #solutions .sols .sol .chitra::before {
     content: "";
     position: absolute;
-    width: 60%;
+    width: 100%;
     height: 100%;
-    left: 40%;
+    left: 0;
     z-index: 3;
-    background: linear-gradient(90deg, var(--duh) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--duh) 0%, transparent 50%);
 }
 
 #solutions .sols .sol .chitra::after {
@@ -819,12 +827,20 @@ main {
     position: absolute;
     right: 0;
     top: 0;
-    width: 60%;
+    width: 100%;
     z-index: 2;
     height: 100%;
-    background: radial-gradient(farthest-corner at 45% , transparent 0%, var(--duh) 100%);
+    background: radial-gradient(ellipse at right, transparent 0%, var(--duh) 100%);
 }
 
+
+#solutions .sols .sol:hover .upaya {
+    transform: translateX(0em);
+}
+
+#solutions .sols .sol:hover .chitra {
+    filter: blur(0px);
+}
 
 
 /*=================Remote Classes=========== */
@@ -907,7 +923,7 @@ main {
 .blur-bg::after {
     content: '';
     position: absolute;
-    background-image: url(/res/collaborate.png);
+    background-image: url(/res/trust.png);
     background-size: contain;
     width: 100%;
     height: 100%;
@@ -915,7 +931,7 @@ main {
     left: 0;
     z-index: 0;
     /* blur */
-    filter: blur(30px);
+    filter: blur(50px);
     opacity: 0.2;
 }
 
