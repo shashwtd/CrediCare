@@ -797,7 +797,7 @@ main {
     display: flex;
     justify-content: flex-end;
     user-select: none;
-    transition: filter 0.2s ease-in;
+    transition: all 0.2s ease-in;
     transform-origin: bottom;
     filter: blur(10px);
 }
@@ -835,11 +835,12 @@ main {
 
 
 #solutions .sols .sol:hover .upaya {
-    transform: translateX(0em);
+    transform: translateX(1em);
 }
 
 #solutions .sols .sol:hover .chitra {
     filter: blur(0px);
+    transform: scale(1.1);
 }
 
 
@@ -1208,6 +1209,6 @@ main {
     background-image: url(/res/noise.png);
     background-size: 200px;
     background-repeat: repeat;
-    opacity: 0;
+    opacity: 0.1;
     pointer-events: none
 }
