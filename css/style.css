@@ -5,12 +5,10 @@
 :root {
     --primary: #202225;
     --primary2: #161719;
-    --secondary: #cdc8c8;
-    --secondary2: #f1f1f1;
-    --cursor-color: #dcc3dc;
+    --secondary: #f1f1f1;
+    --cursor-color: #cfcfcf;
 
-    --text: #202225;
-    --text2: #cdc8c8;
+    --text: #cdc8c8;
     --duh: #111111;
     --shade: #ffffff11;
     --scrollbar-thumb: #373737;
@@ -19,15 +17,14 @@
 }
 
 :root[theme='light'] {
-    --primary: #f1f1f1;
-    --primary2: #ffffff;
-    --secondary: #202225;
-    --secondary2: #161719;
-    --cursor-color: #dcc3dc;
+    --primary: #bba4a4;
+    --primary2: #e8d0d0;
+    --secondary: #161719;
+    --cursor-color: #7e5959;
 
-    --text: #202225;
-    --text2: #cdc8c8;
-    --shade: #ffffff11;
+    --text: #35363c;
+    --duh: #b8a4a4;
+    --shade: #00000011;
     --scrollbar-thumb: #373737;
     --very-light-gray: #f1f1f174;
     --header-height: 8em;
@@ -76,9 +73,14 @@ main {
     width: 100%;
     height: 100%;
     background-color: var(--primary);
+    border-bottom: 2px solid var(--shade);
     opacity: var(--nav-opacity);
     transition: ease-out 0.2s;
     z-index: -1;
+}
+
+.nav.nav-open::after {
+    border-bottom-color: transparent ;
 }
 
 .nav .landing-text {
@@ -98,14 +100,13 @@ main {
     opacity: 0.5;
 }
 
-.landing-text:hover {
-    background-color: var(--secondary);
-    color: var(--text);
+:root[theme='light'] .opacitize {
+    opacity: 0.8;
 }
 
 .opacitize:hover {
     background-color: transparent;
-    color: var(--text2);
+    color: var(--text);
     opacity: 1 !important;
 }
 
@@ -154,11 +155,12 @@ main {
     overflow: hidden;
     box-sizing: border-box;
     opacity: 0;
-    padding-left: 15%;
+    padding-left: 10%;
 }
 
 .menu-links {
-    width: 100%;
+    width: max-content;
+    padding-right: 1em;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -170,7 +172,7 @@ main {
 .menu-links a {
     height: 100%;
     text-decoration: none;
-    color: var(--very-light-gray);
+    color: var(--text);
     font-size: 1.8em;
     font-weight: 100;
     font-family: 'Rowdies';
@@ -191,8 +193,8 @@ main {
     margin: -5px 0;
     border-radius: 10px;
     left: 0;
-    background-color: white;
-    transition: all 0.2s ease-in 0s;
+    background-color: var(--secondary);
+    transition: all 0.1s ease-out;
     opacity: 0.5;
 }
 
@@ -208,11 +210,11 @@ main {
     display: inline-block;
     margin-right: 0.2em;
     font-family: 'sharlee';
-    transition: ease-out 0.2s;
+    transition: ease-out 0.1s;
 }
 
 .menu-links a:hover {
-    color: var(--text2);
+    color: var(--text);
     opacity: 0.9;
 }
 
@@ -231,7 +233,6 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: center;
     counter-reset: counter 0;
     list-style: none;
@@ -243,42 +244,48 @@ main {
     font-size: 0.4em;
     left: -2.2em;
     bottom: -0.5em;
-    color: var(--very-light-gray);
+    color: var(--text);
 }
 
 .menu-items li {
-    width: 100%;
+    width: max-content;
     counter-increment: counter;
     opacity: 0.8;
-    padding: 0.8em 0;
+    padding: 0.8em 2em;
+    padding-left: 4em;
+    border-radius: 10px;
+    margin: 1px 0;
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out, opacity 0.2s ease-out;
+    opacity: 0.6;
 }
 
 .menu-items li h2 {
     line-height: 100%;
     letter-spacing: 0.02em;
     transition: ease-out 0.2s;
-    color: var(--very-light-gray);
     font-size: 2.5em;
     font-weight: 800;
     font-family: 'Azonix';
     position: relative;
     margin: 0;
     width: fit-content;
+    color: var(--text);
+}
+
+.menu-items li:hover {
+    opacity: 1;
+    background-color: var(--shade);
+    transform: translateX(0.5em);
 }
 
 .menu-items li h2::before {
     content: attr(content);
     position: absolute;
-    color: var(--text2);
+    color: var(--text);
     top: 0;
     left: 0;
     width: 0%;
     overflow: hidden;
-    transition: all 0.2s ease-in;
-}
-
-.menu-items li:hover h2:before {
-    width: 100%;
 }
 
 .nav .options {
@@ -296,13 +303,22 @@ main {
     justify-content: center;
     align-items: center;
     display: flex;
-    color: var(--text2);
-    transform: scale(3);
+    color: var(--text);
+    border-radius: 10px;
 }
 
-.options span#menu-btn {
+#menu-btn svg {
+    scale: 3;
+}
+
+.options span {
     z-index: 22;
 }
+
+#menu-btn:hover {
+    background-color: var(--shade);
+}
+
 
 .fixed-page {
     position: fixed;
@@ -311,34 +327,49 @@ main {
     width: 100%;
     height: 100%;
     z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--primary2);
 }
+
+.fixed-page-container {
+    width: auto;
+    height: 100%;
+    background-color: inherit;
+    position: relative;
+    overflow: hidden;
+}
+
 
 #landing-img {
-    background-image: url(/res/landing.jpg);
-    background-size: contain;
-    background-position: right -10% center;
-    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    position: relative;
 }
 
-#landing-img::before {
+.fixed-page-container::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, var(--primary2) 28%, transparent 100%);
+    z-index: 99;
+    background: linear-gradient(90deg,var(--primary2) 0%,  transparent 100%);
 }
 
-#landing-img::after {
+.fixed-page-container::after {
     content: "";
     position: absolute;
     right: 0;
     top: 0;
-    width: 80%;
+    width: 100%;
     z-index: 1;
     height: 100%;
-    background: radial-gradient(circle, transparent 0%, var(--primary2) 100%);
+    background: radial-gradient(circle, transparent 40%, var(--primary2) 100%);
 }
 
 
@@ -363,7 +394,7 @@ main {
     top: 4em;
     width: 90%;
     height: 100%;
-    background-color: var(--primary);
+    background-color: var(--primary2);
 }
 
 .page {
@@ -386,8 +417,7 @@ main {
     align-items: center;
     justify-content: center;
     padding: 0 4em;
-    background-image: linear-gradient(180deg, transparent 80%, var(--primary2) 100%);
-
+    background-image: linear-gradient(180deg, transparent 90%, var(--primary2) 100%);
 }
 
 #landing .container {
@@ -413,7 +443,7 @@ main {
 }
 
 #landing .title {
-    color: var(--text2);
+    color: var(--text);
     font-size: 3.5em;
     font-weight: 400;
     text-align: center;
@@ -424,11 +454,14 @@ main {
 }
 
 #landing .subtitle {
-    color: var(--text2);
-    font-size: 1.8em;
+    color: var(--text);
+    font-size: 1.7em;
     font-weight: lighter;
     text-align: center;
     opacity: 0.6;
+    font-family: 'Sharlee';
+    font-weight: 500;
+
 }
 
 
@@ -456,15 +489,15 @@ main {
 
 #trust .content .qna>.ques,
 .ans {
-    width: 100%;
     text-align: center;
+    padding: 0 0.5em;
 }
 
 #trust .qna .ques {
     display: block;
     font-size: 3.5em;
     font-weight: 400;
-    color: var(--text2);
+    color: var(--text);
     font-family: 'Rowdies';
     margin-bottom: 0;
 }
@@ -472,7 +505,7 @@ main {
 #trust .qna .ans {
     font-size: 1.5em;
     font-weight: 400;
-    color: var(--text2);
+    color: var(--text);
     opacity: 0.8;
 }
 
@@ -498,7 +531,9 @@ main {
     border-radius: 20px;
     overflow: hidden;
     position: relative;
-    transition: transform 0.2s ease-in;
+    transition: all 0.15s ease-in;
+    border: 1px solid var(--shade);
+    cursor: pointer;
 }
 
 #trust .methods .bharosa {
@@ -508,7 +543,7 @@ main {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    color: var(--text2);
+    color: var(--text);
     padding: 1em 2em;
     padding-top: 0;
     z-index: 1;
@@ -540,16 +575,14 @@ main {
 }
 
 #trust .methods .separator {
-    width: 1px;
     height: 100%;
-    background-color: var(--secondary);
-    opacity: 0.2;
     margin: 0 1em;
 }
 
 #trust .methods .method:hover {
-    transform: scale(1.01);
     transform: translateY(-5px);
+    box-shadow: 0 0 5px 0 rgb(240, 70, 70);
+    
 }
 
 
@@ -565,7 +598,7 @@ main {
     width: 100%;
     padding: 0 4em;
     padding-bottom: 4em;
-    color: var(--text2);
+    color: var(--text);
 }
 
 #issues .introduction {
@@ -580,16 +613,17 @@ main {
     display: block;
     font-size: 3.5em;
     font-weight: 200;
-    color: var(--text2);
+    color: var(--text);
     font-family: 'Rowdies';
     margin-bottom: 0;
     text-align: left;
+    padding-right: 0.5em;
 }
 
 #issues .introduction .elaborate {
     font-size: 1.5em;
     font-weight: 400;
-    color: var(--text2);
+    color: var(--text);
     opacity: 0.8;
     text-align: left;
     font-family: 'sharlee';
@@ -612,18 +646,18 @@ main {
 #issues .introduction .dikkats span {
     background-color: var(--shade);
     font-size: 1.5em;
-    color: var(--text2);
+    color: var(--text);
     text-align: left;
     position: relative;
     padding: 0 1em;
     border-radius: 10px;
-    transition: all 0.1s ease-in;
+    transition: all 0.2s ease-out;
     border: 2px solid var(--shade);
 }
 
 .dikkats span:hover {
     transform: translate(0px, -5px);
-    border: 3px solid var(--secondary);
+    box-shadow: 0 0 5px 0 rgb(240, 70, 70);
 }
 
 #issues .introduction .dikkats span p {
@@ -675,7 +709,7 @@ main {
 
 #issues .aiimp li::before {
     content: "→";
-    color: var(--secondary);
+    color: var(--text);
     display: inline-block;
     width: 1em;
     margin-left: -1em;
@@ -714,7 +748,7 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
 #solutions .introduction .heading {
@@ -722,19 +756,21 @@ main {
     display: block;
     font-size: 3.5em;
     font-weight: 200;
-    color: var(--text2);
+    color: var(--text);
     font-family: 'Rowdies';
     margin-bottom: 0;
+    padding: 0 0.5em;
 }
 
 #solutions .introduction .elaborate {
     font-size: 1.5em;
     font-weight: 400;
-    color: var(--text2);
+    color: var(--text);
     opacity: 0.8;
     font-family: 'sharlee';
     letter-spacing: 0.4px;
     line-height: 1.4em;
+    text-align: center;
 }
 
 #solutions .sols {
@@ -743,8 +779,10 @@ main {
     margin-top: 4em;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
 }
+
+/* Make every even child appear on right side */
 
 #solutions .sols .sol {
     width: 90%;
@@ -758,11 +796,11 @@ main {
     position: relative;
     overflow: hidden;
     background-color: var(--duh);
-    border: 1px solid var(--shade)
+    border: 1px solid var(--shade);
 }
 
 #solutions .sols .sol .upaya {
-    color: var(--text2);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -778,6 +816,8 @@ main {
     font-weight: 100;
     margin-bottom: 0.5em; 
     font-size: 2.5em;
+    width: max-content;
+    padding-right: 0.5em;
 }
 
 #solutions .sols .sol .upaya p {
@@ -800,6 +840,7 @@ main {
     transition: all 0.2s ease-in;
     transform-origin: bottom;
     filter: blur(10px);
+    background-color: var(--duh);
 }
 
 #solutions .sols .sol .chitra img {
@@ -815,9 +856,9 @@ main {
 #solutions .sols .sol .chitra::before {
     content: "";
     position: absolute;
-    width: 100%;
+    width: 102%;
     height: 100%;
-    left: 0;
+    left: -2%;
     z-index: 3;
     background: linear-gradient(90deg, var(--duh) 0%, transparent 50%);
 }
@@ -840,9 +881,8 @@ main {
 
 #solutions .sols .sol:hover .chitra {
     filter: blur(0px);
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
-
 
 /*=================Remote Classes=========== */
 
@@ -868,18 +908,17 @@ main {
     position: absolute;
     width: 50%;
     height: 100%;
-    background-color: var(--text2);
+    background-color: var(--text);
     opacity: 0.2;
 }
 
 .tpm {
-    color: var(--text2);
+    color: var(--text);
 }
 
 .btn1 {
     padding: 0.5em 1em;
     border: none;
-    background-color: var(--secondary);
     border-radius: 5px;
     font-family: 'Rowdies';
     color: var(--text);
@@ -890,6 +929,10 @@ main {
     display: flex;
     flex-direction: row;
     opacity: 0.8;
+
+    background-color: var(--shade);
+    border: 2px solid #767676e8;
+
 }
 
 .btn1 svg {
@@ -901,16 +944,11 @@ main {
 }
 
 .btn1 svg path {
-    stroke: var(--primary);
+    stroke: var(--text);
 }
 
 .btn1:hover {
-    background-color: var(--secondary);
-    color: var(--text);
-}
-
-.btn1:hover svg path {
-    stroke: var(--primary);
+    opacity: 1;
 }
 
 .btn1:hover svg {
@@ -931,9 +969,12 @@ main {
     top: 0;
     left: 0;
     z-index: 0;
-    /* blur */
     filter: blur(50px);
     opacity: 0.2;
+}
+
+:root[theme='light'] .blur-bg::after {
+    background-image: url(/res/landing.jpg);
 }
 
 
@@ -1042,16 +1083,20 @@ main {
     transition-timing-function: linear;
 }
 
-.cursor-hide {
-    cursor: initial;
-}
-
 .cdox {
     cursor: none;
 }
 
 .cursor-grow {
     cursor: none;
+}
+
+.cursor-hide {
+    cursor: initial;
+}
+
+.cp {
+    cursor: pointer;
 }
 
 .currsor {

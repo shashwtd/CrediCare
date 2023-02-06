@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" theme="dark">
+<html lang="en">
 
 <head>
     <!-- Page related -->
@@ -13,6 +13,35 @@
     <link rel="stylesheet" href="/css/animate.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Rowdies:wght@300;400&display=swap"
         rel="stylesheet">
+    <script>
+        // Set the theme
+        var theme;
+
+        function applyTheme() {
+            theme = localStorage.getItem('theme');
+            if (theme == null || theme == '') {
+                theme = 'dark';
+                localStorage.setItem('theme', theme);
+            }
+            document.documentElement.setAttribute('theme', theme);
+        }
+
+        function toggleTheme(_theme) {
+            if (_theme == null || _theme == '') {
+                if (theme == 'dark') {
+                    _theme = 'light';
+                } else {
+                    _theme = 'dark';
+                }
+            }
+            theme = _theme;
+            localStorage.setItem('theme', _theme);
+            applyTheme();
+            loadLottie();
+        }
+
+        applyTheme();
+    </script>
 </head>
 
 <body>
@@ -45,56 +74,58 @@
 
         <!-- Navbar -->
         <div class="nav" id="navbar">
-            <h1 class="tpm landing-text cursor-grow cg-2x opacitize">Credible Care</h1>
+            <h1 class="tpm landing-text cursor-grow cg-2x opacitize" onclick="toggleTheme()">Credible Care</h1>
             <div class="options">
-                <span id='menu-btn' class="lottie-elm cursor-grow opacitize" data-lottie-name="hamburger"></span>
+                <span id='menu-btn' class="lottie-elm cursor-grow opacitize click-sound hover-sound" data-lottie-name="hamburger"></span>
             </div>
         </div>
 
         <!-- Menu Screen -->
         <div class="menu">
             <div class="menu-separator"></div>
-            <div class="menu-container">
+            <div class="menu-container cursor-hide">
                 <ul class="menu-items">
-                    <li onclick="scroll2('#landing')">
-                        <h2 class="cursor-grow" content="HOME">Home</h2>
+                    <li class="cp hover-sound click-sound" onclick="scroll2('#landing')">
+                        <h2 content="HOME">Home</h2>
                     </li>
-                    <li onclick="scroll2('#trust')">
-                        <h2 class="cursor-grow" content="TRUST">Trust</h2>
+                    <li class="cp hover-sound click-sound" onclick="scroll2('#trust')">
+                        <h2 content="TRUST">Trust</h2>
                     </li>
-                    <li onclick="scroll2('#issues')">
-                        <h2 class="cursor-grow" content="ISSUES">Issues</h2>
+                    <li class="cp hover-sound click-sound" onclick="scroll2('#issues')">
+                        <h2 content="ISSUES">Issues</h2>
                     </li>
-                    <li onclick="scroll2('#solutions')">
-                        <h2 class="cursor-grow" content="SOLUTIONS">SOLUTIONS</h2>
+                    <li class="cp hover-sound click-sound" onclick="scroll2('#solutions')">
+                        <h2 content="SOLUTIONS">SOLUTIONS</h2>
                     </li>
-                    <li onclick="scroll2('#resources')">
-                        <h2 class="cursor-grow" content="RESOURCES">RESOURCES</h2>
+                    <li class="cp hover-sound click-sound" onclick="scroll2('#resources')">
+                        <h2 content="RESOURCES">RESOURCES</h2>
                     </li>
-                    <li onclick="scroll2('#conclusion')">
-                        <h2 class="cursor-grow" content="CONCLUSION">CONCLUSION</h2>
+                    <li class="cp hover-sound click-sound" onclick="scroll2('#conclusion')">
+                        <h2 content="CONCLUSION">CONCLUSION</h2>
                     </li>
                 </ul>
-                <div class="menu-links">
-                    <a href="https://www.instagram.com/shashwatintwo/" target="_blank"
-                        class="cursor-hide underline-hover">
+                <div class="menu-links cursor-hide">
+                    <a href="https://www.instagram.com/shashwatintwo/" target="_blank" class="click-sound underline-hover">
                         <span class="arrow">↗</span> Instagram</a>
-                    <a href="https://github.com/shashwtt/CrediCare/" target="_blank"
-                        class="cursor-hide underline-hover">
+                    <a href="https://github.com/shashwtt/CrediCare/" target="_blank" class="click-sound underline-hover">
                         <span class="arrow">↗</span> Github</a>
-                    <a href="mailto:shashwat5590@gmail.com" target="_blank" class="cursor-hide underline-hover">
+                    <a href="mailto:shashwat5590@gmail.com" target="_blank" class="click-sound underline-hover">
                         <span class="arrow">↗</span> shashwat5590@gmail.com</a>
                 </div>
             </div>
             <div class="menu-separator"></div>
         </div>
 
-        <div class="fixed-page" id="landing-img"></div>
+        <div class="fixed-page">
+            <div class="fixed-page-container">
+                <img id="landing-img" src="/res/landing.jpg">
+            </div>
+        </div>
         <div class="pages" id="pages">
             <section id="landing" class="page">
                 <div class="container">
                     <div class="content">
-                        <h1 class="title cursor-hide cdox">Winning Customer Trust</h1>
+                        <h1 class="title cursor-grow cdox">Winning Customer Trust</h1>
                         <p class="subtitle cursor-hide cdox">Building trust with customers is crucial for business
                             growth,
                             brand reputation and customer satisfaction. Establishing trust leads to long-term
@@ -102,7 +133,8 @@
                             competitive market, trust-building should be a top priority for business success.
                         </p>
                     </div>
-                    <button onclick="scroll2('#trust')" class="btn1 cursor-grow" style="margin-top: 4em">Learn More
+                    <button onclick="scroll2('#trust')" class="btn1 cursor-grow blur-bg hover-sound click-sound" style="margin-top: 4em">Learn
+                        More
                         <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24"
                             fill="none">
                             <path d="M14.4301 5.92993L20.5001 11.9999L14.4301 18.0699" stroke="#292D32"
@@ -117,7 +149,7 @@
             <section class="page" id="trust">
                 <div class="content">
                     <div class="qna">
-                        <h1 class="ques" id="trust-title">How to gain Customer Trust?</h1>
+                        <h1 class="ques cursor-grow" id="trust-title">How to gain Customer Trust?</h1>
                         <h3 class="ans"> Gaining customer trust is all about providing a transparent and honest
                             experience.
                             Three key ways to build trust include:</h3>
@@ -171,7 +203,7 @@
             <section class="page" id="issues">
                 <div class="content">
                     <div class="introduction">
-                        <h1 class="heading">Issues faced in Startups</h1>
+                        <h1 class="heading cursor-grow">Issues faced in Startups</h1>
                         <p class="elaborate">There are a variety of challenges depending upon the buisness and the
                             situation. Addressing these issues effectively is key to the growth and success of any
                             business. Ignoring trust-related challenges can lead to serious consequences for startups.
@@ -211,7 +243,8 @@
                             success.
                         </div>
                         <div class="divider-50"></div>
-                        <h2 class="heading" style="font-size: 2.5em;">Why addressing issues is important?</h2>
+                        <h2 class="heading cursor-grow" style="font-size: 2.5em;">Why addressing issues is important?
+                        </h2>
                         <div class="elaborate elab2">
                             <p>Addressing trust-related challenges is critical for the success of any business. It is
                                 important to identify the specific challenges faced by your business and take steps to
@@ -248,7 +281,7 @@
             <section class="page" id="solutions">
                 <div class="content">
                     <div class="introduction">
-                        <h1 class="heading">
+                        <h1 class="heading cursor-grow">
                             Practical Solutions and Strategies
                         </h1>
                         <p class="elaborate">
@@ -261,10 +294,11 @@
                     <div class="sols">
                         <div class="sol">
                             <div class="chitra">
-                                <img src="/res/strong_brand.png" alt="Build a strong brand" style="object-position: center;">
+                                <img src="/res/strong_brand.png" alt="Build a strong brand"
+                                    style="object-position: center;">
                             </div>
                             <div class="upaya">
-                                <h2>Build a strong brand</h2>
+                                <h2 class="cursor-grow">Build a strong brand</h2>
                                 <p>Building a strong brand identity is the most effective way to establish
                                     trust with customers. A strong brand can help you stand out from the competition
                                     and build a loyal customer base. It can also help you build trust with customers
@@ -277,7 +311,7 @@
                                 <img src="/res/satisfied_customer.jpg" alt="Provide exceptional customer service">
                             </div>
                             <div class="upaya">
-                                <h2>Provide exceptional customer service</h2>
+                                <h2 class="cursor-grow">Provide exceptional customer service</h2>
                                 <p>Providing exceptional customer service is another key factor in building trust with
                                     customers.
                                     Responding promptly to customer inquiries and resolving any issues quickly and
@@ -291,7 +325,7 @@
                                 <img src="/res/research.jpg" alt="Practice transparency">
                             </div>
                             <div class="upaya">
-                                <h2>Practice transparency</h2>
+                                <h2 class="cursor-grow">Practice transparency</h2>
                                 <p>Transparency is critical for building trust with customers. Being open and honest
                                     about your business
                                     practices and policies, and providing customers with access to accurate and
@@ -305,10 +339,11 @@
                                 <img src="/res/trust.png" alt="Ensure consistency">
                             </div>
                             <div class="upaya">
-                                <h2>Ensure consistency</h2>
+                                <h2 class="cursor-grow">Ensure consistency</h2>
                                 <p>Consistency is essential for building trust with customers. Ensuring that your
                                     products or services
-                                    consistently meet customer the expectations, and that your policies and practices remain
+                                    consistently meet customer the expectations, and that your policies and practices
+                                    remain
                                     consistent
                                     over time can help establish a positive reputation and increase customer loyalty.
                                 </p>
@@ -325,6 +360,7 @@
     <script src="/js/jquery.js"></script>
     <script src="/js/scrollreveal.js"></script>
     <script src="/js/lottie.js"></script>
+    <script src="/js/howler.js"></script>
     <script src="/js/gsap.js"></script>
     <script src="/js/cursor.js"></script>
     <script src="/js/main.js"></script>
