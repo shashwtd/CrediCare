@@ -394,7 +394,7 @@ main {
     top: 4em;
     width: 90%;
     height: 100%;
-    background-color: var(--primary2);
+    background-color: var(--primary);
 }
 
 .page {
