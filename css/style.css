@@ -63,7 +63,7 @@ main {
     align-items: center;
     justify-content: space-between;
     z-index: 22;
-    
+
     --nav-opacity: 0;
 }
 
@@ -80,7 +80,7 @@ main {
 }
 
 .nav.nav-open::after {
-    border-bottom-color: transparent ;
+    border-bottom-color: transparent;
 }
 
 .nav .landing-text {
@@ -358,7 +358,7 @@ main {
     width: 100%;
     height: 100%;
     z-index: 99;
-    background: linear-gradient(90deg,var(--primary2) 0%,  transparent 100%);
+    background: linear-gradient(90deg, var(--primary2) 0%, transparent 100%);
 }
 
 .fixed-page-container::after {
@@ -549,10 +549,12 @@ main {
     z-index: 1;
 }
 
-#trust .methods .harosa h2 {
+#trust .methods .bharosa h2 {
     font-size: 1.6em;
     margin-bottom: 0.2em;
     width: 100%;
+    font-family: 'Rowdies';
+    font-weight: 100;
 }
 
 #trust .methods .bharosa p {
@@ -581,8 +583,7 @@ main {
 
 #trust .methods .method:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 5px 0 rgb(240, 70, 70);
-    
+
 }
 
 
@@ -657,7 +658,6 @@ main {
 
 .dikkats span:hover {
     transform: translate(0px, -5px);
-    box-shadow: 0 0 5px 0 rgb(240, 70, 70);
 }
 
 #issues .introduction .dikkats span p {
@@ -805,7 +805,7 @@ main {
     flex-direction: column;
     justify-content: center;
     z-index: 4;
-    user-select:contain;
+    user-select: contain;
     transition: transform 0.2s ease-in;
     transform: translateX(3em);
 }
@@ -814,7 +814,7 @@ main {
     align-items: left;
     font-family: 'Rowdies';
     font-weight: 100;
-    margin-bottom: 0.5em; 
+    margin-bottom: 0.5em;
     font-size: 2.5em;
     width: max-content;
     padding-right: 0.5em;
@@ -849,7 +849,7 @@ main {
     object-fit: cover;
     object-position: top;
     z-index: 2;
-    transition: all  0.2s ease-in;
+    transition: all 0.2s ease-in;
 
 }
 
