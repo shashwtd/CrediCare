@@ -1,15 +1,15 @@
-const light_cursor = document.getElementById("cursor");
-const amount = 20;
-const sineDots = Math.floor(amount * 0.3);
-const width = 26;
-const idleTimeout = 150;
+var light_cursor = document.getElementById("cursor");
+var amount = 20;
+var sineDots = Math.floor(amount * 0.3);
+var width = 26;
+var idleTimeout = 150;
 let lastFrame = 0;
 let dots = [];
 let timeoutID;
 let idle = false;
 
-const cursor = document.querySelector('.cursor');
-const cursor_dot = document.querySelector('.cursor-dot');
+var cursor = document.querySelector('.cursor');
+var cursor_dot = document.querySelector('.cursor-dot');
 let grown = false;
 var cursorScale = 16;
 
@@ -17,10 +17,11 @@ let startY;
 let endY;
 let clicked = false;
 
-let dark_cursor = false || Math.random() < 0.5;
+// let dark_cursor =  Math.random() < 0.5;
+let dark_cursor =  false;
 let pos = { x: 0, y: 0 };
-const cursorGrowElements = document.querySelectorAll('.cursor-grow');
-const cursorHideElements = document.querySelectorAll('.cursor-hide');
+var cursorGrowElements = document.querySelectorAll('.cursor-grow');
+var cursorHideElements = document.querySelectorAll('.cursor-hide');
 
 
 
@@ -79,14 +80,14 @@ function goInactive() {
 
 
 
-const render = timestamp => {
-    const delta = timestamp - lastFrame;
+var render = timestamp => {
+    var delta = timestamp - lastFrame;
     positionCursor(delta);
     lastFrame = timestamp;
     requestAnimationFrame(render);
 };
 
-const positionCursor = delta => {
+var positionCursor = delta => {
     let x = pos.x;
     let y = pos.y;
     dots.forEach((dot, index, dots) => {
@@ -95,8 +96,8 @@ const positionCursor = delta => {
         dot.y = y;
         dot.draw(delta);
         if (!idle || index <= sineDots) {
-            const dx = (nextDot.x - dot.x) * 0.35;
-            const dy = (nextDot.y - dot.y) * 0.35;
+            var dx = (nextDot.x - dot.x) * 0.35;
+            var dy = (nextDot.y - dot.y) * 0.35;
             x += dx;
             y += dy;
         }
@@ -152,7 +153,7 @@ cursorHideElements.forEach(el => {
     });
 });
 
-const disableDarkCursor = () => {
+var disableDarkCursor = () => {
     if (!dark_cursor) {
         cursor.style.display = 'none';
         cursor_dot.style.display = 'none';
@@ -162,7 +163,7 @@ const disableDarkCursor = () => {
     }
 }
 
-const enableDarkCursor = () => {
+var enableDarkCursor = () => {
     if(dark_cursor) {
         cursor.style.display = 'block';
         cursor_dot.style.display = 'block';
@@ -197,7 +198,7 @@ window.onload = () => {
     document.onmouseleave = disappear_cursor;
 }
 
-const onMouseMove = event => {
+var onMouseMove = event => {
     if (!dark_cursor) {
         pos.x = event.clientX - width / 2;
         pos.y = event.clientY - width / 2;
@@ -208,7 +209,7 @@ const onMouseMove = event => {
     pos.y = event.clientY;
 };
 
-const onTouchMove = () => {
+var onTouchMove = () => {
     if (!dark_cursor) {
         pos.x = event.touches[0].clientX - width / 2;
         pos.y = event.touches[0].clientY - width / 2;

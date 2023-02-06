@@ -1,34 +1,45 @@
-const theme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark';
-const lottieElms = $('.lottie-elm');
-const lottieInstances = {};
+var lottieElms = $('.lottie-elm');
+var lottieInstances = {};
 var isNavAnimating = false;
 
-lottieElms.each(function () {
-    const lottieElm = $(this);
-    const lottieName = lottieElm.data('lottieName');
-    var lottiePath = `/res/lottie/${lottieName}_${theme}.json`;
+var hoverSoundElms = $('.hover-sound');
+var clickSoundElms = $('.click-sound');
 
-    if (lottieName.endsWith('_')) {
-        lottiePath = `/res/lottie/${lottieName}.json`;
-    }
+function loadLottie() {
+    lottieElms.each(function () {
+        var lottieElm = $(this);
+        var lottieName = lottieElm.data('lottieName');
 
-    $.getJSON(lottiePath)
-        .done(function (lottieData) {
-            const lottieInstance = lottie.loadAnimation({
-                container: lottieElm[0],
-                renderer: 'svg',
-                // loop if attribute is set to true
-                loop: false,
-                autoplay: false,
-                animationData: lottieData,
-                speed: 4
+        if (lottieInstances[lottieName]) {
+            lottieInstances[lottieName].destroy();
+        }
+
+        var lottiePath = `/res/lottie/${lottieName}_${theme}.json`;
+        if (lottieName.endsWith('_')) {
+            lottiePath = `/res/lottie/${lottieName}.json`;
+        }
+
+        $.getJSON(lottiePath)
+            .done(function (lottieData) {
+                var lottieInstance = lottie.loadAnimation({
+                    container: lottieElm[0],
+                    renderer: 'svg',
+                    // loop if attribute is set to true
+                    loop: false,
+                    autoplay: false,
+                    animationData: lottieData,
+                    speed: 4
+                });
+                lottieInstances[lottieName] = lottieInstance;
+            })
+            .fail(function (error) {
+                console.log(lottiePath);
+                console.error(error);
             });
-            lottieInstances[lottieName] = lottieInstance;
-        })
-        .fail(function (error) {
-            console.error(error);
-        });
-});
+    });
+}
+
+loadLottie();
 
 // When menu button is clicked
 var menuToggled = true;
@@ -36,7 +47,7 @@ var menuBtn = $("#menu-btn");
 menuBtn.click(function () {
     if (isNavAnimating) return;
     isNavAnimating = true;
-    const menuBtnAnim = lottieInstances['hamburger'];
+    var menuBtnAnim = lottieInstances['hamburger'];
     if (menuToggled) {
         isNavAnimating = true;
         menuBtnAnim.playSegments([0, 39], true);
@@ -66,18 +77,13 @@ menuBtn.click(function () {
             duration: 0.5,
             transform: "translate(40px, 40px)",
             ease: "power4.out",
-            onStart: function () {
-                $(".nav .landing-text").addClass("no-bg");
-            }
         });
         gsap.to('.nav .options', {
             duration: 0.5,
             transform: "translate(-60px, 40px)",
             ease: "power4.out",
-            onStart: function () {
-                $(".nav .options").addClass("no-bg");
-            }
         });
+        $(".nav").addClass("nav-open");
 
 
     } else {
@@ -92,9 +98,6 @@ menuBtn.click(function () {
                     duration: 0.5,
                     transform: "translate(0, 0)",
                     ease: "power4.out",
-                    onComplete: function () {
-                        $(".nav .options").removeClass("no-bg");
-                    },
                 });
 
                 gsap.to(".nav .landing-text", {
@@ -103,7 +106,7 @@ menuBtn.click(function () {
                     ease: "power4.out",
                     onComplete: function () {
                         $(".menu").removeClass("menu-open");
-                        $(".nav .landing-text").removeClass("no-bg");
+                        $(".nav").removeClass("nav-open");
                     },
                 });
 
@@ -124,13 +127,26 @@ menuBtn.click(function () {
 });
 
 
+
+
+var tapSound = new Howl({ src: ['/res/sounds/box.wav'], volume: 0.2, sprite: {tap: [20, 200]} });
+hoverSoundElms.mouseenter(function () {
+    tapSound.play('tap');
+});
+
+var clickSound = new Howl({ src: ['/res/sounds/click.wav'], sprite: { click: [0, 1048] } });
+clickSoundElms.click(function () {
+    clickSound.play('click');
+});
+
+
 // parallax effect
-var landing_img = document.getElementById("landing-img");
+var landing_img = document.querySelector("#landing-img");
 
 $(window).scroll(function () {
     var scroll = $(window).scrollTop();
-    if (scroll > 50 && scroll <= 200 ) {
-        $("#navbar").css("--nav-opacity", scroll/150);
+    if (scroll > 50 && scroll <= 200) {
+        $("#navbar").css("--nav-opacity", scroll / 150);
     } else if (scroll > 200) {
         $("#navbar").css("--nav-opacity", 1);
     } else if (scroll <= 100) {
@@ -140,7 +156,7 @@ $(window).scroll(function () {
     // zoom parallax
     landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
 
-    
+
 });
 
 
