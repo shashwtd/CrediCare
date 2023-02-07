@@ -84,16 +84,25 @@ main {
 }
 
 .nav .landing-text {
-    font-family: 'Azonix';
-    word-wrap: normal;
-    font-size: calc(var(--header-height)/2.2);
-    font-weight: 900;
-    padding: 0 1em;
     display: flex;
     height: 100%;
     align-items: center;
     transition: ease-out 0.2s;
     margin: 10% 0;
+    padding-left: 2em;
+}
+
+.nav .landing-text h2 {
+    font-family: 'Azonix';
+    word-wrap: normal;
+    font-size: calc(var(--header-height)/2.2);
+    font-weight: 900;
+    padding: 0.3em 0.4em;
+    border-radius: 10px;
+}
+
+.nav .landing-text:hover h2 {
+    background-color: var(--shade);
 }
 
 .opacitize {
@@ -241,7 +250,7 @@ main {
 .menu-items li h2::after {
     content: "0" counter(counter);
     position: absolute;
-    font-size: 0.4em;
+    font-size: 1.8vmin;
     left: -2.2em;
     bottom: -0.5em;
     color: var(--text);

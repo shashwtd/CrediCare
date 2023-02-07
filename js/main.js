@@ -129,7 +129,7 @@ menuBtn.click(function () {
 
 
 
-var tapSound = new Howl({ src: ['/res/sounds/box.wav'], volume: 0.2, sprite: {tap: [20, 200]} });
+var tapSound = new Howl({ src: ['/res/sounds/box.wav'], volume: 0.3, sprite: {tap: [20, 200]} });
 hoverSoundElms.mouseenter(function () {
     tapSound.play('tap');
 });
@@ -166,3 +166,6 @@ function scroll2(identifier) {
         scrollTop: elm.offset().top
     }, 500);
 }
+
+
+AOS.init();

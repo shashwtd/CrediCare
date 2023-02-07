@@ -11,6 +11,7 @@
     <!-- Imports -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/aos.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Rowdies:wght@300;400&display=swap"
         rel="stylesheet">
     <script>
@@ -74,9 +75,12 @@
 
         <!-- Navbar -->
         <div class="nav" id="navbar">
-            <h1 class="tpm landing-text cursor-grow cg-2x opacitize" onclick="toggleTheme()">Credible Care</h1>
+            <div class="tpm landing-text cursor-grow opacitize hover-sound" onclick="toggleTheme()">
+                <h2>Credible Care</h2>
+            </div>
             <div class="options">
-                <span id='menu-btn' class="lottie-elm cursor-grow opacitize click-sound hover-sound" data-lottie-name="hamburger"></span>
+                <span id='menu-btn' class="lottie-elm cursor-grow opacitize click-sound hover-sound"
+                    data-lottie-name="hamburger"></span>
             </div>
         </div>
 
@@ -105,9 +109,11 @@
                     </li>
                 </ul>
                 <div class="menu-links cursor-hide">
-                    <a href="https://www.instagram.com/shashwatintwo/" target="_blank" class="click-sound underline-hover">
+                    <a href="https://www.instagram.com/shashwatintwo/" target="_blank"
+                        class="click-sound underline-hover">
                         <span class="arrow">↗</span> Instagram</a>
-                    <a href="https://github.com/shashwtt/CrediCare/" target="_blank" class="click-sound underline-hover">
+                    <a href="https://github.com/shashwtt/CrediCare/" target="_blank"
+                        class="click-sound underline-hover">
                         <span class="arrow">↗</span> Github</a>
                     <a href="mailto:shashwat5590@gmail.com" target="_blank" class="click-sound underline-hover">
                         <span class="arrow">↗</span> shashwat5590@gmail.com</a>
@@ -124,16 +130,18 @@
         <div class="pages" id="pages">
             <section id="landing" class="page">
                 <div class="container">
-                    <div class="content">
-                        <h1 class="title cursor-grow cdox">Winning Customer Trust</h1>
-                        <p class="subtitle cursor-hide cdox">Building trust with customers is crucial for business
+                    <div class="content" data-aos="fade-up">
+                        <h1 class="title cursor-grow cdox" id="sda" data-aos="zoom-out">Winning Customer Trust</h1>
+                        <p class="subtitle cursor-hide cdox" data-aos="zoom-out-up">Building trust with customers is
+                            crucial for business
                             growth,
                             brand reputation and customer satisfaction. Establishing trust leads to long-term
                             relationships, increased customer loyalty and improved customer satisfaction. In a
                             competitive market, trust-building should be a top priority for business success.
                         </p>
                     </div>
-                    <button onclick="scroll2('#trust')" class="btn1 cursor-grow blur-bg hover-sound click-sound" style="margin-top: 4em">Learn
+                    <button onclick="scroll2('#trust')" class="btn1 cursor-grow blur-bg hover-sound click-sound"
+                        style="margin-top: 4em" data-aos="fade-up">Learn
                         More
                         <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24"
                             fill="none">
@@ -146,23 +154,27 @@
                     </button>
                 </div>
             </section>
+
             <section class="page" id="trust">
                 <div class="content">
                     <div class="qna">
-                        <h1 class="ques cursor-grow" id="trust-title">How to gain Customer Trust?</h1>
-                        <h3 class="ans"> Gaining customer trust is all about providing a transparent and honest
+                        <h1 class="ques cursor-grow" id="trust-title" data-aos="fade-down">How to gain Customer Trust?
+                        </h1>
+                        <h3 class="ans" data-aos="flip-down" data-aos-delay="100"> Gaining customer trust is all about
+                            providing a
+                            transparent and honest
                             experience.
                             Three key ways to build trust include:</h3>
                     </div>
-                    <div class="methods cursor-hide">
-                        <div class="method blur-bg">
-
+                    <div class="methods cursor-hide" data-aos="fade-up">
+                        <div class="method blur-bg" data-aos="fade-right">
                             <div class="img-container">
                                 <img src="/res/communication.png" alt="Transparent and honest communication">
                             </div>
                             <div class="bharosa">
-                                <h2>Transparency and Honesty </h2>
-                                <p>Being transparent and honest in your dealings with customers creates a level of
+                                <h2 data-aos="fade-up">Transparency and Honesty </h2>
+                                <p data-aos="fade-up">Being transparent and honest in your dealings with customers
+                                    creates a level of
                                     confidence and reliability, increasing the likelihood of repeat business and
                                     customer loyalty. It helps in building trust and improving customer satisfaction.
                                 </p>
@@ -171,12 +183,13 @@
 
                         <div class="separator"></div>
 
-                        <div class="method blur-bg">
+                        <div class="method blur-bg" data-aos="fade-up">
                             <div class="img-container"><img src="/res/collaborate.png"
                                     alt="Demonstrating integrity and ethics"></div>
                             <div class="bharosa">
-                                <h2>Integrity and Ethics</h2>
-                                <p>Building trust with customers starts with ethical and value-driven operations. Being
+                                <h2 data-aos="fade-up">Integrity and Ethics</h2>
+                                <p data-aos="fade-up">Building trust with customers starts with ethical and
+                                    value-driven operations. Being
                                     transparent and ethical behavior not only strengthens your reputation, but also
                                     helps retain current customers and attract new ones.
                                 </p>
@@ -185,12 +198,13 @@
 
                         <div class="separator"></div>
 
-                        <div class="method blur-bg">
+                        <div class="method blur-bg" data-aos="fade-left">
                             <div class="img-container"><img src="/res/delivery.png"
                                     alt="Consistent and reliable delivery"></div>
                             <div class="bharosa">
-                                <h2>Consistent and reliable delivery</h2>
-                                <p>Meeting customer expectations and delivering on promises is critical to building
+                                <h2 data-aos="fade-up">Consistent and reliable delivery</h2>
+                                <p data-aos="fade-up">Meeting customer expectations and delivering on promises is
+                                    critical to building
                                     trust. Make sure that your products or services are consistently high-quality, and
                                     that your customers can rely on you to deliver them on time.
                                 </p>
@@ -199,36 +213,39 @@
                     </div>
                 </div>
             </section>
+
             <div class="section-divider"></div>
+
             <section class="page" id="issues">
                 <div class="content">
                     <div class="introduction">
-                        <h1 class="heading cursor-grow">Issues faced in Startups</h1>
-                        <p class="elaborate">There are a variety of challenges depending upon the buisness and the
+                        <h1 class="heading cursor-grow" data-aos="fade-right">Issues faced in Startups</h1>
+                        <p class="elaborate" data-aos="flip-up">There are a variety of challenges depending upon the
+                            buisness and the
                             situation. Addressing these issues effectively is key to the growth and success of any
                             business. Ignoring trust-related challenges can lead to serious consequences for startups.
                             Some of the most common issues faced by many startups in building customer trust are: </p>
                         <div class="dikkats">
-                            <span class="blur-bg blur-bg-2">
+                            <span class="blur-bg blur-bg-2" data-aos="fade-right">
                                 <h4>Lack of brand recognition</h4>
                                 <p>Many startups struggle with building a strong brand identity and
                                     gaining recognition in their industry. This can make it difficult to establish trust
                                     with customers.
                                 </p>
                             </span>
-                            <span class="blur-bg blur-bg-2">
+                            <span class="blur-bg blur-bg-2" data-aos="fade-left">
                                 <h4>Inadequate customer support</h4>
                                 <p>Customers expect prompt and helpful support from the businesses they interact with.
                                     If a startup is not able to provide this, it can damage their trust in the brand.
                                 </p>
                             </span>
-                            <span class="blur-bg blur-bg-2">
+                            <span class="blur-bg blur-bg-2" data-aos="fade-right">
                                 <h4>Negative customer reviews</h4>
                                 <p>Negative reviews and feedback from customers can quickly spread online and harm a
                                     startup's reputation. It is important for startups to address these concerns and
                                     take steps to improve customer satisfaction.</p>
                             </span>
-                            <span class="blur-bg blur-bg-2">
+                            <span class="blur-bg blur-bg-2" data-aos="fade-left">
                                 <h4>Data security and privacy concerns</h4>
                                 <p>In today's digital age, customers are more aware of the risks associated with sharing
                                     personal information online. Startups need to ensure that they are taking
@@ -236,16 +253,17 @@
                             </span>
                         </div>
                         <br><br><br>
-                        <div class="elaborate">
+                        <div class="elaborate" data-aos="flip-down">
                             These were a few common issues most startups face. There are many more, and each business
                             is unique. It is important to identify the specific challenges faced by your business and
                             take steps to address them. This will help you build trust with customers and drive
                             success.
                         </div>
                         <div class="divider-50"></div>
-                        <h2 class="heading cursor-grow" style="font-size: 2.5em;">Why addressing issues is important?
+                        <h2 class="heading cursor-grow" style="font-size: 2.5em;" data-aos="flip-up">Why addressing
+                            issues is important?
                         </h2>
-                        <div class="elaborate elab2">
+                        <div class="elaborate elab2" data-aos="flip-down">
                             <p>Addressing trust-related challenges is critical for the success of any business. It is
                                 important to identify the specific challenges faced by your business and take steps to
                                 address them. This will help you build trust with customers and drive success for your
@@ -253,21 +271,21 @@
                                 business.
                             </p>
                         </div>
-                        <div class="boxofshame">
-                            <h2 class="skjsao">
+                        <div class="boxofshame" data-aos="fade-up">
+                            <h2 class="skjsao" data-aos="slide-up" data-aos-delay="200">
                                 Some of the most common consequences of not addressing trust-related challenges are -
                             </h2>
                             <ul class="aiimp">
-                                <li>
+                                <li data-aos="slide-right" data-aos-offset="0" data-aos-delay="0">
                                     <b>Decreased customer loyalty: </b> <br>
                                     <i>Customers may choose to do business with a competitor instead.</i>
                                 </li>
-                                <li>
+                                <li data-aos="slide-right" data-aos-offset="0" data-aos-delay="200">
                                     <b>Loss of revenue: </b> <br>
                                     <i>Customers will be less likely to spend money with you if they don't have
                                         trust.</i>
                                 </li>
-                                <li>
+                                <li data-aos="slide-right" data-aos-offset="0" data-aos-delay="400">
                                     <b>Loss of reputation: </b> <br>
                                     <i>Cegative reviews and feedback can quickly spread online and harm the
                                         reputation.</i>
@@ -277,14 +295,16 @@
                     </div>
                 </div>
             </section>
+
             <div class="section-divider"></div>
+
             <section class="page" id="solutions">
                 <div class="content">
-                    <div class="introduction">
+                    <div class="introduction" data-aos="fade-right">
                         <h1 class="heading cursor-grow">
                             Practical Solutions and Strategies
                         </h1>
-                        <p class="elaborate">
+                        <p class="elaborate" data-aos="fade-left">
                             Building trust with customers is a crucial aspect for the success of any business. In this
                             section, we will discuss practical solutions and strategies that can help you overcome
                             trust-related challenges and establish a strong, positive reputation with your customers.
@@ -292,27 +312,30 @@
                     </div>
 
                     <div class="sols">
-                        <div class="sol">
+                        <div class="sol" data-aos="fade-up">
                             <div class="chitra">
                                 <img src="/res/strong_brand.png" alt="Build a strong brand"
-                                    style="object-position: center;">
+                                    style="object-position: center;" data-aos="fade-right">
                             </div>
                             <div class="upaya">
-                                <h2 class="cursor-grow">Build a strong brand</h2>
-                                <p>Building a strong brand identity is the most effective way to establish
+                                <h2 class="cursor-grow" data-aos="fade-left">Build a strong brand</h2>
+                                <p data-aos="fade-right">Building a strong brand identity is the most effective way to
+                                    establish
                                     trust with customers. A strong brand can help you stand out from the competition
                                     and build a loyal customer base. It can also help you build trust with customers
                                     by making them feel more confident about your products or services.
                                 </p>
                             </div>
                         </div>
-                        <div class="sol">
+                        <div class="sol" data-aos="fade-up">
                             <div class="chitra">
-                                <img src="/res/satisfied_customer.jpg" alt="Provide exceptional customer service">
+                                <img src="/res/satisfied_customer.jpg" alt="Provide exceptional customer service"
+                                    data-aos="fade-right">
                             </div>
                             <div class="upaya">
-                                <h2 class="cursor-grow">Provide exceptional customer service</h2>
-                                <p>Providing exceptional customer service is another key factor in building trust with
+                                <h2 class="cursor-grow" data-aos="fade-left">Provide exceptional customer service</h2>
+                                <p data-aos="fade-right">Providing exceptional customer service is another key factor in
+                                    building trust with
                                     customers.
                                     Responding promptly to customer inquiries and resolving any issues quickly and
                                     effectively can help
@@ -320,17 +343,16 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="sol">
+                        <div class="sol" data-aos="fade-up">
                             <div class="chitra">
-                                <img src="/res/research.jpg" alt="Practice transparency">
+                                <img src="/res/research.jpg" alt="Practice transparency" data-aos="fade-right">
                             </div>
                             <div class="upaya">
-                                <h2 class="cursor-grow">Practice transparency</h2>
-                                <p>Transparency is critical for building trust with customers. Being open and honest
-                                    about your business
-                                    practices and policies, and providing customers with access to accurate and
-                                    up-to-date information
-                                    can help establish a positive reputation and increase customer confidence.
+                                <h2 class="cursor-grow" data-aos="fade-left">Practice transparency</h2>
+                                <p data-aos="fade-right">Transparency is critical for building trust with customers.
+                                    Being open and honest about your business practices and policies, and providing
+                                    customers with access to accurate and up-to-date information can help establish a
+                                    positive reputation and increase customer confidence.
                                 </p>
                             </div>
                         </div>
@@ -353,7 +375,7 @@
                 </div>
             </section>
             <section class="page" id="conclusion">
-                
+
             </section>
 
         </div>
@@ -361,7 +383,7 @@
 
     <!-- Scripts -->
     <script src="/js/jquery.js"></script>
-    <script src="/js/scrollreveal.js"></script>
+    <script src="/js/aos.js"></script>
     <script src="/js/lottie.js"></script>
     <script src="/js/howler.js"></script>
     <script src="/js/gsap.js"></script>
@@ -370,6 +392,3 @@
 </body>
 
 </html>
-
-
-<!-- https://www.instagram.com/reels/videos/Cn-p7RZDH9y/ -->
