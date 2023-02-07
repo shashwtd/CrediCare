@@ -90,6 +90,7 @@ main {
     transition: ease-out 0.2s;
     margin: 10% 0;
     padding-left: 2em;
+    user-select: none;
 }
 
 .nav .landing-text h2 {
@@ -164,18 +165,35 @@ main {
     overflow: hidden;
     box-sizing: border-box;
     opacity: 0;
-    padding-left: 10%;
+    padding: 0 5%;
+}
+
+.menu-extras {
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4em;
+}
+
+.menu-extras #theme-btn {
+    width: 4em;
+    height: 4em;
+    border-radius: 10px;
+    background: var(--shade);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    scale: 1;
 }
 
 .menu-links {
     width: max-content;
     padding-right: 1em;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 5%;
+    height: 100%;
+    /* background-color: blue; */
 }
 
 .menu-links a {
@@ -320,14 +338,9 @@ main {
     scale: 3;
 }
 
-.options span {
-    z-index: 22;
-}
-
 #menu-btn:hover {
     background-color: var(--shade);
 }
-
 
 .fixed-page {
     position: fixed;

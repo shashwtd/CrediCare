@@ -5,8 +5,13 @@ var isNavAnimating = false;
 var hoverSoundElms = $('.hover-sound');
 var clickSoundElms = $('.click-sound');
 
-function loadLottie() {
-    lottieElms.each(function () {
+
+function loadLottie(lottie_id = null) {
+    let _loop = lottieElms;
+    if (lottie_id != null) {
+        _loop = $(`.lottie-elm[data-lottie-name="${lottie_id}"]`);
+    }
+    _loop.each(function () {
         var lottieElm = $(this);
         var lottieName = lottieElm.data('lottieName');
 
@@ -30,6 +35,13 @@ function loadLottie() {
                     animationData: lottieData,
                     speed: 4
                 });
+
+                lottieInstance.addEventListener('DOMLoaded', function () {
+                    if (lottieName == 'theme') {
+                        lottieInstances['theme'].play();
+                    }
+                });
+
                 lottieInstances[lottieName] = lottieInstance;
             })
             .fail(function (error) {
@@ -129,7 +141,7 @@ menuBtn.click(function () {
 
 
 
-var tapSound = new Howl({ src: ['/res/sounds/box.wav'], volume: 0.3, sprite: {tap: [20, 200]} });
+var tapSound = new Howl({ src: ['/res/sounds/box.wav'], volume: 0.3, sprite: { tap: [20, 200] } });
 hoverSoundElms.mouseenter(function () {
     tapSound.play('tap');
 });
@@ -160,12 +172,19 @@ $(window).scroll(function () {
 });
 
 
-function scroll2(identifier) {
-    var elm = $(identifier);
-    return $('html, body').animate({
-        scrollTop: elm.offset().top
-    }, 500);
+function scroll2(identifier, replay = true) {
+    var elm = document.querySelector(identifier);
+    elm.scrollIntoView({ behavior: 'smooth', duration: 1000 });
+    if (replay) {
+        AOS.refresh();
+    }
 }
 
 
-AOS.init();
+AOS.init({
+    // duration: 1000,
+    // once: true,
+    // disable: 'mobile',
+    easing: 'ease-in-out',
+    offset: 50,
+});
