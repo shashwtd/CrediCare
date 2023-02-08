@@ -23,6 +23,7 @@ let pos = { x: 0, y: 0 };
 var cursorGrowElements = document.querySelectorAll('.cursor-grow');
 var cursorHideElements = document.querySelectorAll('.cursor-hide');
 
+var isHidden = false;
 
 
 class Dot {
@@ -143,11 +144,12 @@ cursorHideElements.forEach(el => {
     }
 
     el.addEventListener('mouseover', () => {
-        // Instant change 
+        isHidden = true;
         gsap.to(cursor, { opacity: 0, duration: 0 });
         gsap.to(cursor_dot, { opacity: 0, duration: 0.2 });
     });
     el.addEventListener('mouseout', () => {
+        isHidden = false;
         gsap.to(cursor, { opacity: 1, duration: 0 });
         gsap.to(cursor_dot, { opacity: 1, duration: 0.2 });
     });
@@ -239,6 +241,7 @@ function mouseup(e) {
 }
 
 function mousedown(e) {
+    if (!isHidden) { return; }
     if (!grown) {
         gsap.to(cursor, { scale: 1.8, duration: 0.1 });
     } else {

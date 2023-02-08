@@ -20,7 +20,7 @@
     --primary: #bba4a4;
     --primary2: #e8d0d0;
     --secondary: #161719;
-    --cursor-color: #7e5959;
+    --cursor-color: #717070;
 
     --text: #35363c;
     --duh: #b8a4a4;
@@ -75,7 +75,6 @@ main {
     background-color: var(--primary);
     border-bottom: 2px solid var(--shade);
     opacity: var(--nav-opacity);
-    transition: ease-out 0.2s;
     z-index: -1;
 }
 
@@ -181,18 +180,27 @@ main {
     width: 4em;
     height: 4em;
     border-radius: 10px;
-    background: var(--shade);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    scale: 1;
+    padding: 0.5em;
+    scale: 1.2;
+    background: var(--shade);
+    z-index: 50;
+}
+
+#theme-btn svg {
+    scale: 1.3;
+}
+
+.menu-extras #theme-btn:hover {
+    border: 2px solid var(--shade);
 }
 
 .menu-links {
     width: max-content;
     padding-right: 1em;
-    height: 100%;
     /* background-color: blue; */
 }
 
@@ -1170,7 +1178,7 @@ main {
 
 @font-face {
     font-family: 'sharlee';
-    src: url('/res/fonts/studio-feixen-sans-variable.woff2');
+    src: url('/res/fonts/sharlee.woff2');
 }
 
 

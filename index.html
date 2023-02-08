@@ -17,26 +17,29 @@
     <script>
         // Set the theme
         var theme;
+        var oppTheme;
 
         function applyTheme() {
             theme = localStorage.getItem('theme');
+            oppTheme = theme == 'dark' ? 'light' : 'dark';
             if (theme == null || theme == '') {
                 theme = 'dark';
+                oppTheme = 'light';
                 localStorage.setItem('theme', theme);
             }
             document.documentElement.setAttribute('theme', theme);
         }
 
-        function toggleTheme(_theme) {
-            if (_theme == null || _theme == '') {
-                if (theme == 'dark') {
-                    _theme = 'light';
-                } else {
-                    _theme = 'dark';
-                }
+        function toggleTheme() {
+            if (theme == 'dark') {
+                theme = 'light';
+                oppTheme = 'dark';
+            } else {
+                theme = 'dark';
+                oppTheme = 'light';
             }
-            theme = _theme;
-            localStorage.setItem('theme', _theme);
+
+            localStorage.setItem('theme', theme);
             applyTheme();
             loadLottie();
         }
@@ -384,6 +387,10 @@
 
         </div>
     </main>
+
+    <!-- Decoy -->
+    <div class="lottie-elm" data-lottie-name="theme$"></div>
+
 
     <!-- Scripts -->
     <script src="/js/jquery.js"></script>

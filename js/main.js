@@ -12,6 +12,7 @@ function loadLottie(lottie_id = null) {
         _loop = $(`.lottie-elm[data-lottie-name="${lottie_id}"]`);
     }
     _loop.each(function () {
+        let removeOnLoad = false;
         var lottieElm = $(this);
         var lottieName = lottieElm.data('lottieName');
 
@@ -22,7 +23,11 @@ function loadLottie(lottie_id = null) {
         var lottiePath = `/res/lottie/${lottieName}_${theme}.json`;
         if (lottieName.endsWith('_')) {
             lottiePath = `/res/lottie/${lottieName}.json`;
+        } else if (lottieName.endsWith('$')) {
+            lottiePath = `/res/lottie/${lottieName.replace('$', '')}_${oppTheme}.json`;
+            removeOnLoad = true;
         }
+
 
         $.getJSON(lottiePath)
             .done(function (lottieData) {
@@ -39,6 +44,10 @@ function loadLottie(lottie_id = null) {
                 lottieInstance.addEventListener('DOMLoaded', function () {
                     if (lottieName == 'theme') {
                         lottieInstances['theme'].play();
+                    }
+
+                    if (removeOnLoad) {
+                        lottieElm.remove();
                     }
                 });
 
