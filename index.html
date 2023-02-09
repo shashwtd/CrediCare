@@ -53,7 +53,7 @@
     <div class="cursor-dot"></div>
     <div class="noise"></div>
     <div id="cursor" class="currsor"></div>
-    <div id="theme-screen" onclick="toggleTheme()"></div>
+    <div id="theme-screen" class="cursor-hide" onclick="toggleTheme()"></div>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" id="uwu-filter">
         <defs>
             <filter id="goo">
@@ -385,30 +385,65 @@
             <section class="page" id="conclusion">
                 <div class="content">
                     <div class="introduction">
-                        <h1 class="heading cursor-grow" data-aos="flip-down">
+                        <h1 class="heading cursor-grow" data-aos="fade-right">
                             Conclusion
                         </h1>
-                        <p class="elaborate" data-aos="fade-up">
-                            Trust is a crucial factor for the success of any business. It is important to identify the
-                            specific trust-related challenges faced by your business and take steps to address them.
-                            This will help you build trust with customers and drive success for your business.
+                        <br>
+                        <p class="elaborate" data-aos="flip-up">
+                            Trust is a crucial factor in business and customer relationships. Without trust, a company
+                            cannot expect to retain its customers or build strong relationships with them. By
+                            understanding the importance of trust and how to build and maintain it, businesses can
+                            ensure the longevity and success of their relationship with their customers.
+                        </p>
+                        <p class="elaborate" data-aos="flip-up">
+                            From transparent communication and delivering on promises to providing exceptional customer
+                            service and consistently exceeding expectations, there are many ways to cultivate trust with
+                            customers. By prioritizing trust-building initiatives, companies can not only enhance their
+                            reputation but also foster a loyal customer base that will continue to support their
+                            business for years to come.
                         </p>
                     </div>
+                    <div class="trivia blur-bg">
+                        <div class="trivia-intro">
+                            <h2 class="trivia-heading">
+                                <span class="cursor-grow" data-aos="fade-right"> Quizz-time</span>
+                            </h2>
+                            <p class="trivia-describe" data-aos="flip-down">
+                                Take a quick quiz to test your understanding of the importance of trust in business and how
+                                to build and maintain it.
+                            </p>
+                        </div>
+                        
+                        <div class="trivia-divider"></div>
 
-                    <div class="trivia">
-                        <h2 class="trivia-heading">
-                            <span class="cursor-grow" data-aos="fade-right">Trivia</span>
-                        </h2>
-                        <p class="trivia-describe">
-                            Check out this interesting quiz to test your knowledge about trust and customers. <br>
-                            <span class="cursor-grow" data-aos="fade-left">Click on the button below to start the quiz.</span>
-                        </p>
-                    </div>
-                    <div id="quiz">
+                        <div id="quiz">
+
+                        </div>
+
+                        <div class="trivia-divider td2" style="margin-bottom: 0em;"></div>
+
+                        <div class="trivia-footer cursor-hide cdox">
+                            <!-- previous question button -->
+                            <div class="previous-question">
+                                <button class="control-btn" id="previous-question" disabled>Previous Question</button>
+                            </div>
+
+                            <!-- Question number -->
+                            <div class="question-info">
+                                <p class="question-number">Question <span id="question-number">1</span> of <span
+                                        id="total-questions">5</span></p>
+                            </div>
+
+                            <!-- next question button -->
+                            <div class="next-question">
+                                <button class="control-btn" id="next-question">Next Question</button>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
             </section>
+
 
         </div>
     </main>
