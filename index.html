@@ -40,8 +40,7 @@
             }
 
             localStorage.setItem('theme', theme);
-            applyTheme();
-            loadLottie();
+            themeAnim();
         }
 
         applyTheme();
@@ -54,6 +53,7 @@
     <div class="cursor-dot"></div>
     <div class="noise"></div>
     <div id="cursor" class="currsor"></div>
+    <div id="theme-screen" onclick="toggleTheme()"></div>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" id="uwu-filter">
         <defs>
             <filter id="goo">
@@ -78,8 +78,8 @@
 
         <!-- Navbar -->
         <div class="nav" id="navbar">
-            <div class="tpm landing-text cursor-grow opacitize hover-sound click-sound" onclick="scroll2('#landing')">
-                <h2>Credible Care</h2>
+            <div class="tpm landing-text cursor-grow opacitize" onclick="scrollback()">
+                <h2 class="hover-sound click-sound">Credible Care</h2>
             </div>
             <div class="options">
                 <span id='menu-btn' class="lottie-elm cursor-grow opacitize click-sound hover-sound"
@@ -104,9 +104,6 @@
                     <li class="cp hover-sound click-sound" onclick="scroll2('#solutions')">
                         <h2 content="SOLUTIONS">SOLUTIONS</h2>
                     </li>
-                    <li class="cp hover-sound click-sound" onclick="scroll2('#resources')">
-                        <h2 content="RESOURCES">RESOURCES</h2>
-                    </li>
                     <li class="cp hover-sound click-sound" onclick="scroll2('#conclusion')">
                         <h2 content="CONCLUSION">CONCLUSION</h2>
                     </li>
@@ -120,10 +117,12 @@
                             class="click-sound underline-hover">
                             <span class="arrow">↗</span> Github</a>
                         <a href="mailto:shashwat5590@gmail.com" target="_blank" class="click-sound underline-hover">
-                            <span class="arrow">↗</span> shashwat5590@gmail.com</a>
+                            <span class="arrow">↗</span> Email me</a>
                     </div>
-                    <div id="theme-btn" class="hover-sound click-sound" onclick="toggleTheme()">
-                        <span class="lottie-elm" data-lottie-name="theme"></span>
+                    <div class="menu-btn-container">
+                        <div id="theme-btn" class="hover-sound click-sound" onclick="toggleTheme()">
+                            <span class="lottie-elm" data-lottie-name="theme"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -148,9 +147,8 @@
                             competitive market, trust-building should be a top priority for business success.
                         </p>
                     </div>
-                    <button onclick="scroll2('#trust')" class="btn1 cursor-grow blur-bg hover-sound click-sound"
-                        style="margin-top: 4em" data-aos="fade-up" data-aos-offset="0">Learn
-                        More
+                    <button onclick="scroll2('#trust', false)" class="btn1 cursor-grow blur-bg hover-sound click-sound"
+                        style="margin-top: 4em" data-aos="fade-up" data-aos-offset="0"> Learn More
                         <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24"
                             fill="none">
                             <path d="M14.4301 5.92993L20.5001 11.9999L14.4301 18.0699" stroke="#292D32"
@@ -322,8 +320,7 @@
                     <div class="sols">
                         <div class="sol" data-aos="fade-up">
                             <div class="chitra">
-                                <img src="/res/strong_brand.png" alt="Build a strong brand"
-                                    style="object-position: center;">
+                                <img src="/res/strong_brand.png" alt="Build a strong brand">
                             </div>
                             <div class="upaya">
                                 <h2 class="cursor-grow" data-aos="fade-left">Build a strong brand</h2>
@@ -369,7 +366,8 @@
                             </div>
                             <div class="upaya">
                                 <h2 class="cursor-grow" data-aos="fade-left">Ensure consistency</h2>
-                                <p data-aos="flip-down">Consistency is essential for building trust with customers. Ensuring that your
+                                <p data-aos="flip-down">Consistency is essential for building trust with customers.
+                                    Ensuring that your
                                     products or services
                                     consistently meet customer the expectations, and that your policies and practices
                                     remain
@@ -381,8 +379,35 @@
                     </div>
                 </div>
             </section>
-            <section class="page" id="conclusion">
 
+            <div class="section-divider"></div>
+
+            <section class="page" id="conclusion">
+                <div class="content">
+                    <div class="introduction">
+                        <h1 class="heading cursor-grow" data-aos="flip-down">
+                            Conclusion
+                        </h1>
+                        <p class="elaborate" data-aos="fade-up">
+                            Trust is a crucial factor for the success of any business. It is important to identify the
+                            specific trust-related challenges faced by your business and take steps to address them.
+                            This will help you build trust with customers and drive success for your business.
+                        </p>
+                    </div>
+
+                    <div class="trivia">
+                        <h2 class="trivia-heading">
+                            <span class="cursor-grow" data-aos="fade-right">Trivia</span>
+                        </h2>
+                        <p class="trivia-describe">
+                            Check out this interesting quiz to test your knowledge about trust and customers. <br>
+                            <span class="cursor-grow" data-aos="fade-left">Click on the button below to start the quiz.</span>
+                        </p>
+                    </div>
+                    <div id="quiz">
+
+                    </div>
+                </div>
             </section>
 
         </div>
