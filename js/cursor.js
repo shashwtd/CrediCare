@@ -160,8 +160,6 @@ var disableDarkCursor = () => {
         cursor.style.display = 'none';
         cursor_dot.style.display = 'none';
         light_cursor.style.display = 'block';
-
-        document.getElementById("main").style.cursor = 'initial';
     }
 }
 
@@ -169,7 +167,6 @@ var enableDarkCursor = () => {
     if(dark_cursor) {
         cursor.style.display = 'block';
         cursor_dot.style.display = 'block';
-
         light_cursor.style.display = 'none';
     }
 }
