@@ -66,7 +66,7 @@ loadLottie();
 var menuToggled = true;
 var menuBtn = $("#menu-btn");
 
-function toggleNav(enableNav, fastClose=false, callback = null) {
+function toggleNav(enableNav, fastClose = false, callback = null) {
     var menuBtnAnim = lottieInstances['hamburger'];
     if (enableNav) {
         isNavAnimating = true;
@@ -120,7 +120,7 @@ function toggleNav(enableNav, fastClose=false, callback = null) {
                         transform: "translate(0, 0)",
                         ease: "power4.out",
                     });
-    
+
                     gsap.to(".nav .landing-text", {
                         duration: 0.5,
                         transform: "translate(0px, 0px)",
@@ -130,7 +130,7 @@ function toggleNav(enableNav, fastClose=false, callback = null) {
                             $(".nav").removeClass("nav-open");
                         },
                     });
-    
+
                     gsap.to(".menu-container", { opacity: 0, duration: 0.5 });
                     gsap.to(".menu", {
                         delay: 0.5,
@@ -202,6 +202,16 @@ clickSoundElms.click(function () {
     clickSound.play('click');
 });
 
+var dingSound = new Howl({ src: ['/res/sounds/ding.mp3'], sprite: { ding: [0, 1048] }, volume: 0.2 });
+function ding_() {
+    dingSound.play('ding');
+}
+
+var failSound = new Howl({ src: ['/res/sounds/fail.mp3'], sprite: { fail: [0, 1048] }, volume: 0.2 });
+function fail_() {
+    failSound.play('fail');
+}
+
 
 // parallax effect
 var landing_img = document.querySelector("#landing-img");
@@ -227,7 +237,7 @@ function scroll2(identifier, closeNav = true) {
     var elm = document.querySelector(identifier);
 
     if (closeNav) {
-        return toggleNav(enableNav=false, fastClose=true, function () {
+        return toggleNav(enableNav = false, fastClose = true, function () {
             elm.scrollIntoView({ behavior: 'smooth', duration: 1000 });
         });
     } else {
@@ -244,7 +254,7 @@ function scrollback() {
     }
 
 }
- 
+
 
 AOS.init({
     easing: 'ease-in-out',
@@ -287,3 +297,114 @@ function themeAnim() {
         }
     });
 }
+
+$(document).ready(function () {
+    let currentQuestion = 0;
+    let questions = [
+        {
+            question: "What is the most important factor in building trust with customers?",
+            options: [
+                "A. Quality products",
+                "B. Good communication",
+                "C. Reasonable pricing",
+                "D. Exceptional customer service"
+            ],
+            correctAnswer: 1
+        },
+        {
+            question: "How can businesses establish trust with customers?",
+            options: [
+                "A. By being transparent",
+                "B. By delivering on promises",
+                "C. By being proactive",
+                "D. All of the above"
+            ],
+            correctAnswer: 3
+        },
+        {
+            question: "What is the biggest threat to trust in business?",
+            options: [
+                "A. Dishonesty",
+                "B. Incompetence",
+                "C. Disregard for customers",
+                "D. Lack of transparency"
+            ],
+            correctAnswer: 0
+        },
+        {
+            question: "What can businesses do to maintain trust with customers?",
+            options: [
+                "A. Regular communication",
+                "B. Consistent quality",
+                "D. Timely resolution of issues",
+                "C. Fair treatment",
+            ],
+            correctAnswer: 2
+        },
+        {
+            question: "How does trust impact customer loyalty?",
+            options: [
+                "A. Increases customer loyalty",
+                "B. Decreases customer loyalty",
+                "C. Has no impact",
+                "D. Sometimes increases, sometimes decreases"
+            ],
+            correctAnswer: 0
+        },
+        {
+            question: "What is the best way to build trust with customers?",
+            options: [
+                "A. By being transparent",
+                "B. By delivering on promises",
+                "C. By being proactive",
+                "D. All of the above"
+            ],
+            correctAnswer: 3
+        }
+    ];
+
+    function showQuestion() {
+        let question = questions[currentQuestion].question;
+        let options = questions[currentQuestion].options;
+
+        $(".question-text").text(question);
+        $(".option-val").each(function (index) {
+            $(this).text(options[index]);
+        });
+
+        $("#question-number").text(currentQuestion + 1);
+        $(".option").removeClass("correct wrong");
+    }
+
+    $("#next-btn").click(function () {
+        currentQuestion++;
+        if (currentQuestion >= questions.length) {
+            currentQuestion = 0;
+        }
+        showQuestion();
+    });
+
+    $("#prev-btn").click(function () {
+        currentQuestion--;
+        if (currentQuestion < 0) {
+            currentQuestion = questions.length - 1;
+        }
+        showQuestion();
+    });
+
+    $(".option").click(function () {
+        $(".option").removeClass("correct wrong");
+        let selectedOption = $(this).attr("option-val");
+        let correctAnswer = questions[currentQuestion].correctAnswer;
+
+        if (selectedOption == correctAnswer) {
+            $(this).addClass("correct");
+            ding_();
+        } else {
+            $(this).addClass("wrong");
+            fail_();
+        }
+    });
+
+    showQuestion();
+});

@@ -9,7 +9,7 @@
     --cursor-color: #cfcfcf;
 
     --text: #bfbaba;
-    --text2: #afb1d2;
+    --text2: #b9c8cb;
     --adrak: #111111;
     --shade: #ffffff11;
     --whitish: #cdc4c447;
@@ -19,14 +19,14 @@
 }
 
 :root[theme='light'] {
-    --primary: #bba4a4;
+    --primary: rgb(218, 185, 185);
     --primary2: #e8d0d0;
     --secondary: #161719;
     --cursor-color: #717070;
 
     --text: #35363c;
     --text2: #382c2c;
-    --adrak: #b8a4a4;
+    --adrak: #bac6ca;
     --shade: #00000011;
     --scrollbar-thumb: #373737;
     --very-light-gray: #f1f1f174;
@@ -951,6 +951,7 @@ main {
     color: var(--text);
     font-family: 'Rowdies';
     margin-bottom: 0;
+    text-align: center;
 }
 
 
@@ -961,21 +962,23 @@ main {
     font-family: 'sharlee';
     letter-spacing: 0.4px;
     line-height: 1.4em;
+    text-align: center;
+    margin-bottom: 3em;
 }
 
 
 #conclusion .content .trivia {
     width: 100%;
     height: 100%;
-    margin-top: 4em;
+    margin-top: 6em;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
     padding-top: 1em;
     padding-bottom: 3em;
-    background: var(--primary);
-    border: 2px solid var(--shade);
+    /* background: var(--primary); */
+    /* border: 2px solid var(--shade); */
 }
 
 #conclusion .content .trivia > * {
@@ -1029,6 +1032,10 @@ main {
     border: 2px solid #88818139;
 }
 
+[theme='light'] #quiz {
+    border: 2px solid var(--shade);
+}
+
 #quiz .question-container {
     width: 100%;
     height: 100%;
@@ -1042,7 +1049,6 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 0em 1em;
-    cursor: none;
     border-top: 2px solid var(--shade);
 }
 
@@ -1056,8 +1062,8 @@ main {
     font-weight: 100;
     display: flex;
     align-items: center;
-    cursor: none;
     transition: all 0.2s ease-in;
+    cursor: pointer;
 }
 
 #quiz .quiz-footer .control-btn:hover {
@@ -1080,8 +1086,12 @@ main {
     transition: transform 0.2s ease-in-out;
 }
 
+[theme='light'] #quiz .quiz-footer .control-btn {
+    background-color: var(--primary2);
+}
+
 #next-btn:hover::after {
-    transform: translateX(0.2em);
+    transform: translateX(0.4em);
 }
 
 #prev-btn::before {
@@ -1097,7 +1107,7 @@ main {
 }
 
 #prev-btn:hover::before {
-    transform: translateX(-0.2em);
+    transform: translateX(-0.4em);
 }
 
 #prev-btn::after {
@@ -1183,19 +1193,29 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 2em 1em;
+    padding: 1em 2em;
     border-radius: 5px;
     background-color: var(--primary2);
     color: var(--text);
     font-family: sans-serif;
     font-weight: 700;
     font-size: 1.2em;
+    transition: all 0.1s ease-in;
+    user-select: none;
     cursor: pointer;
-    transition: all 0.2s ease-in;
 }
 
-#quiz .question .question-options .option label {
+#quiz .question .question-options .option input {
+    display: none;
+}
+
+#quiz .question .question-options p {
     opacity: 0.8;
+    cursor: inherit;
+}
+
+[theme='light'] #quiz .question .question-options .option {
+    background-color: var(--primary2);
 }
 
 #quiz .question .question-options .option:hover {
@@ -1203,10 +1223,39 @@ main {
     background-color: var(--primary);
 }
 
+[theme='light'] #quiz .question .question-options .option:hover {
+    background-color: #d7cbcb;
+    color: #000000cc;
+}
+
+/* smooth red orange green blue colors for each option  */
 
 
+#quiz .question .question-options .option.wrong {
+    background-color: #c7533f77;
+}
 
+#quiz .question .question-options .option.wrong:hover {
+    background-color: #c7533f77;
+}
 
+#quiz .question .question-options .option.correct {
+    background-color: #51ae514f;
+}
+
+#quiz .question .question-options .option.correct:hover {
+    background-color: #51ae514f;
+}
+
+.quiz-divider {
+    width: 90%;
+    height: 3px;
+    position: relative;
+    margin: 0em 0;
+    margin-bottom: 4em;
+    background-color: var(--text);
+    opacity: 0.05;
+}
 
 
 
