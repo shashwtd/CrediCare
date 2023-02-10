@@ -390,7 +390,7 @@ $(document).ready(function () {
                 "D. "
             ],
             correctAnswer: 3
-        }
+        },
         {
             question: "What is an effective way to maintain long term loyalty?",
             options: [
