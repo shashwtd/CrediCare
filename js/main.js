@@ -302,7 +302,7 @@ $(document).ready(function () {
     let currentQuestion = 0;
     let questions = [
         {
-            question: "What is the most important factor in building trust with customers?",
+            question: "What is an important factor in building trust with customers?",
             options: [
                 "A. Quality products",
                 "B. Good communication",
@@ -324,30 +324,20 @@ $(document).ready(function () {
         {
             question: "What is the biggest threat to trust in business?",
             options: [
-                "A. Dishonesty",
-                "B. Incompetence",
+                "A. Incompetence",
+                "B. Dishonesty or Fraud",
                 "C. Disregard for customers",
                 "D. Lack of transparency"
             ],
-            correctAnswer: 0
-        },
-        {
-            question: "What can businesses do to maintain trust with customers?",
-            options: [
-                "A. Regular communication",
-                "B. Consistent quality",
-                "D. Timely resolution of issues",
-                "C. Fair treatment",
-            ],
-            correctAnswer: 2
+            correctAnswer: 1
         },
         {
             question: "How does trust impact customer loyalty?",
             options: [
                 "A. Increases customer loyalty",
                 "B. Decreases customer loyalty",
-                "C. Has no impact",
-                "D. Sometimes increases, sometimes decreases"
+                "C. No Impact",
+                "D. Both A and B"
             ],
             correctAnswer: 0
         },
@@ -360,7 +350,67 @@ $(document).ready(function () {
                 "D. All of the above"
             ],
             correctAnswer: 3
+        },
+        {
+            question: "What is one thing to keep in mind for a trust-worthy customer?",
+            options: [
+                "A. Happy employees",
+                "B. Honesty and Transparency",
+                "C. Good Products",
+                "D. All of the above"
+            ],
+            correctAnswer: 1
+        },
+        {
+            question: "What is a good way maintain trust within customers?",
+            options: [
+                "A. Advertise your business",
+                "B. False advertising",
+                "C. Consistent Delivery",
+                "D. Low Prices"
+            ],
+            correctAnswer: 2
+        },
+        {
+            question: "How does transparency and ethics impact customer loyalty?",
+            options: [
+                "A. Strengthens your reputation",
+                "B. Increases customer loyalty",
+                "C. Attracts new customers",
+                "D. All of the above"
+            ],
+            correctAnswer: 3
+        },
+        {
+            question: "9/11?",
+            options: [
+                "A. ",
+                "B. ",
+                "C. ",
+                "D. "
+            ],
+            correctAnswer: 3
         }
+        {
+            question: "What is an effective way to maintain long term loyalty?",
+            options: [
+                "A. Create New Products",
+                "B. Promote your business",
+                "C. Increase Prices",
+                "D. Eat 5-star. Do Nothing",
+            ],
+            correctAnswer: 0
+        },
+        {
+            question: "What to do if you have a customer complaint?",
+            options: [
+                "A. Ignore it",
+                "B. Apologize",
+                "C. Provide Support",
+                "D. Take it to court",
+            ],
+            correctAnswer: 2
+        },
     ];
 
     function showQuestion() {
