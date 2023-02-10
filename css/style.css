@@ -8,9 +8,11 @@
     --secondary: #f1f1f1;
     --cursor-color: #cfcfcf;
 
-    --text: #cdc8c8;
-    --duh: #111111;
+    --text: #bfbaba;
+    --text2: #afb1d2;
+    --adrak: #111111;
     --shade: #ffffff11;
+    --whitish: #cdc4c447;
     --scrollbar-thumb: #373737;
     --very-light-gray: #f1f1f174;
     --header-height: 8em;
@@ -23,7 +25,8 @@
     --cursor-color: #717070;
 
     --text: #35363c;
-    --duh: #b8a4a4;
+    --text2: #382c2c;
+    --adrak: #b8a4a4;
     --shade: #00000011;
     --scrollbar-thumb: #373737;
     --very-light-gray: #f1f1f174;
@@ -209,7 +212,7 @@ main {
 .menu-links a {
     height: 100%;
     text-decoration: none;
-    color: var(--text);
+    color: var(--text2);
     font-size: 1.8em;
     font-weight: 100;
     font-family: 'Rowdies';
@@ -563,7 +566,7 @@ main {
     border-radius: 20px;
     overflow: hidden;
     position: relative;
-    transition: all 0.15s ease-in;
+    transition: all 0.12s ease-in;
     border: 1px solid var(--shade);
     cursor: pointer;
 }
@@ -575,7 +578,7 @@ main {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    color: var(--text);
+    color: var(--text2);
     padding: 1em 2em;
     padding-top: 0;
     z-index: 1;
@@ -614,7 +617,8 @@ main {
 }
 
 #trust .methods .method:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 5px 5px 0 var(--primary);
 
 }
 
@@ -677,19 +681,23 @@ main {
 }
 
 #issues .introduction .dikkats span {
-    background-color: var(--shade);
+    background-color: var(--adrak);
     font-size: 1.5em;
     color: var(--text);
+    opacity: 0.8;
     text-align: left;
     position: relative;
     padding: 0 1em;
     border-radius: 10px;
-    transition: all 0.2s ease-out;
-    border: 2px solid var(--shade);
+    transition: all 0.1s ease-in;
+    border: 3px solid #222;
+    box-shadow: 0px 2px 2px 0px var(--adrak);
+    z-index: 122;
 }
 
-.dikkats span:hover {
+#issues .introduction .dikkats span:hover {
     transform: translate(0px, -5px);
+    box-shadow: 0px 4px 0px 0px var(--shade);
 }
 
 #issues .introduction .dikkats span p {
@@ -827,7 +835,7 @@ main {
     margin: 1.5em 0;
     position: relative;
     overflow: hidden;
-    background-color: var(--duh);
+    background-color: var(--adrak);
     border: 1px solid var(--shade);
 }
 
@@ -872,7 +880,7 @@ main {
     transition: all 0.2s ease-in;
     transform-origin: bottom;
     filter: blur(10px);
-    background-color: var(--duh);
+    background-color: var(--adrak);
     overflow: hidden;
 }
 
@@ -891,7 +899,7 @@ main {
     height: 100%;
     left: -2%;
     z-index: 3;
-    background: linear-gradient(90deg, var(--duh) 0%, transparent 50%);
+    background: linear-gradient(90deg, var(--adrak) 0%, transparent 50%);
 }
 
 #solutions .sols .sol .chitra::after {
@@ -902,7 +910,7 @@ main {
     width: 100%;
     z-index: 2;
     height: 100%;
-    background: radial-gradient(ellipse at right, transparent 0%, var(--duh) 100%);
+    background: radial-gradient(ellipse at right, transparent 0%, var(--adrak) 100%);
 }
 
 
@@ -963,9 +971,11 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--shade);
     border-radius: 10px;
     padding-top: 1em;
+    padding-bottom: 3em;
+    background: var(--primary);
+    border: 2px solid var(--shade);
 }
 
 #conclusion .content .trivia > * {
@@ -980,10 +990,10 @@ main {
 }
 
 #conclusion .content .trivia .trivia-divider {
-    width: calc(100% - 0em);
+    width: calc(100% - 8em);
     height: 2px;
     background-color: var(--text);
-    opacity: 0.2;
+    opacity: 0.1;
     margin: 1em 0;
 }
 
@@ -1007,26 +1017,191 @@ main {
     text-align: center;
 }
 
-#conclusion .content .trivia .trivia-footer {
+#quiz {
+    width: 80%;
+    height: 100%;
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--adrak);
+    border: 2px solid #88818139;
+}
+
+#quiz .question-container {
+    width: 100%;
+    height: 100%;
+}
+
+#quiz .quiz-footer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0em 1em;
+    cursor: none;
+    border-top: 2px solid var(--shade);
+}
+
+#quiz .quiz-footer .control-btn {
+    border: none;
+    background-color: var(--primary2);
+    padding: 0.4em 1.5em;
+    border-radius: 4px;
+    color: var(--text2);
+    font-size: 1.2em;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    cursor: none;
+    transition: all 0.2s ease-in;
+}
+
+#quiz .quiz-footer .control-btn:hover {
+    box-shadow: 0 0 5px  var(--whitish);
+}
+
+#quiz .quiz-footer .control-btn:focus {
+    outline: none;
+}
+
+#next-btn::after {
+    content: "→";
+    color: var(--text2);
+    display: inline-block;
+    width: 1.2em;
+    margin-left: 0.5em;
+    font-family: 'sharlee';
+    font-size: 1.5em;
+    opacity: 0.7;
+    transition: transform 0.2s ease-in-out;
+}
+
+#next-btn:hover::after {
+    transform: translateX(0.2em);
+}
+
+#prev-btn::before {
+    content: "←";
+    color: var(--text2);
+    display: inline-block;
+    width: 1.2em;
+    margin-right: 0.5em;
+    font-family: 'sharlee';
+    font-size: 1.5em;
+    opacity: 0.7;
+    transition: transform 0.2s ease-in-out;
+}
+
+#prev-btn:hover::before {
+    transform: translateX(-0.2em);
+}
+
+#prev-btn::after {
+    content: "Previous";
+    color: var(--text2);
+    display: inline-block;
+    font-family: 'Azonix';
+    font-size: 1.2em;
+    opacity: 0.7;
+}
+
+#next-btn::before {
+    content: "Next";
+    color: var(--text2);
+    display: inline-block;
+    width: 1em;
+    margin-right: 2em;
+    font-family: 'Azonix';
+    font-size: 1.2em;
+    opacity: 0.7;
+}
+
+#quiz .quiz-footer .question-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+#quiz .quiz-footer .question-info .question-number {
+    font-size: 1.5em;
+    font-weight: 100;
+    color: var(--text);
+    font-family: 'Rowdies';
+}
+
+#quiz .quiz-footer .question-info .anju {
+    font-weight: 100;
+    color: var(--text2);
+    font-family: 'Rowdies';
+    background-color: #66666633;
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+}
+
+
+#quiz .question {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3em 0;
+}
+
+#quiz .question .question-text {
+    text-align: center;
+    font-family: 'Rowdies';
+    font-weight: 100;
+    font-size: 1.8em;
+    letter-spacing: 0.02em;
+    color: var(--text2);
+    opacity: .8;
+    padding-top: 0.5em;
+    margin-bottom: 2em;
+}
+
+#quiz .question .question-options {
+    width: calc(90% - 6em);
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1em;
+    margin: 0 2em;
+}
+
+#quiz .question .question-options .option {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.5em 3em;
-}
-
-#conclusion .content .trivia .trivia-footer .control-btn {
+    justify-content: flex-start;
+    padding: 2em 1em;
+    border-radius: 5px;
+    background-color: var(--primary2);
+    color: var(--text);
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
     cursor: pointer;
-    border: 2px solid transparent;
-    padding: 0.4em;
     transition: all 0.2s ease-in;
 }
 
+#quiz .question .question-options .option label {
+    opacity: 0.8;
+}
 
-
-
+#quiz .question .question-options .option:hover {
+    box-shadow: 0 0 5px  var(--whitish);
+    background-color: var(--primary);
+}
 
 
 
@@ -1132,6 +1307,22 @@ main {
     position: relative;
     overflow: hidden;
     /* background-color: transparent; */
+}
+
+.shade-bg::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    opacity: 0.2;
+    background: repeating-linear-gradient(45deg, var(--primary), transparent 100px);
+}
+
+.shade-bg:hover {
+    
 }
 
 
@@ -1465,7 +1656,7 @@ main {
     right: 0;
     width: 100%;
     height: 100%;
-    background: var(--duh);
+    background: var(--adrak);
     transition: all 0.2s ease-out, background 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     opacity: 0;
     z-index: 30;
@@ -1498,23 +1689,7 @@ main {
     .cursor-dot {
         display: none;
     }
-
-    .cursor-hide {
-        cursor: initial;
-    }
-
-    .cursor-grow {
-        cursor: initial;
-    }
-
-    .cdox {
-        cursor: initial;
-    }
-
-    .cp {
-        cursor: initial;
-    }
-
+    
     .currsor {
         display: none;
     }

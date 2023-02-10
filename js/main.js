@@ -192,12 +192,12 @@ menuBtn.click(function () {
 
 
 
-var tapSound = new Howl({ src: ['/res/sounds/box.wav'], volume: 0.05, sprite: { tap: [20, 200] } });
+var tapSound = new Howl({ src: ['/res/sounds/box.wav'], volume: 0.1, sprite: { tap: [20, 200] } });
 hoverSoundElms.mouseenter(function () {
     tapSound.play('tap');
 });
 
-var clickSound = new Howl({ src: ['/res/sounds/click.wav'], sprite: { click: [0, 1048] }, volume: 0.1 });
+var clickSound = new Howl({ src: ['/res/sounds/click.wav'], sprite: { click: [0, 1048] }, volume: 0.2 });
 clickSoundElms.click(function () {
     clickSound.play('click');
 });
