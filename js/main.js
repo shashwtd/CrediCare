@@ -392,12 +392,12 @@ $(document).ready(function () {
             correctAnswer: 3
         },
         {
-            question: "What is an effective way to maintain long term loyalty?",
+            question: "What makes customers trust you?",
             options: [
-                "A. Create New Products",
-                "B. Promote your business",
-                "C. Increase Prices",
-                "D. Eat 5-star. Do Nothing",
+                "A. Brand, Service, Honesty, Consistency.",
+                "B. Strong towers, Quick replies, Clear info.",
+                "C. Truthful skies, Happy clients, Flawless brand.",
+                "D. Safe landings, Impressive crew, Solid reputation."
             ],
             correctAnswer: 0
         },
