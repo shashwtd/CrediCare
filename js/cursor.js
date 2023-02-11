@@ -272,3 +272,4 @@ function show_cursor() {
     gsap.to(cursor, { opacity: 1, duration: 0.1 });
     gsap.to(cursor_dot, { opacity: 1, duration: 0.2 });
 }
+
