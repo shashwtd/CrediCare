@@ -510,8 +510,7 @@ main {
     align-items: center;
 }
 
-#trust .content .qna>.ques,
-.ans {
+#trust .content .qna > .ques, .ans {
     text-align: center;
     padding: 0 0.5em;
 }
