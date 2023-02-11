@@ -386,8 +386,8 @@ $(document).ready(function () {
             options: [
                 "A. Strong towers, Quick replies, Clear info.",
                 "B. Brand, Service, Honesty, Consistency.",
-                "C. Truthful skies, Happy clients, Flawless brand.",
-                "D. Safe landings, Impressive crew, Solid reputation."
+                "C. Truthful skies, Happy clients.",
+                "D. Safe landings, Impressive crew."
             ],
             correctAnswer: 1
         },
