@@ -382,22 +382,22 @@ $(document).ready(function () {
             correctAnswer: 3
         },
         {
-            question: "9/11?",
-            options: [
-                "A. ",
-                "B. ",
-                "C. ",
-                "D. "
-            ],
-            correctAnswer: 3
-        },
-        {
             question: "What makes customers trust you?",
             options: [
-                "A. Brand, Service, Honesty, Consistency.",
-                "B. Strong towers, Quick replies, Clear info.",
+                "A. Strong towers, Quick replies, Clear info.",
+                "B. Brand, Service, Honesty, Consistency.",
                 "C. Truthful skies, Happy clients, Flawless brand.",
                 "D. Safe landings, Impressive crew, Solid reputation."
+            ],
+            correctAnswer: 1
+        },
+        {
+            question: "What is an effective way to maintain long term loyalty?",
+            options: [
+                "A. Create New Products",
+                "B. Promote your business",
+                "C. Increase Prices",
+                "D. Eat 5-star. Do Nothing",
             ],
             correctAnswer: 0
         },
