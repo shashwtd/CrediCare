@@ -246,7 +246,7 @@ function hideLoader() {
         opacity: 0,
         duration: 0.2,
         ease: "power4.out",
-        onComplete: function() {
+        onComplete: function () {
             $('#loader-screen').css("display", "none");
         }
     });
@@ -292,7 +292,11 @@ function themeAnim() {
 
 $(document).ready(function () {
 
-    hideLoader();
+
+    $("#close-loader").click(function () {
+        hideLoader();
+    });
+
     AOS.init({
         easing: 'ease-in-out',
         offset: 50,
@@ -308,11 +312,11 @@ $(document).ready(function () {
         } else if (scroll <= 100) {
             $("#navbar").css("--nav-opacity", 0);
         }
-        
+
         // zoom parallax
         landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
     });
-    
+
     let currentQuestion = 0;
     let questions = [
         {
