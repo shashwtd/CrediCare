@@ -80,7 +80,9 @@ function toggleNav(enableNav, fastClose = false, callback = null) {
                 $(".menu").addClass("menu-open");
                 isNavAnimating = false;
                 gsap.to(".menu-container", {
-                    opacity: 1, duration: 0.5, onComplete: function () {
+                    opacity: 1,
+                    duration: 0.5,
+                    onComplete: function () {
                         if (callback) callback();
                     }
                 });
@@ -129,7 +131,10 @@ function toggleNav(enableNav, fastClose = false, callback = null) {
                         },
                     });
 
-                    gsap.to(".menu-container", { opacity: 0, duration: 0.5 });
+                    gsap.to(".menu-container", {
+                        opacity: 0,
+                        duration: 0.5
+                    });
                     gsap.to(".menu", {
                         delay: 0.5,
                         opacity: 0,
@@ -161,7 +166,10 @@ function toggleNav(enableNav, fastClose = false, callback = null) {
                 },
             });
 
-            gsap.to(".menu-container", { opacity: 0, duration: 0.5 });
+            gsap.to(".menu-container", {
+                opacity: 0,
+                duration: 0.5
+            });
             gsap.to(".menu", {
                 opacity: 0,
                 ease: "power4.out",
@@ -190,22 +198,52 @@ menuBtn.click(function () {
 
 
 
-var tapSound = new Howl({ src: ['/res/sounds/box.wav'], autoplay: false, volume: 0.1, sprite: { tap: [20, 200] } });
+var tapSound = new Howl({
+    src: ['/res/sounds/box.wav'],
+    autoplay: false,
+    volume: 0.1,
+    sprite: {
+        tap: [20, 200]
+    }
+});
 hoverSoundElms.mouseenter(function () {
     tapSound.play('tap');
 });
 
-var clickSound = new Howl({ src: ['/res/sounds/click.wav'], autoplay: false, sprite: { click: [0, 1048] }, volume: 0.2 });
+var clickSound = new Howl({
+    src: ['/res/sounds/click.wav'],
+    autoplay: false,
+    sprite: {
+        click: [0, 1048]
+    },
+    volume: 0.2
+});
 clickSoundElms.click(function () {
     clickSound.play('click');
 });
 
-var dingSound = new Howl({ src: ['/res/sounds/ding.mp3'], autoplay: false, sprite: { ding: [0, 1048] }, volume: 0.2 });
+var dingSound = new Howl({
+    src: ['/res/sounds/ding.mp3'],
+    autoplay: false,
+    sprite: {
+        ding: [0, 1048]
+    },
+    volume: 0.2
+});
+
 function ding_() {
     dingSound.play('ding');
 }
 
-var failSound = new Howl({ src: ['/res/sounds/fail.mp3'], autoplay: false, sprite: { fail: [0, 1048] }, volume: 0.2 });
+var failSound = new Howl({
+    src: ['/res/sounds/fail.mp3'],
+    autoplay: false,
+    sprite: {
+        fail: [0, 1048]
+    },
+    volume: 0.2
+});
+
 function fail_() {
     failSound.play('fail');
 }
@@ -222,10 +260,16 @@ function scroll2(identifier, closeNav = true) {
 
     if (closeNav) {
         return toggleNav(enableNav = false, fastClose = true, function () {
-            elm.scrollIntoView({ behavior: 'smooth', duration: 1000 });
+            elm.scrollIntoView({
+                behavior: 'smooth',
+                duration: 1000
+            });
         });
     } else {
-        elm.scrollIntoView({ behavior: 'smooth', duration: 1000 });
+        elm.scrollIntoView({
+            behavior: 'smooth',
+            duration: 1000
+        });
     }
 }
 
@@ -290,18 +334,18 @@ function themeAnim() {
     });
 }
 
-$(document).ready(function () {
 
 
-    $("#close-loader").click(function () {
-        hideLoader();
-    });
+window.addEventListener('load', () => {
 
+    hideLoader();
     AOS.init({
         easing: 'ease-in-out',
         offset: 50,
         once: true,
     });
+
+
 
     $(window).scroll(function () {
         var scroll = $(window).scrollTop();
@@ -316,119 +360,122 @@ $(document).ready(function () {
         // zoom parallax
         landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
     });
+});
+
+
+window.addEventListener('DOMContentLoaded', () => {
 
     let currentQuestion = 0;
-    let questions = [
-        {
-            question: "What is an important factor in building trust with customers?",
-            options: [
-                "A. Quality products",
-                "B. Good communication",
-                "C. Reasonable pricing",
-                "D. Exceptional customer service"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "How can businesses establish trust with customers?",
-            options: [
-                "A. By being transparent",
-                "B. By delivering on promises",
-                "C. By being proactive",
-                "D. All of the above"
-            ],
-            correctAnswer: 3
-        },
-        {
-            question: "What is the biggest threat to trust in business?",
-            options: [
-                "A. Incompetence",
-                "B. Dishonesty or Fraud",
-                "C. Disregard for customers",
-                "D. Lack of transparency"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "How does trust impact customer loyalty?",
-            options: [
-                "A. Increases customer loyalty",
-                "B. Decreases customer loyalty",
-                "C. No Impact",
-                "D. Both A and B"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "What is the best way to build trust with customers?",
-            options: [
-                "A. By being transparent",
-                "B. By delivering on promises",
-                "C. By being proactive",
-                "D. All of the above"
-            ],
-            correctAnswer: 3
-        },
-        {
-            question: "What is one thing to keep in mind for a trust-worthy customer?",
-            options: [
-                "A. Happy employees",
-                "B. Honesty and Transparency",
-                "C. Good Products",
-                "D. All of the above"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is a good way maintain trust within customers?",
-            options: [
-                "A. Advertise your business",
-                "B. False advertising",
-                "C. Consistent Delivery",
-                "D. Low Prices"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "How does transparency and ethics impact customer loyalty?",
-            options: [
-                "A. Strengthens your reputation",
-                "B. Increases customer loyalty",
-                "C. Attracts new customers",
-                "D. All of the above"
-            ],
-            correctAnswer: 3
-        },
-        {
-            question: "What makes customers trust you?",
-            options: [
-                "A. Strong towers, Quick replies, Clear info.",
-                "B. Brand, Service, Honesty, Consistency.",
-                "C. Truthful skies, Happy clients.",
-                "D. Safe landings, Impressive crew."
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is an effective way to maintain long term loyalty?",
-            options: [
-                "A. Create New Products",
-                "B. Promote your business",
-                "C. Increase Prices",
-                "D. Eat 5-star. Do Nothing",
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "What to do if you have a customer complaint?",
-            options: [
-                "A. Ignore it",
-                "B. Apologize",
-                "C. Provide Support",
-                "D. Take it to court",
-            ],
-            correctAnswer: 2
-        },
+    let questions = [{
+        question: "What is an important factor in building trust with customers?",
+        options: [
+            "A. Quality products",
+            "B. Good communication",
+            "C. Reasonable pricing",
+            "D. Exceptional customer service"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "How can businesses establish trust with customers?",
+        options: [
+            "A. By being transparent",
+            "B. By delivering on promises",
+            "C. By being proactive",
+            "D. All of the above"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "What is the biggest threat to trust in business?",
+        options: [
+            "A. Incompetence",
+            "B. Dishonesty or Fraud",
+            "C. Disregard for customers",
+            "D. Lack of transparency"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "How does trust impact customer loyalty?",
+        options: [
+            "A. Increases customer loyalty",
+            "B. Decreases customer loyalty",
+            "C. No Impact",
+            "D. Both A and B"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "What is the best way to build trust with customers?",
+        options: [
+            "A. By being transparent",
+            "B. By delivering on promises",
+            "C. By being proactive",
+            "D. All of the above"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "What is one thing to keep in mind for a trust-worthy customer?",
+        options: [
+            "A. Happy employees",
+            "B. Honesty and Transparency",
+            "C. Good Products",
+            "D. All of the above"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "What is a good way maintain trust within customers?",
+        options: [
+            "A. Advertise your business",
+            "B. False advertising",
+            "C. Consistent Delivery",
+            "D. Low Prices"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "How does transparency and ethics impact customer loyalty?",
+        options: [
+            "A. Strengthens your reputation",
+            "B. Increases customer loyalty",
+            "C. Attracts new customers",
+            "D. All of the above"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "What makes customers trust you?",
+        options: [
+            "A. Strong towers, Quick replies, Clear info.",
+            "B. Brand, Service, Honesty, Consistency.",
+            "C. Truthful skies, Happy clients.",
+            "D. Safe landings, Impressive crew."
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "What is an effective way to maintain long term loyalty?",
+        options: [
+            "A. Create New Products",
+            "B. Promote your business",
+            "C. Increase Prices",
+            "D. Eat 5-star. Do Nothing",
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "What to do if you have a customer complaint?",
+        options: [
+            "A. Ignore it",
+            "B. Apologize",
+            "C. Provide Support",
+            "D. Take it to court",
+        ],
+        correctAnswer: 2
+    },
     ];
 
     function showQuestion() {
