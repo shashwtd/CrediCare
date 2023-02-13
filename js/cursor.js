@@ -1,4 +1,4 @@
-var light_cursor = document.getElementById("cursor");
+var cursor = document.getElementById("cursor");
 var amount = 20;
 var sineDots = Math.floor(amount * 0.3);
 var width = 26;
@@ -8,8 +8,6 @@ let dots = [];
 let timeoutID;
 let idle = false;
 
-var cursor = document.querySelector('.cursor');
-var cursor_dot = document.querySelector('.cursor-dot');
 let grown = false;
 var cursorScale = 16;
 
@@ -17,8 +15,6 @@ let startY;
 let endY;
 let clicked = false;
 
-// let dark_cursor =  Math.random() < 0.5;
-let dark_cursor =  false;
 let pos = { x: 0, y: 0 };
 var cursorGrowElements = document.querySelectorAll('.cursor-grow');
 var cursorHideElements = document.querySelectorAll('.cursor-hide');
@@ -37,7 +33,7 @@ class Dot {
         this.limit = width * 0.75 * this.scale;
         this.element = document.createElement("span");
         TweenMax.set(this.element, { scale: this.scale });
-        light_cursor.appendChild(this.element);
+        cursor.appendChild(this.element);
     }
 
     lock() {
@@ -105,150 +101,55 @@ var positionCursor = delta => {
     });
 };
 
-
-function loop() {
-    if (!dark_cursor) { return; }
-    cursor.style.top = pos.y + 'px';
-    cursor.style.left = pos.x + 'px';
-    cursor_dot.style.top = pos.y + 'px';
-    cursor_dot.style.left = pos.x + 'px';
-    requestAnimationFrame(loop);
-}
-
-cursorGrowElements.forEach(el => {
-    if (!dark_cursor) { return; }
-    el.addEventListener('mouseenter', () => {
-        grown = true;
-        gsap.to(cursor, { opacity: 0, duration: 0.2 });
-        gsap.to(cursor_dot, { scale: cursorScale, duration: 0.2 });
-    });
-    el.addEventListener('mouseleave', () => {
-        grown = false;
-        gsap.to(cursor, { opacity: 1, duration: 0 });
-        gsap.to(cursor_dot, { scale: 1, duration: 0.2 });
-    });
-});
-
 cursorHideElements.forEach(el => {
-    if (!dark_cursor) {
-        if(el.classList.contains('cdox')) {
-            return;
-        }
-        el.addEventListener('mouseenter', () => {
-            gsap.to(light_cursor, { opacity: 0, duration: 0.2 });
-        });
-        el.addEventListener('mouseleave', () => {
-            gsap.to(light_cursor, { opacity: 1, duration: 0.2 });
-        });
+    if (el.classList.contains('cdox')) {
         return;
     }
-
-    el.addEventListener('mouseover', () => {
-        isHidden = true;
-        gsap.to(cursor, { opacity: 0, duration: 0 });
-        gsap.to(cursor_dot, { opacity: 0, duration: 0.2 });
+    el.addEventListener('mouseenter', () => {
+        gsap.to(cursor, { opacity: 0, duration: 0.2 });
     });
-    el.addEventListener('mouseout', () => {
-        isHidden = false;
-        gsap.to(cursor, { opacity: 1, duration: 0 });
-        gsap.to(cursor_dot, { opacity: 1, duration: 0.2 });
+    el.addEventListener('mouseleave', () => {
+        gsap.to(cursor, { opacity: 1, duration: 0.2 });
     });
+    return;
 });
 
-var disableDarkCursor = () => {
-    if (!dark_cursor) {
-        cursor.style.display = 'none';
-        cursor_dot.style.display = 'none';
-        light_cursor.style.display = 'block';
-    }
+var enableCursor = () => {
+    cursor.style.display = 'block';
 }
-
-var enableDarkCursor = () => {
-    if(dark_cursor) {
-        cursor.style.display = 'block';
-        cursor_dot.style.display = 'block';
-        light_cursor.style.display = 'none';
-    }
-}
-
 
 
 // =================START========================
 
 window.onload = () => {
     window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener('touchend', mouseup, false);
-    window.addEventListener('mouseup', mouseup, false);
-    window.addEventListener('mousedown', mousedown, false);
-    window.addEventListener('touchstart', mousedown, false);
     window.addEventListener('touchmove', function (e) {
-        if (!dark_cursor) { return onTouchMove(); }
-        if (clicked) { endY = e.touches[0].clientY || e.targetTouches[0].clientY; }
+        return onTouchMove();
     }, false);
 
     buildDots();
     render();
-    loop();
 
-    if (!dark_cursor) {disableDarkCursor();}
-    else {enableDarkCursor();}
+    enableCursor();
 
     document.onmouseenter = show_cursor;
     document.onmouseleave = disappear_cursor;
 }
 
 var onMouseMove = event => {
-    if (!dark_cursor) {
-        pos.x = event.clientX - width / 2;
-        pos.y = event.clientY - width / 2;
-        resetIdleTimer();
-        return;
-    }
-    pos.x = event.clientX;
-    pos.y = event.clientY;
+    pos.x = event.clientX - width / 2;
+    pos.y = event.clientY - width / 2;
+    resetIdleTimer();
+    return;
 };
 
 var onTouchMove = () => {
-    if (!dark_cursor) {
-        pos.x = event.touches[0].clientX - width / 2;
-        pos.y = event.touches[0].clientY - width / 2;
-        resetIdleTimer();
-        return;
-    }
-    pos.x = event.touches[0].clientX;
-    pos.y = event.touches[0].clientY;
+    pos.x = event.touches[0].clientX - width / 2;
+    pos.y = event.touches[0].clientY - width / 2;
+    resetIdleTimer();
+    return;
 };
 
-
-function mouseup(e) {
-    if (!grown) {
-        gsap.to(cursor, { scale: 1, duration: 0.1 });
-    } else {
-        gsap.to(cursor, { opacity: 0, duration: 0.2 });
-        gsap.to(cursor_dot, { scale: 12, duration: 0.2 });
-    }
-
-    endY = e.clientY || endY;
-    if (clicked && startY && Math.abs(startY - endY) >= 40) {
-        go(!Math.min(0, startY - endY) ? 1 : -1);
-        clicked = false;
-        startY = null;
-        endY = null;
-    }
-}
-
-function mousedown(e) {
-    if (!isHidden) { return; }
-    if (!grown) {
-        gsap.to(cursor, { scale: 1.8, duration: 0.1 });
-    } else {
-        gsap.to(cursor, { opacity: 0, duration: 0.2 });
-        gsap.to(cursor_dot, { scale: cursorScale*1.4, duration: 0.1 });
-    }
-
-    clicked = true;
-    startY = e.clientY || e.touches[0].clientY || e.targetTouches[0].clientY;
-}
 
 function buildDots() {
     for (let i = 0; i < amount; i++) {
@@ -258,18 +159,10 @@ function buildDots() {
 }
 
 function disappear_cursor() {
-    if (!dark_cursor) {
-        return gsap.to(light_cursor, { opacity: 0, duration: 0.2 });
-    }
-    gsap.to(cursor, { opacity: 0, duration: 0.2 });
-    gsap.to(cursor_dot, { opacity: 0, duration: 0.2 });
+    return gsap.to(cursor, { opacity: 0, duration: 0.2 });
 }
 
 function show_cursor() {
-    if (!dark_cursor) {
-        return gsap.to(light_cursor, { opacity: 1, duration: 0.2 });
-    }
-    gsap.to(cursor, { opacity: 1, duration: 0.1 });
-    gsap.to(cursor_dot, { opacity: 1, duration: 0.2 });
+    return gsap.to(cursor, { opacity: 1, duration: 0.2 });
 }
 
