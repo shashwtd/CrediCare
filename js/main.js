@@ -60,8 +60,6 @@ function loadLottie(lottie_id = null) {
     });
 }
 
-loadLottie();
-
 // When menu button is clicked
 var menuToggled = true;
 var menuBtn = $("#menu-btn");
@@ -192,22 +190,22 @@ menuBtn.click(function () {
 
 
 
-var tapSound = new Howl({ src: ['/res/sounds/box.wav'], volume: 0.1, sprite: { tap: [20, 200] } });
+var tapSound = new Howl({ src: ['/res/sounds/box.wav'], autoplay: false, volume: 0.1, sprite: { tap: [20, 200] } });
 hoverSoundElms.mouseenter(function () {
     tapSound.play('tap');
 });
 
-var clickSound = new Howl({ src: ['/res/sounds/click.wav'], sprite: { click: [0, 1048] }, volume: 0.2 });
+var clickSound = new Howl({ src: ['/res/sounds/click.wav'], autoplay: false, sprite: { click: [0, 1048] }, volume: 0.2 });
 clickSoundElms.click(function () {
     clickSound.play('click');
 });
 
-var dingSound = new Howl({ src: ['/res/sounds/ding.mp3'], sprite: { ding: [0, 1048] }, volume: 0.2 });
+var dingSound = new Howl({ src: ['/res/sounds/ding.mp3'], autoplay: false, sprite: { ding: [0, 1048] }, volume: 0.2 });
 function ding_() {
     dingSound.play('ding');
 }
 
-var failSound = new Howl({ src: ['/res/sounds/fail.mp3'], sprite: { fail: [0, 1048] }, volume: 0.2 });
+var failSound = new Howl({ src: ['/res/sounds/fail.mp3'], autoplay: false, sprite: { fail: [0, 1048] }, volume: 0.2 });
 function fail_() {
     failSound.play('fail');
 }
@@ -216,21 +214,7 @@ function fail_() {
 // parallax effect
 var landing_img = document.querySelector("#landing-img");
 
-$(window).scroll(function () {
-    var scroll = $(window).scrollTop();
-    if (scroll > 50 && scroll <= 200) {
-        $("#navbar").css("--nav-opacity", scroll / 150);
-    } else if (scroll > 200) {
-        $("#navbar").css("--nav-opacity", 1);
-    } else if (scroll <= 100) {
-        $("#navbar").css("--nav-opacity", 0);
-    }
-
-    // zoom parallax
-    landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
-
-
-});
+loadLottie();
 
 
 function scroll2(identifier, closeNav = true) {
@@ -256,10 +240,18 @@ function scrollback() {
 }
 
 
-AOS.init({
-    easing: 'ease-in-out',
-    offset: 50,
-});
+
+function hideLoader() {
+    gsap.to($('#loader-screen'), {
+        opacity: 0,
+        duration: 0.2,
+        ease: "power4.out",
+        onComplete: function() {
+            $('#loader-screen').css("display", "none");
+        }
+    });
+}
+
 
 
 
@@ -299,6 +291,28 @@ function themeAnim() {
 }
 
 $(document).ready(function () {
+
+    hideLoader();
+    AOS.init({
+        easing: 'ease-in-out',
+        offset: 50,
+        once: true,
+    });
+
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        if (scroll > 50 && scroll <= 200) {
+            $("#navbar").css("--nav-opacity", scroll / 150);
+        } else if (scroll > 200) {
+            $("#navbar").css("--nav-opacity", 1);
+        } else if (scroll <= 100) {
+            $("#navbar").css("--nav-opacity", 0);
+        }
+        
+        // zoom parallax
+        landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
+    });
+    
     let currentQuestion = 0;
     let questions = [
         {
