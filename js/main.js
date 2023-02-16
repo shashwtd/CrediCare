@@ -340,9 +340,9 @@ function themeAnim() {
 window.addEventListener('load', () => {
     hideLoader();
     AOS.init({
-        easing: 'ease-in-out',
         offset: 50,
         once: true,
+        duration: 600,
     });
 
     $(window).scroll(function () {
