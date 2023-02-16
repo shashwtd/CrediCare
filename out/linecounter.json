@@ -1,0 +1,265 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "e:\\Programs\\websites\\CrediCare",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2023-02-16 20:21:29",
+            "filesum": 34,
+            "codesum": 2813,
+            "commentsum": 60,
+            "blanksum": 465,
+            "statistics": {
+                ".json": {
+                    "code": 5,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".md": {
+                    "code": 25,
+                    "comment": 1,
+                    "blank": 12
+                },
+                ".js": {
+                    "code": 587,
+                    "comment": 18,
+                    "blank": 109
+                },
+                ".css": {
+                    "code": 1718,
+                    "comment": 28,
+                    "blank": 310
+                },
+                ".html": {
+                    "code": 478,
+                    "comment": 13,
+                    "blank": 34
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 6,
+                    "filename": "css\\animate.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "css\\aos.css"
+                },
+                {
+                    "blank": 310,
+                    "code": 1715,
+                    "comment": 22,
+                    "filename": "css\\style.css"
+                },
+                {
+                    "blank": 34,
+                    "code": 478,
+                    "comment": 13,
+                    "filename": "index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "js\\aos.js"
+                },
+                {
+                    "blank": 34,
+                    "code": 137,
+                    "comment": 1,
+                    "filename": "js\\cursor.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 1,
+                    "comment": 9,
+                    "filename": "js\\gsap.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 2,
+                    "filename": "js\\howler.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 2,
+                    "filename": "js\\jquery.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "js\\lottie.js"
+                },
+                {
+                    "blank": 74,
+                    "code": 445,
+                    "comment": 4,
+                    "filename": "js\\main.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 25,
+                    "comment": 1,
+                    "filename": "README.md"
+                },
+                {
+                    "filename": "res\\collaborate.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\communication.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\delivery.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\fonts\\Azonix.otf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\fonts\\sharlee.woff2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\landing.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "res\\lottie\\hamburger_dark.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "res\\lottie\\hamburger_light.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "res\\lottie\\theme_dark.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "res\\lottie\\theme_light.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "res\\lottie\\think_.json"
+                },
+                {
+                    "filename": "res\\loyalty.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\noise.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\research.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\satisfied_customer.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\sounds\\box.wav",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\sounds\\click.wav",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\sounds\\ding.mp3",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\sounds\\fail.mp3",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\sounds\\tap.wav",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\strong_brand.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "res\\trust.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                }
+            ]
+        }
+    ]
+}

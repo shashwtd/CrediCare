@@ -2013,11 +2013,12 @@ footer .text a {
 @media only screen and (max-width: 768px) {
 
     :root {
-        --header-height: 6em;
+        --header-height: 5em;
     }
 
+
     .nav .landing-text {
-        font-size: 7vw;
+        font-size: 6.5vw;
         padding-left: 0.2em;
     }
 

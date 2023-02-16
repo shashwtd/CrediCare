@@ -1,0 +1,55 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-02-16 20:21:29
+count workspace : e:\Programs\websites\CrediCare
+total files : 34
+total code lines : 2813
+total comment lines : 60
+total blank lines : 465
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .json|              5|              0|              0|   0.18|
+   |            .md|             25|              1|             12|   0.89|
+   |            .js|            587|             18|            109|     21|
+   |           .css|           1718|             28|            310|     61|
+   |          .html|            478|             13|             34|     17|
+   -------------------------------------------------------------------------
+css\animate.css, code is 2, comment is 6, blank is 0.
+css\aos.css, code is 1, comment is 0, blank is 0.
+css\style.css, code is 1715, comment is 22, blank is 310.
+index.html, code is 478, comment is 13, blank is 34.
+js\aos.js, code is 1, comment is 0, blank is 0.
+js\cursor.js, code is 137, comment is 1, blank is 34.
+js\gsap.js, code is 1, comment is 9, blank is 1.
+js\howler.js, code is 1, comment is 2, blank is 0.
+js\jquery.js, code is 1, comment is 2, blank is 0.
+js\lottie.js, code is 1, comment is 0, blank is 0.
+js\main.js, code is 445, comment is 4, blank is 74.
+README.md, code is 25, comment is 1, blank is 12.
+res\collaborate.png, it is a binary file.
+res\communication.png, it is a binary file.
+res\delivery.png, it is a binary file.
+res\fonts\Azonix.otf, it is a binary file.
+res\fonts\sharlee.woff2, it is a binary file.
+res\landing.jpg, it is a binary file.
+res\lottie\hamburger_dark.json, code is 1, comment is 0, blank is 0.
+res\lottie\hamburger_light.json, code is 1, comment is 0, blank is 0.
+res\lottie\theme_dark.json, code is 1, comment is 0, blank is 0.
+res\lottie\theme_light.json, code is 1, comment is 0, blank is 0.
+res\lottie\think_.json, code is 1, comment is 0, blank is 0.
+res\loyalty.png, it is a binary file.
+res\noise.png, it is a binary file.
+res\research.jpg, it is a binary file.
+res\satisfied_customer.jpg, it is a binary file.
+res\sounds\box.wav, it is a binary file.
+res\sounds\click.wav, it is a binary file.
+res\sounds\ding.mp3, it is a binary file.
+res\sounds\fail.mp3, it is a binary file.
+res\sounds\tap.wav, it is a binary file.
+res\strong_brand.png, it is a binary file.
+res\trust.png, it is a binary file.
+===============================================================================
