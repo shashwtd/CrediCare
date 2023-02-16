@@ -912,6 +912,7 @@ main {
 /* ============= Resources Page ==================== */
 
 #resources {
+    margin-top: -2em;
     display: flex;
     flex-direction: column;
     padding: 0 4em;
