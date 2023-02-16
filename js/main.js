@@ -294,6 +294,7 @@ function hideLoader() {
             $('#loader-screen').css("display", "none");
         }
     });
+    start_cursor();
 }
 
 
@@ -337,15 +338,12 @@ function themeAnim() {
 
 
 window.addEventListener('load', () => {
-
     hideLoader();
     AOS.init({
         easing: 'ease-in-out',
         offset: 50,
         once: true,
     });
-
-
 
     $(window).scroll(function () {
         var scroll = $(window).scrollTop();

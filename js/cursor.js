@@ -121,16 +121,20 @@ var enableCursor = () => {
 
 // =================START========================
 
+
+const start_cursor = () => {
+    
+    buildDots();
+    render();
+    enableCursor();
+
+}
+
 window.onload = () => {
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener('touchmove', function (e) {
         return onTouchMove();
     }, false);
-
-    buildDots();
-    render();
-
-    enableCursor();
 
     document.onmouseenter = show_cursor;
     document.onmouseleave = disappear_cursor;
