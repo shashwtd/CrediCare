@@ -57,7 +57,7 @@ function loadLottie(lottie_id = null) {
                 console.log(lottiePath);
                 console.error(error);
             });
-    });
+        });
 }
 
 // When menu button is clicked
@@ -70,7 +70,7 @@ function toggleNav(enableNav, fastClose = false, callback = null) {
         isNavAnimating = true;
         menuBtnAnim.playSegments([0, 39], true);
         menuToggled = false;
-
+        
         $(".menu").css("display", "flex");
         gsap.to(".menu", {
             duration: 0.5,
@@ -79,6 +79,7 @@ function toggleNav(enableNav, fastClose = false, callback = null) {
             onComplete: function () {
                 $(".menu").addClass("menu-open");
                 isNavAnimating = false;
+                $('.menu-anim-text').css("font-size", $('.menu-anim').height() / 9 + "px");
                 gsap.to(".menu-container", {
                     opacity: 1,
                     duration: 0.5,
@@ -107,7 +108,6 @@ function toggleNav(enableNav, fastClose = false, callback = null) {
         $(".nav").addClass("nav-open");
     } else {
         menuToggled = true;
-
         gsap.to('.menu-separator', {
             duration: 0.5,
             transform: "scaleX(0)",
@@ -298,8 +298,6 @@ function hideLoader() {
 }
 
 
-
-
 function themeAnim() {
     var themeScreen = $("#theme-screen");
     var themeLottie = $("#theme-btn .lottie-elm svg");
@@ -335,6 +333,29 @@ function themeAnim() {
     });
 }
 
+$(".menu-item").mouseenter(function () {
+    var text = $(this).text();
+    // Change the text of the menu animation by a GSAP animation
+    console.log(text);
+    gsap.to($(".menu-anim-text"), {
+        duration: 0.2,
+        rotationX: 60,
+        opacity: 0.01,
+        onComplete: function () {
+            $(".menu-anim-text").text(text);
+            $(".menu-anim-text").attr("anim-text", text);
+            gsap.to($(".menu-anim-text"), {
+                duration: 0.2,
+                rotationX: 0,
+                opacity: 0.08,
+                onComplete: function () {
+                    // Add class txt-active to the text
+
+                }
+            });
+        }
+    });
+});
 
 
 window.addEventListener('load', () => {
@@ -358,6 +379,15 @@ window.addEventListener('load', () => {
         // zoom parallax
         landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
     });
+
+    // Generate 10 div elements with the class ".menu-anim-text" and add them to ".menu-anim-content"
+    for (var i = 0; i < 9; i++) {
+        $(".mac-1").append('<div class="menu-anim-text">Home</div>');
+        $(".mac-2").append('<div class="menu-anim-text">Home</div>');
+    }
+
+    // Duplicate ".menu-anim-content"
+    // $(".menu-anim-content").clone().appendTo(".menu-anim");
 });
 
 
