@@ -333,10 +333,7 @@ function themeAnim() {
     });
 }
 
-$(".menu-item").mouseenter(function () {
-    var text = $(this).text();
-    // Change the text of the menu animation by a GSAP animation
-    console.log(text);
+function menuTextChange(text) {
     gsap.to($(".menu-anim-text"), {
         duration: 0.2,
         rotationX: 60,
@@ -355,6 +352,46 @@ $(".menu-item").mouseenter(function () {
             });
         }
     });
+}
+
+$(".menu-item").mouseenter(function () {
+    var text = $(this).text();
+    __x__ = text;
+    menuTextChange(text);
+});
+
+var __x__ = "Home";
+
+$("#menu-btn").mouseenter(function () {
+    menuTextChange("Close?");
+});
+
+$("#menu-btn").mouseleave(function () {
+    menuTextChange(__x__);
+});
+
+$("#em-link").mouseenter(function () {
+    menuTextChange("Email");
+});
+
+$("#em-link").mouseleave(function () {
+    menuTextChange(__x__);
+});
+
+$("#gh-link").mouseenter(function () {
+    menuTextChange("GitHub");
+});
+
+$("#gh-link").mouseleave(function () {
+    menuTextChange(__x__);
+});
+
+$("#ig-link").mouseenter(function () {
+    menuTextChange("Instagram");
+});
+
+$("#ig-link").mouseleave(function () {
+    menuTextChange(__x__);
 });
 
 

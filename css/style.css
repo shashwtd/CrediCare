@@ -180,6 +180,8 @@ main {
     align-items: flex-end;
     justify-content: center;
     z-index: 1;
+    letter-spacing: -0.02em;
+    font-family: 'Montserrat', sans-serif;
     animation: menu-anim 7s linear infinite;
     transform-origin: right;
 }
