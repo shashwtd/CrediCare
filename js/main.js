@@ -393,6 +393,14 @@ $("#ig-link").mouseleave(function () {
     menuTextChange(__x__);
 });
 
+$("#cc-main").mouseenter(function () {
+    menuTextChange("Credible Care");
+});
+
+$("#cc-main").mouseleave(function () {
+    menuTextChange(__x__);
+});
+
 
 window.addEventListener('load', () => {
     hideLoader();

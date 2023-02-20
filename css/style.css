@@ -176,10 +176,6 @@ main {
     transition: ease-out 0.2s;
 }
 
-.menu .menu-container .menu-anim:hover {
-    transform: scaleX(1.1);
-}
-
 .menu .menu-container .menu-anim:hover .menu-anim-content {
     animation-play-state: paused;
 }
@@ -213,8 +209,8 @@ main {
 
 .menu .menu-container .menu-anim .menu-anim-text {
     font-weight: 900;
-    line-height: 1;
     opacity: 0.08;
+    line-height: 1;
     color: var(--text);
     text-transform: uppercase;
     /* A very bold font */
@@ -223,10 +219,15 @@ main {
     z-index: -1;
     overflow: visible;
     position: relative;
+    transform-origin: right;
+    transition: ease-out 0.2s;
+
 }
+
 
 .menu .menu-container .menu-anim .menu-anim-text:hover {
     opacity: 0.2 !important;
+    transform: scale(1.05) !important;
 }
 
 .menu-extras {
