@@ -339,8 +339,7 @@ function menuTextChange(text) {
         rotationX: 60,
         opacity: 0.01,
         onComplete: function () {
-            $(".menu-anim-text").text(text);
-            $(".menu-anim-text").attr("anim-text", text);
+            $(".menu-anim-text").text(text + " - ");
             gsap.to($(".menu-anim-text"), {
                 duration: 0.2,
                 rotationX: 0,
