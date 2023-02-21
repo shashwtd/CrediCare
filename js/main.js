@@ -109,8 +109,15 @@ if (!mediaQuery.matches) {
     } else {
         gsap.to(".nav .landing-text", {
             duration: 0.5,
-            transform: "translate(0, 40px) scale(1.2)",
+            transform: "translate(0, 40px)",
             ease: "power4.out",
+            onComplete: function () {
+                gsap.to(".nav .landing-text", {
+                    duration: 0.3,
+                    scale: 1.2,
+                    ease: "power4.out",
+                });
+            },
         });
         gsap.to('.nav .options', {
             duration: 0.5,
