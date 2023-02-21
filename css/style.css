@@ -2164,9 +2164,8 @@ footer .text a {
     }
 
     .nav .landing-text {
-        font-size: 1.8em;
-        padding-left: 0;
-        justify-content: center;
+        font-size: 2em;
+        padding-left: 1em;
     }
 
     .fixed-page {
