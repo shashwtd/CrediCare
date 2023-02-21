@@ -431,17 +431,19 @@ window.addEventListener('load', () => {
     });
 
     $(window).scroll(function () {
-        var scroll = $(window).scrollTop();
-        if (scroll > 50 && scroll <= 200) {
-            $("#navbar").css("--nav-opacity", scroll / 150);
-        } else if (scroll > 200) {
-            $("#navbar").css("--nav-opacity", 1);
-        } else if (scroll <= 100) {
-            $("#navbar").css("--nav-opacity", 0);
+        if (!mediaQuery) {
+            var scroll = $(window).scrollTop();
+            if (scroll > 50 && scroll <= 200) {
+                $("#navbar").css("--nav-opacity", scroll / 150);
+            } else if (scroll > 200) {
+                $("#navbar").css("--nav-opacity", 1);
+            } else if (scroll <= 100) {
+                $("#navbar").css("--nav-opacity", 0);
+            }
+    
+            // zoom parallax
+            landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
         }
-
-        // zoom parallax
-        landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
     });
 
     // Generate 10 div elements with the class ".menu-anim-text" and add them to ".menu-anim-content"
