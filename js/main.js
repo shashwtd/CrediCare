@@ -109,7 +109,7 @@ if (!mediaQuery.matches) {
     } else {
         gsap.to(".nav .landing-text", {
             duration: 0.5,
-            transform: "translate(0, 40px)",
+            transform: "translate(2em, 40px)",
             ease: "power4.out",
             onComplete: function () {
                 gsap.to(".nav .landing-text", {
