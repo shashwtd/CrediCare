@@ -5,6 +5,7 @@ var isNavAnimating = false;
 var hoverSoundElms = $('.hover-sound');
 var clickSoundElms = $('.click-sound');
 
+var mediaQuery = window.matchMedia('(max-width: 768px)');
 
 function loadLottie(lottie_id = null) {
     let _loop = lottieElms;
@@ -94,7 +95,7 @@ function toggleNav(enableNav, fastClose = false, callback = null) {
                 });
             },
         });
-
+if (!mediaQuery.matches) {
         gsap.to(".nav .landing-text", {
             duration: 0.5,
             transform: "translate(40px, 40px)",
@@ -105,6 +106,18 @@ function toggleNav(enableNav, fastClose = false, callback = null) {
             transform: "translate(-60px, 40px)",
             ease: "power4.out",
         });
+    } else {
+        gsap.to(".nav .landing-text", {
+            duration: 0.5,
+            transform: "translate(0, 40px) scale(1.2)",
+            ease: "power4.out",
+        });
+        gsap.to('.nav .options', {
+            duration: 0.5,
+            transform: "translate(0, 40px)",
+            ease: "power4.out",
+        });
+    }
         $(".nav").addClass("nav-open");
     } else {
         menuToggled = true;
