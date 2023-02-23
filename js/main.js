@@ -406,7 +406,7 @@ $("#gh-link").mouseleave(function () {
 });
 
 $("#ig-link").mouseenter(function () {
-    menuTextChange("Instagram");
+    menuTextChange("Website");
 });
 
 $("#ig-link").mouseleave(function () {
