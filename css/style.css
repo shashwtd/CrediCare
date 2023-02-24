@@ -473,6 +473,7 @@ main {
 .pages {
     width: 100vw;
     height: 100vh;
+    scroll-behavior: smooth;
     z-index: 3;
     background: transparent;
 }
