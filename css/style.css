@@ -2104,6 +2104,10 @@ footer .text a {
         margin-bottom: 2em;
         margin-right: 0;
     }
+
+    #solutions .introduction .elaborate {
+        padding: 0;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -2167,6 +2171,25 @@ footer .text a {
         display: flex;
         justify-content: center;
         padding-right: 2em;
+    }
+
+    #solutions .sols .sol .upaya {
+        transform: translateX(2em);
+        font-size: 0.9em;
+    }
+
+    #solutions .sols .sol:hover .upaya {
+        transform: translateX(2em);
+    }
+    
+    #solutions .sols .sol .chitra {
+        filter: blur(30px);
+        transform: none;
+    }
+
+    #solutions .sols .sol:hover .chitra {
+        filter: blur(30px);
+        transform: none;
     }
 
     .nav .landing-text {
