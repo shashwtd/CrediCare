@@ -426,6 +426,7 @@ main {
     z-index: 2;
     display: flex;
     background: var(--adrak);
+    justify-content: flex-end;
 }
 
 .fixed-page-container {
