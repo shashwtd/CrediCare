@@ -277,7 +277,7 @@ loadLottie();
 
 function scroll2(identifier, closeNav = true) {
     var elm = document.querySelector(identifier);
-
+    
     if (closeNav) {
         return toggleNav(enableNav = false, fastClose = true, function () {
             elm.scrollIntoView({
@@ -431,6 +431,7 @@ window.addEventListener('load', () => {
     });
 
     $(window).scroll(function () {
+
         var scroll = $(window).scrollTop();
         if (scroll > 50 && scroll <= 200) {
             $("#navbar").css("--nav-opacity", scroll / 150);

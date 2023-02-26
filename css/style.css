@@ -425,7 +425,6 @@ main {
     height: 100%;
     z-index: 2;
     display: flex;
-    justify-content: flex-end;
     background: var(--adrak);
 }
 
@@ -866,6 +865,8 @@ main {
     letter-spacing: 0.4px;
     line-height: 1.4em;
     text-align: center;
+    
+    padding: 0 6%;
 }
 
 #solutions .sols {
@@ -2421,6 +2422,6 @@ footer .text a {
 
     #solutions .sols .sol .upaya p {
         width: 80%;
-        font-size: 1.2em;
+        font-size: 1.0em;
     }
 }
