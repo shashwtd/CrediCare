@@ -432,6 +432,7 @@ window.addEventListener('load', () => {
 
     $(window).scroll(function () {
 
+        
         var scroll = $(window).scrollTop();
         if (scroll > 50 && scroll <= 200) {
             $("#navbar").css("--nav-opacity", scroll / 150);
@@ -441,8 +442,9 @@ window.addEventListener('load', () => {
             $("#navbar").css("--nav-opacity", 0);
         }
         
-        if (!mediaQuery) {
+        if (!mediaQuery.matches) {
             // zoom parallax
+            console.log($(window).scrollTop());
             landing_img.style.transform = "scale(" + (1 + scroll / 1000) + ")";
         }
     });
