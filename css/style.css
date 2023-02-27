@@ -1086,7 +1086,9 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 0.9em;
     justify-content: flex-start;
+    opacity: 0.8;
 }
 
 #resources .resource .resource-blogs .blog .part1 .blog-date {
