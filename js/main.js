@@ -459,6 +459,7 @@ window.addEventListener('load', () => {
     // $(".menu-anim-content").clone().appendTo(".menu-anim");
 });
 
+x.click
 
 window.addEventListener('DOMContentLoaded', () => {
 
